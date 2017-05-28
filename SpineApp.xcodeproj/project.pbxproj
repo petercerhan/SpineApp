@@ -15,6 +15,7 @@
 		E41300231ED91A9B00476ED2 /* SpineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41300221ED91A9B00476ED2 /* SpineAppTests.swift */; };
 		E413002E1ED91A9B00476ED2 /* SpineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */; };
 		E413003C1EDA559600476ED2 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003B1EDA559600476ED2 /* Predictor.swift */; };
+		E413003E1EDA5B4500476ED2 /* Outcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003D1EDA5B4500476ED2 /* Outcome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineAppUITests.swift; sourceTree = "<group>"; };
 		E413002F1ED91A9B00476ED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E413003B1EDA559600476ED2 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
+		E413003D1EDA5B4500476ED2 /* Outcome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outcome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E413000D1ED91A9B00476ED2 /* AppDelegate.swift */,
 				E413000F1ED91A9B00476ED2 /* ViewController.swift */,
 				E413003B1EDA559600476ED2 /* Predictor.swift */,
+				E413003D1EDA5B4500476ED2 /* Outcome.swift */,
 				E41300111ED91A9B00476ED2 /* Main.storyboard */,
 				E41300141ED91A9B00476ED2 /* Assets.xcassets */,
 				E41300161ED91A9B00476ED2 /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E413003E1EDA5B4500476ED2 /* Outcome.swift in Sources */,
 				E41300101ED91A9B00476ED2 /* ViewController.swift in Sources */,
 				E413003C1EDA559600476ED2 /* Predictor.swift in Sources */,
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,

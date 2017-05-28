@@ -13,16 +13,23 @@ enum PredictorCode {
 }
 
 struct Predictor {
-    var type: PredictorCode
-    var name: String?
-    var description: String?
+    var code: PredictorCode
+    var name: String
+    var description: String
     
-    init(type: PredictorCode) {
-        self.type = type
+    init(code: PredictorCode) {
+        self.code = code
+        name = Predictor.name(forCode: code)
+        description = Predictor.description(forCode: code)
     }
+}
 
-    mutating func setName() {
-        switch type {
+extension Predictor {
+    
+    static func name(forCode code: PredictorCode) -> String {
+        var name = ""
+        
+        switch code {
         case .predictor1:
             name = "Predictor 1"
         case .predictor2:
@@ -44,10 +51,14 @@ struct Predictor {
         case .predictor10:
             name = "Predictor 10"
         }
+        
+        return name
     }
     
-    mutating func setDescription() {
-        switch type {
+    static func description(forCode code: PredictorCode) -> String {
+        var description = ""
+        
+        switch code {
         case .predictor1:
             description = "Description 1"
         case .predictor2:
@@ -69,7 +80,10 @@ struct Predictor {
         case .predictor10:
             description = "Description 10"
         }
+        
+        return description
     }
     
-
 }
+
+
