@@ -24,6 +24,8 @@ struct Predictor {
     }
 }
 
+//MARK: - Predictor Data
+
 extension Predictor {
     
     static func name(forCode code: PredictorCode) -> String {
