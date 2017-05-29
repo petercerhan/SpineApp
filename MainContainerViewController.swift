@@ -22,6 +22,7 @@ class MainContainerViewController: UIViewController {
         let vc = appStoryboard.instantiateViewController(withIdentifier: "OpenSceneViewController") as! OpenSceneViewController
         contentViewController = vc
         super.init(nibName: nil, bundle: nil)
+        vc.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -83,3 +84,20 @@ class MainContainerViewController: UIViewController {
         
     }
 }
+
+//MARK: - Handle specific transitions
+
+extension MainContainerViewController: OpenSceneViewControllerDelegate {
+    func openSceneComplete(_ openSceneViewController: OpenSceneViewController) {
+        //Choose next, build next view controller
+        let vc = appStoryboard.instantiateViewController(withIdentifier: "DisclaimerViewController")
+        update(contentViewController: vc)
+    }
+}
+
+
+
+
+
+
+
