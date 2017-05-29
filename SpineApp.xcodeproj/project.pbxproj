@@ -16,6 +16,7 @@
 		E413002E1ED91A9B00476ED2 /* SpineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */; };
 		E413003C1EDA559600476ED2 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003B1EDA559600476ED2 /* Predictor.swift */; };
 		E413003E1EDA5B4500476ED2 /* Outcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003D1EDA5B4500476ED2 /* Outcome.swift */; };
+		E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E413002F1ED91A9B00476ED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E413003B1EDA559600476ED2 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		E413003D1EDA5B4500476ED2 /* Outcome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outcome.swift; sourceTree = "<group>"; };
+		E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainContainerViewController.swift; path = ../MainContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				E413000D1ED91A9B00476ED2 /* AppDelegate.swift */,
-				E413000F1ED91A9B00476ED2 /* ViewController.swift */,
-				E413003B1EDA559600476ED2 /* Predictor.swift */,
-				E413003D1EDA5B4500476ED2 /* Outcome.swift */,
+				E41300411EDCC62000476ED2 /* Controller */,
+				E41300421EDCC62C00476ED2 /* Model */,
 				E41300111ED91A9B00476ED2 /* Main.storyboard */,
 				E41300141ED91A9B00476ED2 /* Assets.xcassets */,
 				E41300161ED91A9B00476ED2 /* LaunchScreen.storyboard */,
@@ -129,6 +130,24 @@
 				E413002F1ED91A9B00476ED2 /* Info.plist */,
 			);
 			path = SpineAppUITests;
+			sourceTree = "<group>";
+		};
+		E41300411EDCC62000476ED2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */,
+				E413000F1ED91A9B00476ED2 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E41300421EDCC62C00476ED2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E413003B1EDA559600476ED2 /* Predictor.swift */,
+				E413003D1EDA5B4500476ED2 /* Outcome.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
 				E413003E1EDA5B4500476ED2 /* Outcome.swift in Sources */,
 				E41300101ED91A9B00476ED2 /* ViewController.swift in Sources */,
 				E413003C1EDA559600476ED2 /* Predictor.swift in Sources */,
@@ -522,6 +542,7 @@
 				E41300341ED91A9B00476ED2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E41300351ED91A9B00476ED2 /* Build configuration list for PBXNativeTarget "SpineAppTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +551,7 @@
 				E41300371ED91A9B00476ED2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E41300381ED91A9B00476ED2 /* Build configuration list for PBXNativeTarget "SpineAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +560,7 @@
 				E413003A1ED91A9B00476ED2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
