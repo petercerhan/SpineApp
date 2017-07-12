@@ -19,6 +19,7 @@
 		E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539341F15A6A000D1A565 /* Predictor.swift */; };
 		E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539381F15A73C00D1A565 /* Nomogram.swift */; };
 		E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramService.swift */; };
+		E4E5393D1F15AE6A00D1A565 /* NomogramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E4E539341F15A6A000D1A565 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		E4E539381F15A73C00D1A565 /* Nomogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nomogram.swift; sourceTree = "<group>"; };
 		E4E5393A1F15A88E00D1A565 /* NomogramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramService.swift; sourceTree = "<group>"; };
+		E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				E4E539341F15A6A000D1A565 /* Predictor.swift */,
 				E4E539381F15A73C00D1A565 /* Nomogram.swift */,
 				E4E5393A1F15A88E00D1A565 /* NomogramService.swift */,
+				E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
 				E41300101ED91A9B00476ED2 /* OpenSceneViewController.swift in Sources */,
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,
+				E4E5393D1F15AE6A00D1A565 /* NomogramManager.swift in Sources */,
 				E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */,
 				E41300441EDCCCD500476ED2 /* DisclaimerViewController.swift in Sources */,
 				E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */,
