@@ -1,5 +1,5 @@
 //
-//  Predictor.swift
+//  Nomogram.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/11/17.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct Predictor {
-    let name: String
+struct Nomogram {
+    let outcome: String
     let description: String?
-    let points: Double
-    var present: Bool
+    var predictors: [Predictor]
+    var score: Double
 }
