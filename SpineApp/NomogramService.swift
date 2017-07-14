@@ -10,10 +10,10 @@ import Foundation
 
 class NomogramService {
     
-    func nomogram(named: String) -> Nomogram? {
-        switch named {
-        case "NonOperativeFailure":
-            return NomogramService.nonOperativeFailure
+    func nomogram(code: NomogramCode) -> Nomogram? {
+        switch code {
+        case .sea_nonOpFailure:
+            return NomogramService.sea_nonOpFailure
         default:
             return nil
         }
@@ -25,7 +25,7 @@ class NomogramService {
 //Nomograms. Could substitute some other method of retrieval or assembly
 extension NomogramService {
     
-    static let nonOperativeFailure = Nomogram(outcome: "Failure of non-operative management",
+    static let sea_nonOpFailure = Nomogram(outcome: "Failure of non-operative management",
                                               description: "90-day mortality for patients managed with antibiotics.",
                                               predictors: [Predictor(name: "Motor deficit at presentation", description: nil, points: 10, present: false),
                                                            Predictor(name: "Urinary incontinence/retention", description: nil, points: 6.81, present: false),
@@ -37,3 +37,8 @@ extension NomogramService {
                                               score: 0)
 }
 
+enum NomogramCode {
+    case sea_nonOpFailure
+    case sea_paralysis
+    case sea_90dayMortality
+}

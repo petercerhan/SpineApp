@@ -13,7 +13,7 @@ class NomogramManager {
     var nomograms: [Nomogram]
     
     init(nomogramService: NomogramService) {
-        if let nomogram1 = nomogramService.nomogram(named: "NonOperativeFailure"){
+        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure){
             nomograms = [nomogram1]
         } else {
             nomograms = [Nomogram]()
