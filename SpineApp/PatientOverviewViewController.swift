@@ -11,6 +11,8 @@ import UIKit
 class PatientOverviewViewController: UIViewController {
 
     let presenter: PatientOverviewPresenter
+
+    @IBOutlet var label: UILabel!
     
     init(nibName: String, presenter: PatientOverviewPresenter) {
         self.presenter = presenter
@@ -22,6 +24,21 @@ class PatientOverviewViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) should not be used with PatientOverviewViewController. Use init(nibName:presenter:) instead")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter.loadData()
+    }
+    
+    //Interface for presenter
+    
+    func set(outcomes: [String]) {
+        guard outcomes.count > 0 else {
+            return
+        }
+        
+        label.text = outcomes[0]
     }
     
     //actions

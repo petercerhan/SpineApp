@@ -16,9 +16,11 @@ class PatientOverviewPresenter {
     
     weak var delegate: PatientOverviewPresenterDelegate?
     weak var view: PatientOverviewViewController?
+    let nomogramManager: NomogramManager
     
-    init(delegate: PatientOverviewPresenterDelegate) {
+    init(delegate: PatientOverviewPresenterDelegate, nomogramManager: NomogramManager) {
         self.delegate = delegate
+        self.nomogramManager = nomogramManager
     }
     
     func attach(view: PatientOverviewViewController) {
@@ -27,8 +29,13 @@ class PatientOverviewPresenter {
     
     //Patient Overview Presenter functions
     
+    func loadData() {
+        let outcomes = nomogramManager.outcomes()
+        view?.set(outcomes: outcomes)
+        
+    }
+    
     func someAction() {
-        print("This")
         delegate?.sceneComplete(self)
     }
     

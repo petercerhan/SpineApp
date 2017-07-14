@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PatientOverviewViewController" customModule="SpineApp" customModuleProvider="target">
             <connections>
+                <outlet property="label" destination="JHP-ra-PDJ" id="DwN-DO-Qye"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -13,11 +13,20 @@ class NomogramManager {
     var nomograms: [Nomogram]
     
     init(nomogramService: NomogramService) {
-        if let nomogram1 = nomogramService.nomogram(named: "Failure of non-operative management"){
+        if let nomogram1 = nomogramService.nomogram(named: "NonOperativeFailure"){
             nomograms = [nomogram1]
         } else {
             nomograms = [Nomogram]()
         }
+    }
+    
+    func outcomes() -> [String] {
+        var outcomes = [String]()
+        for nomogram in nomograms {
+            outcomes.append(nomogram.outcome)
+        }
+        
+        return outcomes
     }
     
 }

@@ -16,15 +16,17 @@ class OutcomesCoordinator: NSObject {
     
     weak var delegate: OutcomesCoordinatorDelegate?
     let navigationController: UINavigationController
+    let nomogramManager: NomogramManager
     
-    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController) {
+    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController, nomogramManager: NomogramManager) {
         self.delegate = delegate
         self.navigationController = navigationController
+        self.nomogramManager = nomogramManager
     }
     
     func start() {
         //create first view controller other assembly
-        let presenter = PatientOverviewPresenter(delegate: self)
+        let presenter = PatientOverviewPresenter(delegate: self, nomogramManager: nomogramManager)
         let vc = PatientOverviewViewController(nibName: "PatientOverviewViewController", presenter: presenter)
         navigationController.setViewControllers([vc], animated: false)
     }

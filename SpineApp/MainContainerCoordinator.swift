@@ -37,8 +37,11 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
 
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
+        let nomogramService = NomogramService()
+        let nomogramManager = NomogramManager(nomogramService: nomogramService)
+        
         let navigationController = UINavigationController()
-        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController)
+        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, nomogramManager: nomogramManager)
         coordinator.start()
         childCoordinators.append(coordinator)
         
