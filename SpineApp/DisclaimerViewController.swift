@@ -21,8 +21,10 @@ class DisclaimerViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) should not be used with OpenScenViewController. Use init(nibName:presenter:) instead")
+        fatalError("init(coder:) should not be used with DisclaimerViewController. Use init(nibName:presenter:) instead")
     }
+    
+    //Actions
     
     @IBAction func agree() {
         presenter.userAgreed()

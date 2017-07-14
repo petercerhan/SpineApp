@@ -15,14 +15,14 @@ protocol OpenScenePresenterDelegate: NSObjectProtocol {
 class OpenScenePresenter {
 
     weak var delegate: OpenScenePresenterDelegate?
-    weak var openSceneViewController: OpenSceneViewController?
+    weak var view: OpenSceneViewController?
     
     init(delegate: OpenScenePresenterDelegate) {
         self.delegate = delegate
     }
     
     func attach(view: OpenSceneViewController) {
-        openSceneViewController = view
+        self.view = view
     }
     
     func sceneComplete() {

@@ -15,14 +15,14 @@ protocol DisclaimerPresenterDelegate: NSObjectProtocol {
 class DisclaimerPresenter {
     
     weak var delegate: DisclaimerPresenterDelegate?
-    weak var disclaimerViewController: DisclaimerViewController?
+    weak var view: DisclaimerViewController?
     
     init(delegate: DisclaimerPresenterDelegate) {
         self.delegate = delegate
     }
     
     func attach(view: DisclaimerViewController) {
-        disclaimerViewController = view
+        self.view = view
     }
     
     //Presenter functions

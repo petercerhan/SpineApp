@@ -6,11 +6,12 @@
 //  Copyright © 2017 Peter Cerhan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MainContainerCoordinator: NSObject {
     
     let mainContainerViewController: MainContainerViewController
+    var childCoordinators = [NSObject]()
     
     init(containerViewController: MainContainerViewController) {
         mainContainerViewController = containerViewController
@@ -27,18 +28,26 @@ class MainContainerCoordinator: NSObject {
 
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
-        print("Open Scene Complete")
         let presenter = DisclaimerPresenter(delegate: self)
         let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
         
-        //mainContainerViewController.show(viewController: vc, animated: false)
-        
-        mainContainerViewController.updateAnimated(contentViewController: vc)
+        mainContainerViewController.show(viewController: vc, animated: false)
     }
 }
 
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
-        print("Disclaimer scene complete")
+        let navigationController = UINavigationController()
+        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController)
+        coordinator.start()
+        childCoordinators.append(coordinator)
+        
+        mainContainerViewController.show(viewController: navigationController, animated: true)
+    }
+}
+
+extension MainContainerCoordinator: OutcomesCoordinatorDelegate {
+    func outcomesComplete(_ outcomesCoordinator: OutcomesCoordinator) {
+        print("Outcomes complete")
     }
 }

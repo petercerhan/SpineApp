@@ -23,7 +23,7 @@ class OpenSceneViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) should not be used with OpenScenViewController. Use init(nibName:presenter:) instead")
+        fatalError("init(coder:) should not be used with OpenSceneViewController. Use init(nibName:presenter:) instead")
     }
     
     override func viewDidLoad() {
