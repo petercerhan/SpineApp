@@ -12,12 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var mainContainerViewController = MainContainerViewController()
+    var mainContainerCoordinator: MainContainerCoordinator?
+    
+    //user state manager (?)
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = MainContainerViewController()
         
-        window?.rootViewController = vc
+        mainContainerCoordinator = MainContainerCoordinator(containerViewController: mainContainerViewController)
+        mainContainerCoordinator?.start()
+        
+        window?.rootViewController = mainContainerViewController
         window?.makeKeyAndVisible()
         
         return true

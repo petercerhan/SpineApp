@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413000D1ED91A9B00476ED2 /* AppDelegate.swift */; };
-		E41300101ED91A9B00476ED2 /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413000F1ED91A9B00476ED2 /* OpenSceneViewController.swift */; };
 		E41300131ED91A9B00476ED2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41300111ED91A9B00476ED2 /* Main.storyboard */; };
 		E41300151ED91A9B00476ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41300141ED91A9B00476ED2 /* Assets.xcassets */; };
 		E41300181ED91A9B00476ED2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41300161ED91A9B00476ED2 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,10 @@
 		E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539381F15A73C00D1A565 /* Nomogram.swift */; };
 		E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramService.swift */; };
 		E4E5393D1F15AE6A00D1A565 /* NomogramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */; };
+		E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */; };
+		E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5394C1F18404700D1A565 /* OpenSceneViewController.swift */; };
+		E4E5394F1F18404700D1A565 /* OpenSceneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E5394D1F18404700D1A565 /* OpenSceneViewController.xib */; };
+		E4E539511F1841F200D1A565 /* OpenScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539501F1841F200D1A565 /* OpenScenePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +45,6 @@
 /* Begin PBXFileReference section */
 		E413000A1ED91A9B00476ED2 /* SpineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E413000D1ED91A9B00476ED2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E413000F1ED91A9B00476ED2 /* OpenSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
 		E41300121ED91A9B00476ED2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E41300141ED91A9B00476ED2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E41300171ED91A9B00476ED2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,10 @@
 		E4E539381F15A73C00D1A565 /* Nomogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nomogram.swift; sourceTree = "<group>"; };
 		E4E5393A1F15A88E00D1A565 /* NomogramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramService.swift; sourceTree = "<group>"; };
 		E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramManager.swift; sourceTree = "<group>"; };
+		E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerCoordinator.swift; sourceTree = "<group>"; };
+		E4E5394C1F18404700D1A565 /* OpenSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
+		E4E5394D1F18404700D1A565 /* OpenSceneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenSceneViewController.xib; sourceTree = "<group>"; };
+		E4E539501F1841F200D1A565 /* OpenScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenScenePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E413000D1ED91A9B00476ED2 /* AppDelegate.swift */,
+				E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */,
 				E41300411EDCC62000476ED2 /* Controller */,
 				E41300421EDCC62C00476ED2 /* Models */,
 				E41300111ED91A9B00476ED2 /* Main.storyboard */,
@@ -142,8 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */,
-				E413000F1ED91A9B00476ED2 /* OpenSceneViewController.swift */,
 				E41300431EDCCCD500476ED2 /* DisclaimerViewController.swift */,
+				E4E5394C1F18404700D1A565 /* OpenSceneViewController.swift */,
+				E4E5394D1F18404700D1A565 /* OpenSceneViewController.xib */,
+				E4E539501F1841F200D1A565 /* OpenScenePresenter.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 				E41300181ED91A9B00476ED2 /* LaunchScreen.storyboard in Resources */,
 				E41300151ED91A9B00476ED2 /* Assets.xcassets in Resources */,
 				E41300131ED91A9B00476ED2 /* Main.storyboard in Resources */,
+				E4E5394F1F18404700D1A565 /* OpenSceneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,12 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,
 				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
-				E41300101ED91A9B00476ED2 /* OpenSceneViewController.swift in Sources */,
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,
 				E4E5393D1F15AE6A00D1A565 /* NomogramManager.swift in Sources */,
 				E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */,
+				E4E539511F1841F200D1A565 /* OpenScenePresenter.swift in Sources */,
 				E41300441EDCCCD500476ED2 /* DisclaimerViewController.swift in Sources */,
+				E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */,
 				E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */,
 				E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */,
 			);

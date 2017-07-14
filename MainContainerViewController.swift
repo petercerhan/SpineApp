@@ -10,7 +10,7 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
     
-    private var contentViewController: UIViewController
+    private var contentViewController = UIViewController()
     let appStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     var hideStatusBar = true
@@ -18,22 +18,17 @@ class MainContainerViewController: UIViewController {
         return hideStatusBar
     }
     
-    init() {
-        let vc = appStoryboard.instantiateViewController(withIdentifier: "OpenSceneViewController") as! OpenSceneViewController
-        contentViewController = vc
-        super.init(nibName: nil, bundle: nil)
-        vc.delegate = self
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        //Never instantiated from resource file
-        contentViewController = UIViewController()
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(contentViewController.view)
+    }
+    
+    func show(viewController: UIViewController, animated: Bool) {
+        if animated {
+            updateAnimated(contentViewController: viewController)
+        } else {
+            update(contentViewController: viewController)
+        }
     }
     
     func update(contentViewController newViewController: UIViewController) {
@@ -84,19 +79,6 @@ class MainContainerViewController: UIViewController {
         
     }
 }
-
-//MARK: - Handle specific transitions
-
-extension MainContainerViewController: OpenSceneViewControllerDelegate {
-    func openSceneComplete(_ openSceneViewController: OpenSceneViewController) {
-        //Choose next, build next view controller
-        let vc = appStoryboard.instantiateViewController(withIdentifier: "DisclaimerViewController")
-        update(contentViewController: vc)
-    }
-}
-
-
-
 
 
 

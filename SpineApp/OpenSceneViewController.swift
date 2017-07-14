@@ -1,29 +1,33 @@
 //
-//  ViewController.swift
+//  OpenSceneViewController.swift
 //  SpineApp
 //
-//  Created by Peter Cerhan on 5/26/17.
+//  Created by Peter Cerhan on 7/13/17.
 //  Copyright © 2017 Peter Cerhan. All rights reserved.
 //
 
 import UIKit
 
-protocol OpenSceneViewControllerDelegate: NSObjectProtocol {
-    func openSceneComplete(_ openSceneViewController: OpenSceneViewController)
-}
-
 class OpenSceneViewController: UIViewController {
 
-    var delegate: OpenSceneViewControllerDelegate?
+    let presenter: OpenScenePresenter
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(nibName: String, presenter: OpenScenePresenter) {
+        self.presenter = presenter
+        
+        super.init(nibName: nibName, bundle: nil)
+        
+        presenter.attach(view: self)
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        delegate?.openSceneComplete(self)
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) should not be used with OpenScenViewController. Use init(nibName:presenter:) instead")
+    }
+    
+    func animateStuff() {
+        //do the intro animation
+        
+        
     }
 
 }
-
