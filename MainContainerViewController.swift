@@ -27,6 +27,7 @@ class MainContainerViewController: UIViewController {
         if animated {
             updateAnimated(contentViewController: viewController)
         } else {
+            print("this called")
             update(contentViewController: viewController)
         }
     }

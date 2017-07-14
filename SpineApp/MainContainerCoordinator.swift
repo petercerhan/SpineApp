@@ -27,6 +27,18 @@ class MainContainerCoordinator: NSObject {
 
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
-        print("Open scene complete")
+        print("Open Scene Complete")
+        let presenter = DisclaimerPresenter(delegate: self)
+        let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
+        
+        //mainContainerViewController.show(viewController: vc, animated: false)
+        
+        mainContainerViewController.updateAnimated(contentViewController: vc)
+    }
+}
+
+extension MainContainerCoordinator: DisclaimerPresenterDelegate {
+    func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
+        print("Disclaimer scene complete")
     }
 }
