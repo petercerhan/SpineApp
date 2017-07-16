@@ -29,6 +29,7 @@
 		E4E539601F185E6A00D1A565 /* PatientOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5395E1F185E6A00D1A565 /* PatientOverviewViewController.swift */; };
 		E4E539611F185E6A00D1A565 /* PatientOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */; };
 		E4E539631F185EB200D1A565 /* PatientOverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */; };
+		E4E539651F1BFE1100D1A565 /* PatientOverviewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		E4E5395E1F185E6A00D1A565 /* PatientOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewViewController.swift; sourceTree = "<group>"; };
 		E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientOverviewViewController.xib; sourceTree = "<group>"; };
 		E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewPresenter.swift; sourceTree = "<group>"; };
+		E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				E4E5395E1F185E6A00D1A565 /* PatientOverviewViewController.swift */,
 				E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */,
+				E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */,
 				E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */,
 			);
 			name = PatientOverviewScene;
@@ -362,6 +365,7 @@
 				E4E539631F185EB200D1A565 /* PatientOverviewPresenter.swift in Sources */,
 				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,
 				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
+				E4E539651F1BFE1100D1A565 /* PatientOverviewElement.swift in Sources */,
 				E4E539601F185E6A00D1A565 /* PatientOverviewViewController.swift in Sources */,
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,
 				E4E539551F184DC600D1A565 /* DisclaimerViewController.swift in Sources */,

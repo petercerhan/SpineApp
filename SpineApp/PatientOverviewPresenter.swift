@@ -30,9 +30,17 @@ class PatientOverviewPresenter {
     //Patient Overview Presenter functions
     
     func loadData() {
-        let outcomes = nomogramManager.outcomes()
-        view?.set(outcomes: outcomes)
+        var patientOverviewElements = [PatientOverviewElement]()
         
+        for (index, nomogram) in nomogramManager.nomograms.enumerated() {
+            let hasDetails = (nomogram.description != nil)
+            let evaluated = nomogramManager.nomogramEvaulated[index]
+            let failurePct = nomogramManager.nomogramFailurePct[index]
+            let element = PatientOverviewElement(outcome: nomogram.outcome, hasDetails: hasDetails, evaluated: evaluated, failurePct: failurePct)
+            patientOverviewElements.append(element)
+        }
+        
+        view?.set(elements: patientOverviewElements)
     }
     
     func someAction() {

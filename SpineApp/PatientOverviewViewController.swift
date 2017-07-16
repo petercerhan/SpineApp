@@ -11,7 +11,8 @@ import UIKit
 class PatientOverviewViewController: UIViewController {
 
     let presenter: PatientOverviewPresenter
-
+    private var patientOverviewElements = [PatientOverviewElement]()
+    
     @IBOutlet var label: UILabel!
     
     init(nibName: String, presenter: PatientOverviewPresenter) {
@@ -32,6 +33,24 @@ class PatientOverviewViewController: UIViewController {
     }
     
     //Interface for presenter
+    
+    func set(elements: [PatientOverviewElement]) {
+        patientOverviewElements = elements
+        //reload data
+        print("1st element: \(patientOverviewElements[0].outcome)")
+    }
+    
+    func set(element: PatientOverviewElement, atIndex index: Int) -> Bool {
+        guard index < patientOverviewElements.count else {
+            return false
+        }
+        
+        patientOverviewElements[index] = element
+        //reload data
+        print("1st element: \(patientOverviewElements[0].outcome)")
+        
+        return true
+    }
     
     func set(outcomes: [String]) {
         guard outcomes.count > 0 else {
