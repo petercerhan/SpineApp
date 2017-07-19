@@ -16,10 +16,11 @@ class NomogramManager {
     
     init(nomogramService: NomogramService) {
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure){
-            nomograms = [nomogram1]
-        } else {
-            nomograms = [Nomogram]()
+        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
+            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
+            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+            
+            nomograms = [nomogram1, nomogram2, nomogram3]
         }
         
         self.nomograms = nomograms
