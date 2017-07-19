@@ -30,6 +30,8 @@
 		E4E539611F185E6A00D1A565 /* PatientOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */; };
 		E4E539631F185EB200D1A565 /* PatientOverviewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */; };
 		E4E539651F1BFE1100D1A565 /* PatientOverviewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */; };
+		E4E539681F1C392600D1A565 /* PatientOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539661F1C392600D1A565 /* PatientOverviewTableViewCell.swift */; };
+		E4E539691F1C392600D1A565 /* PatientOverviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E539671F1C392600D1A565 /* PatientOverviewTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientOverviewViewController.xib; sourceTree = "<group>"; };
 		E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewPresenter.swift; sourceTree = "<group>"; };
 		E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewElement.swift; sourceTree = "<group>"; };
+		E4E539661F1C392600D1A565 /* PatientOverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		E4E539671F1C392600D1A565 /* PatientOverviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientOverviewTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,8 @@
 				E4E5395F1F185E6A00D1A565 /* PatientOverviewViewController.xib */,
 				E4E539641F1BFE1100D1A565 /* PatientOverviewElement.swift */,
 				E4E539621F185EB200D1A565 /* PatientOverviewPresenter.swift */,
+				E4E539661F1C392600D1A565 /* PatientOverviewTableViewCell.swift */,
+				E4E539671F1C392600D1A565 /* PatientOverviewTableViewCell.xib */,
 			);
 			name = PatientOverviewScene;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				E41300151ED91A9B00476ED2 /* Assets.xcassets in Resources */,
 				E41300131ED91A9B00476ED2 /* Main.storyboard in Resources */,
 				E4E539611F185E6A00D1A565 /* PatientOverviewViewController.xib in Resources */,
+				E4E539691F1C392600D1A565 /* PatientOverviewTableViewCell.xib in Resources */,
 				E4E539561F184DC600D1A565 /* DisclaimerViewController.xib in Resources */,
 				E4E5394F1F18404700D1A565 /* OpenSceneViewController.xib in Resources */,
 			);
@@ -373,6 +380,7 @@
 				E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */,
 				E4E5395C1F185B7C00D1A565 /* OutcomesCoordinator.swift in Sources */,
 				E4E539511F1841F200D1A565 /* OpenScenePresenter.swift in Sources */,
+				E4E539681F1C392600D1A565 /* PatientOverviewTableViewCell.swift in Sources */,
 				E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */,
 				E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */,
 				E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */,

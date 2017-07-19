@@ -11,14 +11,16 @@ import UIKit
 class PatientOverviewViewController: UIViewController {
 
     let presenter: PatientOverviewPresenter
-    private var patientOverviewElements = [PatientOverviewElement]()
+    fileprivate var patientOverviewElements = [PatientOverviewElement]()
     
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var label: UILabel!
     
     init(nibName: String, presenter: PatientOverviewPresenter) {
         self.presenter = presenter
         
         super.init(nibName: nibName, bundle: nil)
+        
         
         presenter.attach(view: self)
     }
@@ -29,6 +31,13 @@ class PatientOverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Appcess"
+        extendedLayoutIncludesOpaqueBars = false
+        tableView.register(UINib(nibName:"PatientOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "PatientOverviewCell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
         presenter.loadData()
     }
     
@@ -46,8 +55,8 @@ class PatientOverviewViewController: UIViewController {
         }
         
         patientOverviewElements[index] = element
-        //reload data
-        print("1st element: \(patientOverviewElements[0].outcome)")
+        
+        tableView.reloadData()
         
         return true
     }
@@ -67,3 +76,25 @@ class PatientOverviewViewController: UIViewController {
     }
     
 }
+
+extension PatientOverviewViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return patientOverviewElements.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PatientOverviewCell") as! PatientOverviewTableViewCell
+        print("index: \(indexPath.item) items \(patientOverviewElements.count)")
+        cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
+        cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
+        cell.detailsButton.isHidden = !patientOverviewElements[indexPath.item].hasDetails
+        return cell
+    }
+    
+}
+
+
+
+
+

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PatientOverviewViewController" customModule="SpineApp" customModuleProvider="target">
             <connections>
                 <outlet property="label" destination="JHP-ra-PDJ" id="DwN-DO-Qye"/>
+                <outlet property="tableView" destination="d5Q-ku-CT2" id="Uww-bX-QzD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,8 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-ra-PDJ">
-                    <rect key="frame" x="122.5" y="323" width="129.5" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-ra-PDJ">
+                    <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,14 +34,26 @@
                         <action selector="done" destination="-1" eventType="touchUpInside" id="xmX-vl-f0S"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-ku-CT2">
+                    <rect key="frame" x="0.0" y="43" width="375" height="535"/>
+                    <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="7ce-zr-x22"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="JHP-ra-PDJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5vZ-Ql-UqP"/>
                 <constraint firstItem="e4C-h3-0ii" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cum-lh-52y"/>
+                <constraint firstAttribute="trailing" secondItem="d5Q-ku-CT2" secondAttribute="trailing" id="HpF-iZ-qqh"/>
                 <constraint firstItem="JHP-ra-PDJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SdJ-xj-4Qc"/>
                 <constraint firstAttribute="bottom" secondItem="e4C-h3-0ii" secondAttribute="bottom" constant="20" id="YJg-PG-gQ3"/>
+                <constraint firstItem="e4C-h3-0ii" firstAttribute="top" secondItem="d5Q-ku-CT2" secondAttribute="bottom" constant="39" id="bHt-hy-aP1"/>
+                <constraint firstItem="d5Q-ku-CT2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="43" id="hZg-Vf-s42"/>
+                <constraint firstItem="d5Q-ku-CT2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="szZ-JW-0Zz"/>
             </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
 </document>
