@@ -75,6 +75,10 @@ class PatientOverviewViewController: UIViewController {
         presenter.someAction()
     }
     
+    func detailsForOutcome(index: Int) {
+        let vc = DetailsViewController(nibName: "DetailsViewController", delegate: self)
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension PatientOverviewViewController: UITableViewDataSource {
@@ -85,14 +89,25 @@ extension PatientOverviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientOverviewCell") as! PatientOverviewTableViewCell
-        print("index: \(indexPath.item) items \(patientOverviewElements.count)")
+        
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
         cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
         cell.detailsButton.isHidden = !patientOverviewElements[indexPath.item].hasDetails
+        cell.detailsCallback = {
+            self.detailsForOutcome(index: indexPath.item)
+        }
+        
         return cell
     }
     
 }
+
+extension PatientOverviewViewController: DetailsViewControllerDelegate {
+    func dismiss(_ detailsViewController: DetailsViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 
 
 

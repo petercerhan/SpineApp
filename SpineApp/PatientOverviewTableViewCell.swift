@@ -14,4 +14,9 @@ class PatientOverviewTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var percentageLabel: UILabel!
     
+    var detailsCallback: (() -> ())?
+    
+    @IBAction func detailsPressed() {
+        detailsCallback?()
+    }
 }

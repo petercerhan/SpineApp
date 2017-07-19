@@ -21,6 +21,9 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdX-iQ-lxc">
                         <rect key="frame" x="8" y="10" width="22" height="22"/>
+                        <connections>
+                            <action selector="detailsPressed" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sCo-9a-Gy4"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LZ-bq-04y">
                         <rect key="frame" x="270" y="11" width="42" height="21"/>
