@@ -13,7 +13,7 @@ class MainContainerViewController: UIViewController {
     private var contentViewController = UIViewController()
     let appStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    var hideStatusBar = true
+    var hideStatusBar = false
     override var prefersStatusBarHidden: Bool {
         return hideStatusBar
     }

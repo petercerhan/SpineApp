@@ -10,7 +10,7 @@ import Foundation
 
 struct PatientOverviewElement {
     var outcome: String
-    var hasDetails: Bool
+    var description: String?
     var evaluated: Bool
     var failurePct: Double
 }

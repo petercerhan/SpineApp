@@ -37,6 +37,7 @@ class PatientOverviewViewController: UIViewController {
         tableView.register(UINib(nibName:"PatientOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "PatientOverviewCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        //self.edgesForExtendedLayout = UIRectEdgeNone;
         
         presenter.loadData()
     }
@@ -76,7 +77,11 @@ class PatientOverviewViewController: UIViewController {
     }
     
     func detailsForOutcome(index: Int) {
-        let vc = DetailsViewController(nibName: "DetailsViewController", delegate: self)
+        let data = DetailsViewControllerData(title: patientOverviewElements[index].outcome,
+                                             description: patientOverviewElements[index].description ?? "",
+                                             dismissTitle: "Done")
+        
+        let vc = DetailsViewController(nibName: "DetailsViewController", delegate: self, data: data)
         present(vc, animated: true, completion: nil)
     }
 }
@@ -92,7 +97,7 @@ extension PatientOverviewViewController: UITableViewDataSource {
         
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
         cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
-        cell.detailsButton.isHidden = !patientOverviewElements[indexPath.item].hasDetails
+        cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
         cell.detailsCallback = {
             self.detailsForOutcome(index: indexPath.item)
         }

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SpineApp" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionText" destination="o34-Vi-k5B" id="Vb7-sZ-cDC"/>
+                <outlet property="descriptionTextView" destination="o34-Vi-k5B" id="HE0-ET-w5d"/>
                 <outlet property="doneButton" destination="3Ej-pv-Ohz" id="L8I-ak-EOl"/>
                 <outlet property="titleLabel" destination="yXw-Et-6Lu" id="QQF-cg-qJU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

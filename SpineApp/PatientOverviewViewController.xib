@@ -34,7 +34,7 @@
                         <action selector="done" destination="-1" eventType="touchUpInside" id="xmX-vl-f0S"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-ku-CT2">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d5Q-ku-CT2">
                     <rect key="frame" x="0.0" y="43" width="375" height="535"/>
                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -53,6 +53,7 @@
                 <constraint firstItem="d5Q-ku-CT2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="43" id="hZg-Vf-s42"/>
                 <constraint firstItem="d5Q-ku-CT2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="szZ-JW-0Zz"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
