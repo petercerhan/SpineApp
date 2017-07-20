@@ -41,6 +41,7 @@ extension MainContainerCoordinator: DisclaimerPresenterDelegate {
         let nomogramManager = NomogramManager(nomogramService: nomogramService)
         
         let navigationController = UINavigationController()
+        navigationController.navigationBar.isTranslucent = false
         let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, nomogramManager: nomogramManager)
         coordinator.start()
         childCoordinators.append(coordinator)

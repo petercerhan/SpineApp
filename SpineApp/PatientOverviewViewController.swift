@@ -33,11 +33,13 @@ class PatientOverviewViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Appcess"
-        extendedLayoutIncludesOpaqueBars = false
+//        extendedLayoutIncludesOpaqueBars = false
+//        edgesForExtendedLayout = []
+
+        
         tableView.register(UINib(nibName:"PatientOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "PatientOverviewCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
-        //self.edgesForExtendedLayout = UIRectEdgeNone;
         
         presenter.loadData()
     }
