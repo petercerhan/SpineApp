@@ -10,6 +10,7 @@ import Foundation
 
 protocol PatientOverviewPresenterDelegate: NSObjectProtocol {
     func sceneComplete(_ patientOverviewPresenter: PatientOverviewPresenter)
+    //nomogramSelected(atIndex index: Int)
 }
 
 class PatientOverviewPresenter {

@@ -52,6 +52,11 @@ extension MainContainerCoordinator: DisclaimerPresenterDelegate {
 
 extension MainContainerCoordinator: OutcomesCoordinatorDelegate {
     func outcomesComplete(_ outcomesCoordinator: OutcomesCoordinator) {
-        print("Outcomes complete")
+        let presenter = DisclaimerPresenter(delegate: self)
+        let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
+        
+        mainContainerViewController.show(viewController: vc, animated: true)
+        childCoordinators = [NSObject]()
+        //print("Outcomes complete")
     }
 }

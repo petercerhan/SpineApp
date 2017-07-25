@@ -35,6 +35,6 @@ class OutcomesCoordinator: NSObject {
 
 extension OutcomesCoordinator: PatientOverviewPresenterDelegate {
     func sceneComplete(_ patientOverviewPresenter: PatientOverviewPresenter) {
-        print("Patient Overview Complete")
+        delegate?.outcomesComplete(self)
     }
 }

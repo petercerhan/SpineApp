@@ -33,9 +33,6 @@ class PatientOverviewViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Appcess"
-//        extendedLayoutIncludesOpaqueBars = false
-//        edgesForExtendedLayout = []
-
         
         tableView.register(UINib(nibName:"PatientOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "PatientOverviewCell")
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -100,7 +97,7 @@ extension PatientOverviewViewController: UITableViewDataSource {
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
         cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
         cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
-        cell.detailsCallback = {
+        cell.detailsCallback = { [unowned self] in
             self.detailsForOutcome(index: indexPath.item)
         }
         
