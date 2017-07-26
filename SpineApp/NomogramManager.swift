@@ -35,10 +35,15 @@ class NomogramManager {
         nomograms[nomogramIndex].predictors[predictorIndex] = predictor
         
         nomograms[nomogramIndex].score = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
+        nomogramFailurePct[nomogramIndex] = failure(forNomogram: nomograms[nomogramIndex])
         
         return predictor
     }
     
+    func failure(forNomogram nomogram: Nomogram) -> Double {
+        let score = nomogram.score
+        return score / 100
+    }
     
 //    func outcomes() -> [String] {
 //        var outcomes = [String]()

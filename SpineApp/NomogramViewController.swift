@@ -18,10 +18,16 @@ class NomogramViewController: UIViewController {
             scoreLabel.text = "\(score)"
         }
     }
+    var failurePct: Double = 0.0 {
+        didSet {
+            failurePctLabel.text = "\(failurePct)"
+        }
+    }
     
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var failurePctLabel: UILabel!
     
     init(nibName: String, presenter: NomogramPresenter) {
         self.presenter = presenter

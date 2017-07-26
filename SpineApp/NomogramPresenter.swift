@@ -23,12 +23,18 @@ class NomogramPresenter {
             view?.score = score
         }
     }
+    var failurePct: Double {
+        didSet {
+            view?.failurePct = failurePct
+        }
+    }
     
     init(delegate: NomogramPresenterDelegate, nomogramManager: NomogramManager, nomogramIndex: Int) {
         self.delegate = delegate
         self.nomogramManager = nomogramManager
         self.nomogramIndex = nomogramIndex
         score = nomogramManager.nomograms[nomogramIndex].score
+        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
     }
     
     func attach(view: NomogramViewController) {
@@ -45,6 +51,7 @@ class NomogramPresenter {
         }
         
         score = nomogramManager.nomograms[nomogramIndex].score
+        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
         view?.set(elements: nomogramElements)
     }
     
@@ -59,6 +66,7 @@ class NomogramPresenter {
         let element = nomogramVCElement(forPredictor: predictor)
         
         score = nomogramManager.nomograms[nomogramIndex].score
+        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
         view?.set(element: element, atIndex:index)
     }
     
