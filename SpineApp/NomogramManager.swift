@@ -38,6 +38,5 @@ class NomogramManager {
         return outcomes
     }
     
-    
 }
 

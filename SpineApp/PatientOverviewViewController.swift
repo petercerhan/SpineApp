@@ -11,16 +11,15 @@ import UIKit
 class PatientOverviewViewController: UIViewController {
 
     let presenter: PatientOverviewPresenter
+    
     fileprivate var patientOverviewElements = [PatientOverviewElement]()
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var label: UILabel!
     
     init(nibName: String, presenter: PatientOverviewPresenter) {
         self.presenter = presenter
         
         super.init(nibName: nibName, bundle: nil)
-        
         
         presenter.attach(view: self)
     }
@@ -45,8 +44,7 @@ class PatientOverviewViewController: UIViewController {
     
     func set(elements: [PatientOverviewElement]) {
         patientOverviewElements = elements
-        //reload data
-        print("1st element: \(patientOverviewElements[0].outcome)")
+        tableView.reloadData()
     }
     
     func set(element: PatientOverviewElement, atIndex index: Int) -> Bool {
@@ -65,8 +63,6 @@ class PatientOverviewViewController: UIViewController {
         guard outcomes.count > 0 else {
             return
         }
-        
-        label.text = outcomes[0]
     }
     
     //actions
@@ -102,6 +98,14 @@ extension PatientOverviewViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+}
+
+extension PatientOverviewViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.nomogramSelected(atIndex: indexPath.item)
     }
     
 }

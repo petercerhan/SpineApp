@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PatientOverviewViewController" customModule="SpineApp" customModuleProvider="target">
             <connections>
-                <outlet property="label" destination="JHP-ra-PDJ" id="DwN-DO-Qye"/>
                 <outlet property="tableView" destination="d5Q-ku-CT2" id="Uww-bX-QzD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,12 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHP-ra-PDJ">
-                    <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4C-h3-0ii">
                     <rect key="frame" x="168.5" y="617" width="37" height="30"/>
                     <state key="normal" title="Done"/>
@@ -39,15 +32,14 @@
                     <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="7ce-zr-x22"/>
+                        <outlet property="delegate" destination="-1" id="qn0-Z7-TGU"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="JHP-ra-PDJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5vZ-Ql-UqP"/>
                 <constraint firstItem="e4C-h3-0ii" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cum-lh-52y"/>
                 <constraint firstAttribute="trailing" secondItem="d5Q-ku-CT2" secondAttribute="trailing" id="HpF-iZ-qqh"/>
-                <constraint firstItem="JHP-ra-PDJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="SdJ-xj-4Qc"/>
                 <constraint firstAttribute="bottom" secondItem="e4C-h3-0ii" secondAttribute="bottom" constant="20" id="YJg-PG-gQ3"/>
                 <constraint firstItem="e4C-h3-0ii" firstAttribute="top" secondItem="d5Q-ku-CT2" secondAttribute="bottom" constant="39" id="bHt-hy-aP1"/>
                 <constraint firstItem="d5Q-ku-CT2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hZg-Vf-s42"/>

@@ -10,7 +10,7 @@ import Foundation
 
 protocol PatientOverviewPresenterDelegate: NSObjectProtocol {
     func sceneComplete(_ patientOverviewPresenter: PatientOverviewPresenter)
-    //nomogramSelected(atIndex index: Int)
+    func nomogramSelected(_ patientOverviewPresenter: PatientOverviewPresenter, atIndex index: Int)
 }
 
 class PatientOverviewPresenter {
@@ -46,6 +46,10 @@ class PatientOverviewPresenter {
     
     func someAction() {
         delegate?.sceneComplete(self)
+    }
+    
+    func nomogramSelected(atIndex index: Int) {
+        delegate?.nomogramSelected(self, atIndex: index)
     }
     
 }

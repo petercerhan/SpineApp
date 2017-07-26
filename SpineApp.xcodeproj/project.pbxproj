@@ -16,6 +16,12 @@
 		E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */; };
 		E4B8237A1F1EFAAC00AF36CB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */; };
 		E4B8237B1F1EFAAC00AF36CB /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */; };
+		E4B8237E1F26C8C400AF36CB /* NomogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */; };
+		E4B8237F1F26C8C400AF36CB /* NomogramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8237D1F26C8C400AF36CB /* NomogramViewController.xib */; };
+		E4B823821F26C97800AF36CB /* NomogramPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823811F26C97800AF36CB /* NomogramPresenter.swift */; };
+		E4B823871F26D3DB00AF36CB /* NomogramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */; };
+		E4B823881F26D3DB00AF36CB /* NomogramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */; };
+		E4B8238A1F26D80900AF36CB /* NomogramViewControllerElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */; };
 		E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539341F15A6A000D1A565 /* Predictor.swift */; };
 		E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539381F15A73C00D1A565 /* Nomogram.swift */; };
 		E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramService.swift */; };
@@ -69,6 +75,12 @@
 		E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainContainerViewController.swift; path = ../MainContainerViewController.swift; sourceTree = "<group>"; };
 		E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramViewController.swift; sourceTree = "<group>"; };
+		E4B8237D1F26C8C400AF36CB /* NomogramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NomogramViewController.xib; sourceTree = "<group>"; };
+		E4B823811F26C97800AF36CB /* NomogramPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramPresenter.swift; sourceTree = "<group>"; };
+		E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramTableViewCell.swift; sourceTree = "<group>"; };
+		E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NomogramTableViewCell.xib; sourceTree = "<group>"; };
+		E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramViewControllerElement.swift; sourceTree = "<group>"; };
 		E4E539341F15A6A000D1A565 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		E4E539381F15A73C00D1A565 /* Nomogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nomogram.swift; sourceTree = "<group>"; };
 		E4E5393A1F15A88E00D1A565 /* NomogramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramService.swift; sourceTree = "<group>"; };
@@ -143,6 +155,7 @@
 				E4E539521F184D9700D1A565 /* OpenScene */,
 				E4E539571F184DE800D1A565 /* DisclaimerScene */,
 				E4E5395D1F185E4700D1A565 /* PatientOverviewScene */,
+				E4B823801F26C8C700AF36CB /* NomogramScene */,
 				E41300421EDCC62C00476ED2 /* Models */,
 				E41300111ED91A9B00476ED2 /* Main.storyboard */,
 				E41300141ED91A9B00476ED2 /* Assets.xcassets */,
@@ -188,6 +201,19 @@
 				E4E5393C1F15AE6A00D1A565 /* NomogramManager.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E4B823801F26C8C700AF36CB /* NomogramScene */ = {
+			isa = PBXGroup;
+			children = (
+				E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */,
+				E4B8237D1F26C8C400AF36CB /* NomogramViewController.xib */,
+				E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */,
+				E4B823811F26C97800AF36CB /* NomogramPresenter.swift */,
+				E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */,
+				E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */,
+			);
+			name = NomogramScene;
 			sourceTree = "<group>";
 		};
 		E4E539521F184D9700D1A565 /* OpenScene */ = {
@@ -344,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E41300181ED91A9B00476ED2 /* LaunchScreen.storyboard in Resources */,
+				E4B8237F1F26C8C400AF36CB /* NomogramViewController.xib in Resources */,
 				E41300151ED91A9B00476ED2 /* Assets.xcassets in Resources */,
 				E41300131ED91A9B00476ED2 /* Main.storyboard in Resources */,
 				E4E539611F185E6A00D1A565 /* PatientOverviewViewController.xib in Resources */,
@@ -351,6 +378,7 @@
 				E4E539561F184DC600D1A565 /* DisclaimerViewController.xib in Resources */,
 				E4E5394F1F18404700D1A565 /* OpenSceneViewController.xib in Resources */,
 				E4B8237B1F1EFAAC00AF36CB /* DetailsViewController.xib in Resources */,
+				E4B823881F26D3DB00AF36CB /* NomogramTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E539591F184E8C00D1A565 /* DisclaimerPresenter.swift in Sources */,
+				E4B8238A1F26D80900AF36CB /* NomogramViewControllerElement.swift in Sources */,
 				E4E539631F185EB200D1A565 /* PatientOverviewPresenter.swift in Sources */,
 				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,
 				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
@@ -384,8 +413,11 @@
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,
 				E4E539551F184DC600D1A565 /* DisclaimerViewController.swift in Sources */,
 				E4E5393D1F15AE6A00D1A565 /* NomogramManager.swift in Sources */,
+				E4B823821F26C97800AF36CB /* NomogramPresenter.swift in Sources */,
 				E4B8237A1F1EFAAC00AF36CB /* DetailsViewController.swift in Sources */,
+				E4B8237E1F26C8C400AF36CB /* NomogramViewController.swift in Sources */,
 				E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */,
+				E4B823871F26D3DB00AF36CB /* NomogramTableViewCell.swift in Sources */,
 				E4E5395C1F185B7C00D1A565 /* OutcomesCoordinator.swift in Sources */,
 				E4E539511F1841F200D1A565 /* OpenScenePresenter.swift in Sources */,
 				E4E539681F1C392600D1A565 /* PatientOverviewTableViewCell.swift in Sources */,
