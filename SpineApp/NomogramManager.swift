@@ -28,15 +28,26 @@ class NomogramManager {
         nomogramEvaulated = Array(repeating: false, count: nomograms.count)
         nomogramFailurePct = Array(repeating: 0.0, count: nomograms.count)
     }
-    
-    func outcomes() -> [String] {
-        var outcomes = [String]()
-        for nomogram in nomograms {
-            outcomes.append(nomogram.outcome)
-        }
+
+    func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
+        var predictor = nomograms[nomogramIndex].predictors[predictorIndex]
+        predictor.present = !(predictor.present)
+        nomograms[nomogramIndex].predictors[predictorIndex] = predictor
         
-        return outcomes
+        nomograms[nomogramIndex].score = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
+        
+        return predictor
     }
+    
+    
+//    func outcomes() -> [String] {
+//        var outcomes = [String]()
+//        for nomogram in nomograms {
+//            outcomes.append(nomogram.outcome)
+//        }
+//        
+//        return outcomes
+//    }
     
 }
 

@@ -13,8 +13,15 @@ class NomogramViewController: UIViewController {
     fileprivate var presenter: NomogramPresenter
     
     fileprivate var nomogramElements = [NomogramViewControllerElement]()
+    var score: Double = 0 {
+        didSet {
+            scoreLabel.text = "\(score)"
+        }
+    }
+    
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var scoreLabel: UILabel!
     
     init(nibName: String, presenter: NomogramPresenter) {
         self.presenter = presenter
@@ -65,7 +72,7 @@ extension NomogramViewController: UITableViewDataSource {
         //configure cell
         cell.titleLabel.text = element.name
         cell.infoButton.isHidden = (element.description == nil)
-        cell.scoreLabel.text = "\(element.points)"
+        cell.scoreLabel.text = element.present ? "\(element.points)" : "0"
         cell.checkLabel.text = element.present ? "x" : ""
         
         return cell

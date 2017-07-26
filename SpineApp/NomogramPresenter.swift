@@ -18,11 +18,17 @@ class NomogramPresenter {
     weak var view: NomogramViewController?
     let nomogramManager: NomogramManager
     let nomogramIndex: Int
+    var score: Double {
+        didSet {
+            view?.score = score
+        }
+    }
     
     init(delegate: NomogramPresenterDelegate, nomogramManager: NomogramManager, nomogramIndex: Int) {
         self.delegate = delegate
         self.nomogramManager = nomogramManager
         self.nomogramIndex = nomogramIndex
+        score = nomogramManager.nomograms[nomogramIndex].score
     }
     
     func attach(view: NomogramViewController) {
@@ -34,11 +40,11 @@ class NomogramPresenter {
         var nomogramElements = [NomogramViewControllerElement]()
         
         for predictor in nomogramManager.nomograms[nomogramIndex].predictors {
-//            let element = NomogramViewControllerElement(name: predictor.name, description: predictor.description, points: predictor.points, present: predictor.present)
             let element = nomogramVCElement(forPredictor: predictor)
             nomogramElements.append(element)
         }
         
+        score = nomogramManager.nomograms[nomogramIndex].score
         view?.set(elements: nomogramElements)
     }
     
@@ -48,11 +54,11 @@ class NomogramPresenter {
     }
     
     func updatePresent(atIndex index: Int) {
-        var predictor = nomogramManager.nomograms[nomogramIndex].predictors[index]
-        predictor.present = !predictor.present
-        nomogramManager.nomograms[nomogramIndex].predictors[index] = predictor
+        let predictor = nomogramManager.updatePredictor(atIndex: index, inNomogramAtIndex: nomogramIndex)
         
         let element = nomogramVCElement(forPredictor: predictor)
+        
+        score = nomogramManager.nomograms[nomogramIndex].score
         view?.set(element: element, atIndex:index)
     }
     

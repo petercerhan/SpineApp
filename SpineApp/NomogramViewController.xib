@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NomogramViewController" customModule="SpineApp" customModuleProvider="target">
             <connections>
+                <outlet property="scoreLabel" destination="Qky-c2-uQn" id="FDd-Z0-x3W"/>
                 <outlet property="tableView" destination="U0S-9k-ara" id="DZa-yC-h9w"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
