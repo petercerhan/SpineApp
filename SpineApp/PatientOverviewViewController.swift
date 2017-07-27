@@ -40,6 +40,11 @@ class PatientOverviewViewController: UIViewController {
         presenter.loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.loadData()
+    }
+    
     //Interface for presenter
     
     func set(elements: [PatientOverviewElement]) {

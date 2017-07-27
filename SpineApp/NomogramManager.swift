@@ -42,17 +42,8 @@ class NomogramManager {
     
     func failure(forNomogram nomogram: Nomogram) -> Double {
         let score = nomogram.score
-        return score / 100
+        return score / 80
     }
-    
-//    func outcomes() -> [String] {
-//        var outcomes = [String]()
-//        for nomogram in nomograms {
-//            outcomes.append(nomogram.outcome)
-//        }
-//        
-//        return outcomes
-//    }
     
 }
 
