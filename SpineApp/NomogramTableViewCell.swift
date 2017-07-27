@@ -15,4 +15,9 @@ class NomogramTableViewCell: UITableViewCell {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var checkLabel: UILabel!
     
+    var detailsCallback: (() -> ())?
+    
+    @IBAction func detailsPressed() {
+        detailsCallback?()
+    }
 }

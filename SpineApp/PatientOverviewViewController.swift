@@ -76,7 +76,7 @@ class PatientOverviewViewController: UIViewController {
         presenter.someAction()
     }
     
-    func detailsForOutcome(index: Int) {
+    func showDetailsForOutcome(index: Int) {
         let data = DetailsViewControllerData(title: patientOverviewElements[index].outcome,
                                              description: patientOverviewElements[index].description ?? "",
                                              dismissTitle: "Done")
@@ -99,7 +99,7 @@ extension PatientOverviewViewController: UITableViewDataSource {
         cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
         cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
         cell.detailsCallback = { [unowned self] in
-            self.detailsForOutcome(index: indexPath.item)
+            self.showDetailsForOutcome(index: indexPath.item)
         }
         
         return cell

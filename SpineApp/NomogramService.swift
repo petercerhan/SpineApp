@@ -31,7 +31,7 @@ extension NomogramService {
     
     static let sea_nonOpFailure = Nomogram(outcome: "Failure of non-operative management",
                                               description: "90-day mortality for patients managed with antibiotics.",
-                                              predictors: [Predictor(name: "Motor deficit at presentation", description: nil, points: 10, present: false),
+                                              predictors: [Predictor(name: "Motor deficit at presentation", description: "The patient has visible motor difficulties", points: 10, present: false),
                                                            Predictor(name: "Urinary incontinence/retention", description: nil, points: 6.81, present: false),
                                                            Predictor(name: "Pathologic compression/failure", description: nil, points: 6.79, present: false),
                                                            Predictor(name: "Ventral component to abcess", description: nil, points: 5.53, present: false),

@@ -24,6 +24,9 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="22" id="A2a-De-bLG"/>
                         </constraints>
+                        <connections>
+                            <action selector="detailsPressed" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yz2-cf-lyD"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghj-to-ozp">
                         <rect key="frame" x="38" y="11" width="42" height="21"/>

@@ -53,6 +53,17 @@ class NomogramViewController: UIViewController {
         presenter.loadData()
     }
     
+    func showDetailsForPredictor(index: Int) {
+        let data = DetailsViewControllerData(title: nomogramElements[index].name,
+                                             description: nomogramElements[index].description ?? "",
+                                             dismissTitle: "Done")
+        
+        let vc = DetailsViewController(nibName: "DetailsViewController", delegate: self, data: data)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    //Interface for presenter
+    
     func set(elements: [NomogramViewControllerElement]) {
         nomogramElements = elements
         tableView.reloadData()
@@ -65,6 +76,8 @@ class NomogramViewController: UIViewController {
         tableView.deselectRow(at: IndexPath(row: index, section: 0), animated: true)
     }
 }
+
+//MARK: - UITableViewDataSource
 
 extension NomogramViewController: UITableViewDataSource {
     
@@ -80,6 +93,9 @@ extension NomogramViewController: UITableViewDataSource {
         cell.infoButton.isHidden = (element.description == nil)
         cell.scoreLabel.text = element.present ? "\(element.points)" : "0"
         cell.checkLabel.text = element.present ? "x" : ""
+        cell.detailsCallback = { [unowned self] in
+            self.showDetailsForPredictor(index: indexPath.item)
+        }
         
         return cell
     }
@@ -95,3 +111,10 @@ extension NomogramViewController: UITableViewDelegate {
     
 }
 
+//MARK: - DetailsViewControllerDelegate
+
+extension NomogramViewController: DetailsViewControllerDelegate {
+    func dismiss(_ detailsViewController: DetailsViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
