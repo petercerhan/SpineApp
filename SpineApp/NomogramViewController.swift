@@ -10,7 +10,11 @@ import UIKit
 
 class NomogramViewController: UIViewController {
 
+    //MARK: - Dependencies
+    
     fileprivate var presenter: NomogramPresenter
+    
+    //MARK: - State
     
     fileprivate var nomogramElements = [NomogramViewControllerElement]()
     var score: Double = 0 {
@@ -24,10 +28,13 @@ class NomogramViewController: UIViewController {
         }
     }
     
+    //MARK: - XIB Components
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var failurePctLabel: UILabel!
+
+    //MARK: - Initialization
     
     init(nibName: String, presenter: NomogramPresenter) {
         self.presenter = presenter
@@ -41,6 +48,8 @@ class NomogramViewController: UIViewController {
         fatalError("init(coder:) should not be used with NomogramViewController. Use init(nibName:presenter:) instead")
     }
     
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +62,8 @@ class NomogramViewController: UIViewController {
         presenter.loadData()
     }
     
+    //MARK: - View Actions
+    
     func showDetailsForPredictor(index: Int) {
         let data = DetailsViewControllerData(title: nomogramElements[index].name,
                                              description: nomogramElements[index].description ?? "",
@@ -62,7 +73,7 @@ class NomogramViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    //Interface for presenter
+    //MARK: - Presenter interface
     
     func set(elements: [NomogramViewControllerElement]) {
         nomogramElements = elements
@@ -101,6 +112,8 @@ extension NomogramViewController: UITableViewDataSource {
     }
     
 }
+
+//MARK: - UITableViewDelegate
 
 extension NomogramViewController: UITableViewDelegate {
     

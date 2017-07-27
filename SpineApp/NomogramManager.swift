@@ -34,7 +34,8 @@ class NomogramManager {
         predictor.present = !(predictor.present)
         nomograms[nomogramIndex].predictors[predictorIndex] = predictor
         
-        nomograms[nomogramIndex].score = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
+        let newScore = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
+        nomograms[nomogramIndex].score = newScore.rounded(decimals: 10)
         nomogramFailurePct[nomogramIndex] = failure(forNomogram: nomograms[nomogramIndex])
         
         return predictor
