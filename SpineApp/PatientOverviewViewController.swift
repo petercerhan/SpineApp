@@ -10,11 +10,19 @@ import UIKit
 
 class PatientOverviewViewController: UIViewController {
 
+    //MARK: - Dependencies
+    
     let presenter: PatientOverviewPresenter
+    
+    //MARK: - State
     
     fileprivate var patientOverviewElements = [PatientOverviewElement]()
     
+    //MARK: - XIB Components
+    
     @IBOutlet var tableView: UITableView!
+    
+    //MARK: - Initialization
     
     init(nibName: String, presenter: PatientOverviewPresenter) {
         self.presenter = presenter
@@ -27,6 +35,8 @@ class PatientOverviewViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) should not be used with PatientOverviewViewController. Use init(nibName:presenter:) instead")
     }
+    
+    //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +55,7 @@ class PatientOverviewViewController: UIViewController {
         presenter.loadData()
     }
     
-    //Interface for presenter
+    //MARK: - Interface for presenter
     
     func set(elements: [PatientOverviewElement]) {
         patientOverviewElements = elements
@@ -70,11 +80,13 @@ class PatientOverviewViewController: UIViewController {
         }
     }
     
-    //actions
+    //MARK: - User Actions
     
     @IBAction func done() {
         presenter.someAction()
     }
+    
+    //MARK: - Application Actions
     
     func showDetailsForOutcome(index: Int) {
         let data = DetailsViewControllerData(title: patientOverviewElements[index].outcome,
@@ -86,6 +98,8 @@ class PatientOverviewViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDataSource
+
 extension PatientOverviewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,7 +110,7 @@ extension PatientOverviewViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientOverviewCell") as! PatientOverviewTableViewCell
         
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
-        cell.percentageLabel.text = "\(patientOverviewElements[indexPath.item].failurePct * 100)%"
+        cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(decimals: 2)
         cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
         cell.detailsCallback = { [unowned self] in
             self.showDetailsForOutcome(index: indexPath.item)
@@ -107,6 +121,8 @@ extension PatientOverviewViewController: UITableViewDataSource {
     
 }
 
+//MARK: - UITableViewDelegate
+
 extension PatientOverviewViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,14 +131,12 @@ extension PatientOverviewViewController: UITableViewDelegate {
     
 }
 
+//MARK: - DetailsViewControllerDelegate
+
 extension PatientOverviewViewController: DetailsViewControllerDelegate {
     func dismiss(_ detailsViewController: DetailsViewController) {
         dismiss(animated: true, completion: nil)
     }
 }
-
-
-
-
 
 

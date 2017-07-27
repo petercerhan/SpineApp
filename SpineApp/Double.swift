@@ -11,8 +11,13 @@ import Foundation
 extension Double {
     
     func rounded(decimals: Int) -> Double {
-        let power = pow(10.0, Double(decimals))
-        return (self * power).rounded() / power
+        let scale = pow(10.0, Double(decimals))
+        return (self * scale).rounded() / scale
+    }
+    
+    func displayAsPercent(decimals: Int) -> String {
+        let rounded = (self * 100).rounded(decimals: decimals)
+        return "\(rounded)%"
     }
     
 }
