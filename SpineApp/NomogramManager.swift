@@ -68,6 +68,19 @@ class NomogramManager {
         nomogramFailurePct[index] = failure(forNomogram: nomograms[index]).rounded(decimals: 10)
     }
     
+    func resetAll() {
+        var nomograms = [Nomogram]()
+        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
+            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
+            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+            nomograms = [nomogram1, nomogram2, nomogram3]
+        }
+        
+        nomogramEvaulated = Array(repeating: false, count: nomograms.count)
+        nomogramFailurePct = Array(repeating: 0.0, count: nomograms.count)
+        self.nomograms = nomograms
+    }
+    
     //MARK: - Domain Logic
     
     private func failure(forNomogram nomogram: Nomogram) -> Double {

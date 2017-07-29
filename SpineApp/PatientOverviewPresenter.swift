@@ -15,25 +15,44 @@ protocol PatientOverviewPresenterDelegate: NSObjectProtocol {
 
 class PatientOverviewPresenter {
     
+    //MARK: - Dependencies
+    
     weak var delegate: PatientOverviewPresenterDelegate?
     weak var view: PatientOverviewViewController?
     let nomogramManager: NomogramManager
+    
+    //MARK: - Initialization
     
     init(delegate: PatientOverviewPresenterDelegate, nomogramManager: NomogramManager) {
         self.delegate = delegate
         self.nomogramManager = nomogramManager
     }
     
+    //MARK: - Interface for view
+    
     func attach(view: PatientOverviewViewController) {
         self.view = view
     }
     
-    //Patient Overview Presenter functions
-    
     func loadData() {
+        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms))
+    }
+    
+    func resetAll() {
+        nomogramManager.resetAll()
+        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms))
+    }
+    
+    func nomogramSelected(atIndex index: Int) {
+        delegate?.nomogramSelected(self, atIndex: index)
+    }
+    
+    //MARK: - Application logic
+    
+    private func elements(fromNomograms nomograms: [Nomogram]) -> [PatientOverviewElement] {
         var patientOverviewElements = [PatientOverviewElement]()
         
-        for (index, nomogram) in nomogramManager.nomograms.enumerated() {
+        for (index, nomogram) in nomograms.enumerated() {
             let description = nomogram.description
             let evaluated = nomogramManager.nomogramEvaulated[index]
             let failurePct = nomogramManager.nomogramFailurePct[index]
@@ -41,15 +60,7 @@ class PatientOverviewPresenter {
             patientOverviewElements.append(element)
         }
         
-        view?.set(elements: patientOverviewElements)
-    }
-    
-    func someAction() {
-        delegate?.sceneComplete(self)
-    }
-    
-    func nomogramSelected(atIndex index: Int) {
-        delegate?.nomogramSelected(self, atIndex: index)
+        return patientOverviewElements
     }
     
 }

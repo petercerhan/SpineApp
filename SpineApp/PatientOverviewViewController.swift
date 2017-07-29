@@ -83,8 +83,12 @@ class PatientOverviewViewController: UIViewController {
     
     //MARK: - User Actions
     
-    @IBAction func done() {
-        presenter.someAction()
+    @IBAction func resetAll() {
+        confirmationAlert(title: nil, message: "Reset all?", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm") {
+            [weak self] in
+            self?.presenter.resetAll()
+        }
+        
     }
     
     //MARK: - Application Actions

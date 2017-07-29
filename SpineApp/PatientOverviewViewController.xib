@@ -53,11 +53,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4C-h3-0ii">
                     <rect key="frame" x="163" y="622" width="49" height="35"/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <state key="normal" title="Reset">
-                        <color key="titleColor" red="0.15619465530000001" green="0.097251436100000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
+                    <state key="normal" title="Reset"/>
                     <connections>
-                        <action selector="done" destination="-1" eventType="touchUpInside" id="xmX-vl-f0S"/>
+                        <action selector="resetAll" destination="-1" eventType="touchUpInside" id="wln-Mn-LIx"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kS0-YG-gPC" userLabel="Divider">
