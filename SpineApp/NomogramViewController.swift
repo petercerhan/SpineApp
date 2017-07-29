@@ -27,12 +27,18 @@ class NomogramViewController: UIViewController {
             failurePctLabel.text = failurePct.displayAsPercent(decimals: 2)
         }
     }
+    var outcome = "" {
+        didSet {
+            outcomeLabel.text = outcome
+        }
+    }
     
     //MARK: - XIB Components
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var failurePctLabel: UILabel!
+    @IBOutlet var outcomeLabel: UILabel!
 
     //MARK: - Initialization
     
@@ -60,6 +66,16 @@ class NomogramViewController: UIViewController {
         tableView.estimatedRowHeight = 140
         
         presenter.loadData()
+    }
+    
+    //MARK: - User Actions
+    
+    @IBAction func done() {
+        presenter.sceneComplete()
+    }
+    
+    @IBAction func reset() {
+        presenter.resetNomogram()
     }
     
     //MARK: - View Actions

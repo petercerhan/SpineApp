@@ -9,14 +9,19 @@
 import Foundation
 
 protocol NomogramPresenterDelegate: NSObjectProtocol {
-    func nomogramPresenterSceneComplete(_ presenter: NomogramPresenter)
+    func sceneComplete(_ presenter: NomogramPresenter)
 }
 
 class NomogramPresenter {
     
+    //MARK: - Dependencies
+    
     weak var delegate: NomogramPresenterDelegate?
     weak var view: NomogramViewController?
     let nomogramManager: NomogramManager
+    
+    //MARK: - State
+    
     let nomogramIndex: Int
     var score: Double {
         didSet {
@@ -28,6 +33,13 @@ class NomogramPresenter {
             view?.failurePct = failurePct
         }
     }
+    var outcome = "" {
+        didSet {
+            view?.outcome = outcome
+        }
+    }
+    
+    //MARK: - Initialization
     
     init(delegate: NomogramPresenterDelegate, nomogramManager: NomogramManager, nomogramIndex: Int) {
         self.delegate = delegate
@@ -37,27 +49,17 @@ class NomogramPresenter {
         failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
     }
     
+    //MARK: - Interface for View
+    
     func attach(view: NomogramViewController) {
         self.view = view
     }
     
-    //Interface for View
     func loadData() {
-        var nomogramElements = [NomogramViewControllerElement]()
-        
-        for predictor in nomogramManager.nomograms[nomogramIndex].predictors {
-            let element = nomogramVCElement(forPredictor: predictor)
-            nomogramElements.append(element)
-        }
-        
         score = nomogramManager.nomograms[nomogramIndex].score
         failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
-        view?.set(elements: nomogramElements)
-    }
-    
-    private func nomogramVCElement(forPredictor predictor: Predictor) -> NomogramViewControllerElement {
-        let element = NomogramViewControllerElement(name: predictor.name, description: predictor.description, points: predictor.points, present: predictor.present)
-        return element
+        outcome = nomogramManager.nomograms[nomogramIndex].outcome
+        view?.set(elements: elements(forNomogram: nomogramManager.nomograms[nomogramIndex]))
     }
     
     func updatePresent(atIndex index: Int) {
@@ -70,5 +72,38 @@ class NomogramPresenter {
         view?.set(element: element, atIndex:index)
     }
     
+    func resetNomogram() {
+        nomogramManager.resetNomogram(atIndex: nomogramIndex)
+        
+        score = nomogramManager.nomograms[nomogramIndex].score
+        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
+        view?.set(elements: elements(forNomogram: nomogramManager.nomograms[nomogramIndex]))
+    }
+    
+    func sceneComplete() {
+        delegate?.sceneComplete(self)
+    }
+    
+    //MARK: - Application Logic
+    
+    private func elements(forNomogram nomogram: Nomogram) -> [NomogramViewControllerElement] {
+        var nomogramVCElements = [NomogramViewControllerElement]()
+        
+        for predictor in nomogramManager.nomograms[nomogramIndex].predictors {
+            let element = nomogramVCElement(forPredictor: predictor)
+            nomogramVCElements.append(element)
+        }
+        
+        return nomogramVCElements
+    }
+    
+    private func nomogramVCElement(forPredictor predictor: Predictor) -> NomogramViewControllerElement {
+        let element = NomogramViewControllerElement(name: predictor.name, description: predictor.description, points: predictor.points, present: predictor.present)
+        return element
+    }
 }
+
+
+
+
 

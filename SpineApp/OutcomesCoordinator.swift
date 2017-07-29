@@ -39,8 +39,6 @@ extension OutcomesCoordinator: PatientOverviewPresenterDelegate {
     }
     
     func nomogramSelected(_ patientOverviewPresenter: PatientOverviewPresenter, atIndex index: Int) {
-        print("nomogram selected at \(index)")
-        
         let presenter = NomogramPresenter(delegate: self, nomogramManager: nomogramManager, nomogramIndex: index)
         let vc = NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
         navigationController.pushViewController(vc, animated: true)
@@ -50,8 +48,8 @@ extension OutcomesCoordinator: PatientOverviewPresenterDelegate {
 
 extension OutcomesCoordinator: NomogramPresenterDelegate {
     
-    func nomogramPresenterSceneComplete(_ presenter: NomogramPresenter) {
-        print("nomogrampresenterscenecomplete")
+    func sceneComplete(_ presenter: NomogramPresenter) {
+        navigationController.popViewController(animated: true)
     }
     
 }
