@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
+        //Development Only
+        UserDefaults.standard.removeObject(forKey: "userProfile")
+        
         mainContainerCoordinator = MainContainerCoordinator(containerViewController: mainContainerViewController)
         mainContainerCoordinator?.start()
         

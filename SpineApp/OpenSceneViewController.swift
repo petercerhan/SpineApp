@@ -28,16 +28,14 @@ class OpenSceneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLayoutSubviews()
-        animateStuff()
+        entrySequence()
     }
     
-    func animateStuff() {
-        //do the intro animation
-        UIView.animate(withDuration: 0.4,
-                       delay: 1.5,
-                       options: .curveEaseOut,
-                       animations: {self.label!.center.x += 100},
-                       completion: {_ in self.presenter.sceneComplete()})
+    func entrySequence() {
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            self.presenter.sceneComplete()
+        })
         
     }
 

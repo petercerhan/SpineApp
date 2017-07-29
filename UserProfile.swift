@@ -36,6 +36,5 @@ extension UserProfile {
             
             aCoder.encode(userProfile.disclaimerAgreed, forKey: "disclaimerAgreed")
         }
-        
     }
 }
