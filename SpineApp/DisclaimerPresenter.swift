@@ -14,25 +14,27 @@ protocol DisclaimerPresenterDelegate: NSObjectProtocol {
 
 class DisclaimerPresenter {
     
+    //MARK: - Dependencies
+    
     weak var delegate: DisclaimerPresenterDelegate?
     weak var view: DisclaimerViewController?
+    let userProfileManager: UserProfileManager
+
+    //MARK: - Initialization
     
-    init(delegate: DisclaimerPresenterDelegate) {
+    init(delegate: DisclaimerPresenterDelegate, userProfileManager: UserProfileManager) {
         self.delegate = delegate
+        self.userProfileManager = userProfileManager
     }
+    
+    //MARK: - Interface for view
     
     func attach(view: DisclaimerViewController) {
         self.view = view
     }
     
-    //Presenter functions
-    
     func userAgreed() {
-        //update UserManager with disclaimerAgreed = true
-        sceneComplete()
-    }
-    
-    func sceneComplete() {
+        userProfileManager.setDisclaimerAgreed(true)
         delegate?.sceneComplete(self)
     }
     

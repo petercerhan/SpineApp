@@ -10,6 +10,8 @@ import UIKit
 
 class MainContainerCoordinator: NSObject {
     
+    //MARK: - State
+    
     let mainContainerViewController: MainContainerViewController
     var childCoordinators = [NSObject]()
     
@@ -28,10 +30,26 @@ class MainContainerCoordinator: NSObject {
 
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
-        let presenter = DisclaimerPresenter(delegate: self)
-        let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
-        
-        mainContainerViewController.show(viewController: vc, animated: false)
+        let userProfileManager = UserProfileManager(userDefaults: UserDefaults.standard)
+        if userProfileManager.disclaimerAgreed() {
+            //TODO: repeated code
+            let nomogramService = NomogramService()
+            let nomogramManager = NomogramManager(nomogramService: nomogramService)
+            
+            let navigationController = UINavigationController()
+            navigationController.navigationBar.isTranslucent = false
+            let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, nomogramManager: nomogramManager)
+            coordinator.start()
+            childCoordinators.append(coordinator)
+            
+            mainContainerViewController.show(viewController: navigationController, animated: true)
+            
+        } else {
+            let presenter = DisclaimerPresenter(delegate: self, userProfileManager: userProfileManager)
+            let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
+            
+            mainContainerViewController.show(viewController: vc, animated: false)
+        }
     }
 }
 
@@ -52,11 +70,5 @@ extension MainContainerCoordinator: DisclaimerPresenterDelegate {
 
 extension MainContainerCoordinator: OutcomesCoordinatorDelegate {
     func outcomesComplete(_ outcomesCoordinator: OutcomesCoordinator) {
-        let presenter = DisclaimerPresenter(delegate: self)
-        let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
-        
-        mainContainerViewController.show(viewController: vc, animated: true)
-        childCoordinators = [NSObject]()
-        //print("Outcomes complete")
     }
 }
