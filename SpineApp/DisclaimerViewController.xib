@@ -19,28 +19,70 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwv-qi-2OY">
-                    <rect key="frame" x="147" y="323" width="80" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGS-Yu-JSb">
-                    <rect key="frame" x="159" y="609" width="56" height="38"/>
+                    <rect key="frame" x="159" y="614" width="56" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <state key="normal" title="Agree"/>
                     <connections>
                         <action selector="agree" destination="-1" eventType="touchUpInside" id="f9i-sC-W8P"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq8-gg-QlB">
+                    <rect key="frame" x="138.5" y="30" width="98.5" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Sd-zx-EYz">
+                    <rect key="frame" x="16" y="73" width="343" height="524"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <mutableString key="text">MDCalc includes clinical tools and databases intended for use by healthcare professionals. These tools do not give professional advice; physicians and other healthcare professionals who use these tools or databases should exercise their own clinical judgment as to the information they provide. Consumers who use the tools or databases do so at their own risk. Individuals with any type of medical condition are specifically cautioned to seek professional medical advice before beginning any sort of health treatment. For medical concerns, including decisions about medications and other treatments, users should always consult their physician or other qualified healthcare professional.
+
+MDCalc’s content developers have carefully tried to create its content to conform to the standards of professional practice that prevailed at the time of development. However, standards and practices in medicine change as new data become available and the individual medical professional should consult a variety of sources.
+
+The contents of the MDCalc Site, such as text, graphics and images are for informational purposes only. MDCalc does not recommend or endorse any specific tests, physicians, products, procedures, opinions, or other information that may be mentioned on the Site.
+
+While information on this site has been obtained from sources believed to be reliable, neither we nor our content providers warrant the accuracy of the information contained on this site.
+
+We do not give medical advice, nor do we provide medical or diagnostic services. Medical information changes rapidly. Neither we nor our content providers guarantee that the content covers all possible uses, directions, precautions, drug interactions, or adverse effects that may be associated with any therapeutic treatments.
+
+Your reliance upon information and content obtained by you at or through this site is solely at your own risk. Neither we nor our content providers assume any liability or responsibility for damage or injury (including death) to you, other persons or property arising from any use of any product, information, idea or instruction contained in the content or services provided to you.</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nV2-1e-g9f">
+                    <rect key="frame" x="0.0" y="71" width="375" height="2"/>
+                    <color key="backgroundColor" red="0.46666666670000001" green="0.85098039219999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="cqu-fH-OtY"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-kM-Iaa">
+                    <rect key="frame" x="0.0" y="597" width="375" height="2"/>
+                    <color key="backgroundColor" red="0.46666666670000001" green="0.85098039219999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="YNk-c0-UBV"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="AGS-Yu-JSb" secondAttribute="bottom" constant="20" id="GrV-ly-pUy"/>
+                <constraint firstAttribute="trailing" secondItem="9Sd-zx-EYz" secondAttribute="trailing" constant="16" id="0Rc-Vk-ybY"/>
+                <constraint firstItem="nV2-1e-g9f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AM4-Wr-9di"/>
+                <constraint firstAttribute="bottom" secondItem="AGS-Yu-JSb" secondAttribute="bottom" constant="15" id="GrV-ly-pUy"/>
                 <constraint firstItem="AGS-Yu-JSb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HM6-vL-7An"/>
-                <constraint firstItem="bwv-qi-2OY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="TmA-zH-dNl"/>
-                <constraint firstItem="bwv-qi-2OY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nLj-Kq-Ut7"/>
+                <constraint firstItem="nV2-1e-g9f" firstAttribute="top" secondItem="Yq8-gg-QlB" secondAttribute="bottom" constant="15.5" id="OTu-yw-otK"/>
+                <constraint firstItem="UjS-kM-Iaa" firstAttribute="top" secondItem="9Sd-zx-EYz" secondAttribute="bottom" id="QhE-eD-t3G"/>
+                <constraint firstItem="Yq8-gg-QlB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="R0i-Zo-V35"/>
+                <constraint firstItem="Yq8-gg-QlB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TvI-MI-2hl"/>
+                <constraint firstItem="UjS-kM-Iaa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XK4-ZN-n5p"/>
+                <constraint firstAttribute="trailing" secondItem="nV2-1e-g9f" secondAttribute="trailing" id="aBk-lu-I0q"/>
+                <constraint firstAttribute="trailing" secondItem="UjS-kM-Iaa" secondAttribute="trailing" id="h00-0W-T2t"/>
+                <constraint firstItem="9Sd-zx-EYz" firstAttribute="top" secondItem="nV2-1e-g9f" secondAttribute="bottom" id="iQd-sd-Wx0"/>
+                <constraint firstItem="AGS-Yu-JSb" firstAttribute="top" secondItem="UjS-kM-Iaa" secondAttribute="bottom" constant="15" id="sh6-PO-F8g"/>
+                <constraint firstItem="9Sd-zx-EYz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="v4h-lm-gT6"/>
             </constraints>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
 </document>
