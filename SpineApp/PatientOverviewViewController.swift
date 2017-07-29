@@ -91,7 +91,7 @@ class PatientOverviewViewController: UIViewController {
         
     }
     
-    //MARK: - Application Actions
+    //MARK: - View Logic
     
     func showDetailsForOutcome(index: Int) {
         let data = DetailsViewControllerData(title: patientOverviewElements[index].outcome,

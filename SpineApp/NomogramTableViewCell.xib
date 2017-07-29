@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtW-hL-Ka4">
@@ -35,7 +35,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d36-7a-G6C">
-                        <rect key="frame" x="253" y="11" width="35" height="21"/>
+                        <rect key="frame" x="250" y="11" width="35" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="QGT-Pg-7Uu"/>
                         </constraints>
@@ -44,12 +44,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnv-zA-v76">
-                        <rect key="frame" x="300" y="11" width="20" height="21"/>
+                        <rect key="frame" x="297" y="11" width="20" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="Bj4-PQ-yM0"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -63,7 +63,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="d36-7a-G6C" secondAttribute="bottom" constant="4" id="O7m-oh-buI"/>
                     <constraint firstItem="AtW-hL-Ka4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ou2-8o-Nph"/>
                     <constraint firstItem="d36-7a-G6C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ghj-to-ozp" secondAttribute="trailing" constant="12" id="WYe-Rk-Au2"/>
-                    <constraint firstAttribute="trailing" secondItem="pnv-zA-v76" secondAttribute="trailing" id="b0y-Og-5tU"/>
+                    <constraint firstAttribute="trailing" secondItem="pnv-zA-v76" secondAttribute="trailing" constant="3" id="b0y-Og-5tU"/>
                     <constraint firstItem="ghj-to-ozp" firstAttribute="leading" secondItem="AtW-hL-Ka4" secondAttribute="trailing" constant="8" id="gOS-2V-TES"/>
                     <constraint firstItem="ghj-to-ozp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="raA-kZ-Leh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="AtW-hL-Ka4" secondAttribute="bottom" constant="3" id="xsf-kX-WCF"/>

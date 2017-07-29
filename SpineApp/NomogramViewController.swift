@@ -119,7 +119,7 @@ extension NomogramViewController: UITableViewDataSource {
         cell.titleLabel.text = element.name
         cell.infoButton.isHidden = (element.description == nil)
         cell.scoreLabel.text = element.present ? "\(element.points)" : "0"
-        cell.checkLabel.text = element.present ? "x" : ""
+        cell.checkLabel.text = element.present ? "✓" : ""
         cell.detailsCallback = { [unowned self] in
             self.showDetailsForPredictor(index: indexPath.item)
         }
