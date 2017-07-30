@@ -23,7 +23,7 @@ class MainContainerCoordinator: NSObject {
         let presenter = OpenScenePresenter(delegate: self)
         let vc = OpenSceneViewController(nibName: "OpenSceneViewController", presenter: presenter)
         
-        mainContainerViewController.show(viewController: vc, animated: false)
+        mainContainerViewController.show(viewController: vc, animation: .none)
     }
     
 }
@@ -42,13 +42,13 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
             coordinator.start()
             childCoordinators.append(coordinator)
             
-            mainContainerViewController.show(viewController: navigationController, animated: true)
+            mainContainerViewController.show(viewController: navigationController, animation: .fadeIn)
             
         } else {
             let presenter = DisclaimerPresenter(delegate: self, userProfileManager: userProfileManager)
             let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
             
-            mainContainerViewController.show(viewController: vc, animated: false)
+            mainContainerViewController.show(viewController: vc, animation: .fadeIn)
         }
     }
 }
@@ -64,7 +64,7 @@ extension MainContainerCoordinator: DisclaimerPresenterDelegate {
         coordinator.start()
         childCoordinators.append(coordinator)
         
-        mainContainerViewController.show(viewController: navigationController, animated: true)
+        mainContainerViewController.show(viewController: navigationController, animation: .slideFromRight)
     }
 }
 
