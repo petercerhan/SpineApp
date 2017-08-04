@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         //Development Only
-        //UserDefaults.standard.removeObject(forKey: "userProfile")
+        UserDefaults.standard.removeObject(forKey: "userProfile")
         
         mainContainerCoordinator = MainContainerCoordinator(containerViewController: mainContainerViewController)
         mainContainerCoordinator?.start()
