@@ -36,18 +36,23 @@ class MainContainerViewController: UIViewController {
         
         priorViewController.willMove(toParentViewController: nil)
         newViewController.didMove(toParentViewController: self)
-        animateTransition(newViewController: newViewController, priorViewController: priorViewController, animation: animation)
+
+        animateTransition(newViewController: newViewController, priorViewController: priorViewController, animation: animation) {
+            priorViewController.view.removeFromSuperview()
+            priorViewController.removeFromParentViewController()
+        }
         
     }
     
-    fileprivate func animateTransition(newViewController: UIViewController, priorViewController: UIViewController, animation: ContainerAnimation) {
+    fileprivate func animateTransition(newViewController: UIViewController, priorViewController: UIViewController, animation: ContainerAnimation, completion: ( () -> Void )? ) {
+        
         switch animation {
         case .none:
-            noAnimation(newViewController: newViewController, priorViewController: priorViewController)
+            noAnimation(newViewController: newViewController, priorViewController: priorViewController, completion: completion)
         case .slideFromRight:
-            slideFromRight(newViewController: newViewController, priorViewController: priorViewController)
+            slideFromRight(newViewController: newViewController, priorViewController: priorViewController, completion: completion)
         case .fadeIn:
-            fadeIn(newViewController: newViewController, priorViewController: priorViewController)
+            fadeIn(newViewController: newViewController, priorViewController: priorViewController, completion: completion)
         }
     }
     
@@ -61,13 +66,13 @@ class MainContainerViewController: UIViewController {
 
 extension MainContainerViewController {
     
-    fileprivate func noAnimation(newViewController: UIViewController, priorViewController: UIViewController) {
+    fileprivate func noAnimation(newViewController: UIViewController, priorViewController: UIViewController, completion: ( () -> Void )? ) {
         newViewController.view.alpha = 1
         
-        remove(priorViewController: priorViewController)
+        completion?()
     }
     
-    fileprivate func slideFromRight(newViewController: UIViewController, priorViewController: UIViewController) {
+    fileprivate func slideFromRight(newViewController: UIViewController, priorViewController: UIViewController, completion: ( () -> Void )? ) {
         newViewController.view.center.x += view.frame.width
         newViewController.view.alpha = 1
         
@@ -77,17 +82,17 @@ extension MainContainerViewController {
             priorViewController.view.center.x -= self.view.frame.width
         }, completion:{
             _ in
-            self.remove(priorViewController: priorViewController)
+            completion?()
         })
     }
     
-    fileprivate func fadeIn(newViewController: UIViewController, priorViewController: UIViewController) {
+    fileprivate func fadeIn(newViewController: UIViewController, priorViewController: UIViewController, completion: ( () -> Void )? ) {
         UIView.animate(withDuration: 0.3, animations: {
             _ in
             newViewController.view.alpha = 1
         }, completion:{
             _ in
-            self.remove(priorViewController: priorViewController)
+            completion?()
         })
     }
     
