@@ -75,9 +75,9 @@ extension NomogramService {
     
     //1 - Failure
     
-    static let description1_1 = "Does the patient have a new ASIA A, B, C, or D grade below the level of injury? An existing motor deficit (e.g. from stroke, peripheral neuropathy) should not be counted as positive."
+    static let description1_1 = "Does the patient have a new ASIA A, B, C, or D grade below the level of injury?\n\nAn existing motor deficit (e.g. from stroke, peripheral neuropathy) should not be counted as positive."
     
-    static let description1_2 = "Does the patient have new urinary incontinence or retention? Incontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
+    static let description1_2 = "Does the patient have new urinary incontinence or retention?\n\nIncontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
     
     static let description1_3 = "Does the patient have a pathologic or compression fracture in the involved vertebral levels?"
     
@@ -85,17 +85,17 @@ extension NomogramService {
     
     static let description1_5 = "Does the patient have comorbid diabetes mellitus at the time of SEA diagnosis?"
     
-    static let description1_6 = "Does the patient have new paresthesias or frank sensory deficit? An existing sensory deficit or long-standing paresthesias (e.g. from degenerative spine disease, peripheral neuropathy) should not be counted as positive."
+    static let description1_6 = "Does the patient have new paresthesias or frank sensory deficit?\n\nAn existing sensory deficit or long-standing paresthesias (e.g. from degenerative spine disease, peripheral neuropathy) should not be counted as positive."
     
-    static let description1_7 = "Do blood and/or wound cultures grow coagulase-negative staphylococci (CoNS). Since CoNS are frequent contaminants, ensure that this is a true positive culture (i.e. multiple positive bottles)"
+    static let description1_7 = "Do blood and/or wound cultures grow coagulase-negative staphylococci (CoNS).\n\nSince CoNS are frequent contaminants, ensure that this is a true positive culture (i.e. multiple positive bottles)"
     
     //2 - Pre-treatment motor deficit
     
-    static let description2_1 = "Does the patient have new paresthesias or frank sensory deficit? An existing sensory deficit or long-standing paresthesias (e.g. from degenerative spine disease, peripheral neuropathy) should not be counted as positive."
+    static let description2_1 = "Does the patient have new paresthesias or frank sensory deficit?\n\nAn existing sensory deficit or long-standing paresthesias (e.g. from degenerative spine disease, peripheral neuropathy) should not be counted as positive."
     
-    static let description2_2 = "Does the patient have new urinary incontinence or retention? Incontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
+    static let description2_2 = "Does the patient have new urinary incontinence or retention?\n\nIncontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
     
-    static let description2_3 = "Does the patient have new fecal incontinence or retention? Incontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
+    static let description2_3 = "Does the patient have new fecal incontinence or retention?\n\nIncontinence must be due to loss of sphincter control, as opposed to being unable to make it to the bathroom in time."
     
     static let description2_4 = "Are components of the abscess located both ventral and dorsal to the thecal sac?"
     
@@ -121,7 +121,7 @@ extension NomogramService {
     
     static let description3_6 = "Does the patient have comorbid diabetes mellitus at the time of SEA diagnosis?"
     
-    static let description3_7 = "Does the patient have a new ASIA A, B, C, or D grade below the level of injury? An existing motor deficit (e.g. from stroke, peripheral neuropathy) should not be counted as positive."
+    static let description3_7 = "Does the patient have a new ASIA A, B, C, or D grade below the level of injury?\n\nAn existing motor deficit (e.g. from stroke, peripheral neuropathy) should not be counted as positive."
     
     static let description3_8 = "Does the patient have an immunosuppressive condition or taking immunosuppressive medications?"
     
