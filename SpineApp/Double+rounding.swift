@@ -21,3 +21,9 @@ extension Double {
     }
     
 }
+
+extension Double {
+    static let e = Double(2.718_281_828)
+}
+
+

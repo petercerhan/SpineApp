@@ -11,6 +11,11 @@ import Foundation
 struct Nomogram {
     let outcome: String
     let description: String?
+    
+    //Conversion formula parameters
+    let constant: Double
+    let pointscoefficient: Double
+    
     var predictors: [Predictor]
     var score: Double
 }

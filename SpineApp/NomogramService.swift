@@ -30,7 +30,9 @@ class NomogramService {
 extension NomogramService {
     
     static let sea_nonOpFailure = Nomogram(outcome: "Failure of non-operative management",
-                                              description: "90-day mortality for patients managed with antibiotics.",
+                                           description: "90-day mortality for patients managed with antibiotics.",
+                                           constant: -3.2668096,
+                                           pointscoefficient:  0.21213817,
                                               predictors: [Predictor(name: "Motor deficit at presentation", description: "The patient has visible motor difficulties", points: 10, present: false),
                                                            Predictor(name: "Urinary incontinence/retention", description: nil, points: 6.81, present: false),
                                                            Predictor(name: "Pathologic compression/failure", description: nil, points: 6.79, present: false),
@@ -42,6 +44,8 @@ extension NomogramService {
     
     static let sea_paralysis = Nomogram(outcome: "Pre-treatment motor deficit",
                                         description: "Risk of pre-treatment motor deficit",
+                                        constant: -2.002155,
+                                        pointscoefficient: 0.1679213,
                                         predictors: [Predictor(name: "Sensory changes", description: nil, points: 10, present: false),
                                                      Predictor(name: "Urinary incontinence/retention", description: nil, points: 7.33, present: false),
                                                      Predictor(name: "Fecal incontinence/retention", description: nil, points: 6.55, present: false),
@@ -52,7 +56,9 @@ extension NomogramService {
                                         score: 0)
     
     static let sea_90dayMortality = Nomogram(outcome: "90 day mortality",
-                                        description: "Risk of 90 day mortality",
+                                             description: "Risk of 90 day mortality",
+                                             constant: -3.6202408,
+                                             pointscoefficient: 0.13411772,
                                         predictors: [Predictor(name: "Age greater than 65 years", description: nil, points: 10, present: false),
                                                      Predictor(name: "Active malignancy", description: nil, points: 9.61, present: false),
                                                      Predictor(name: "Hemodialysis", description: nil, points: 9.28, present: false),

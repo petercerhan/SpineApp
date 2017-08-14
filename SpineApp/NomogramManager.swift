@@ -84,9 +84,19 @@ class NomogramManager {
     //MARK: - Domain Logic
     
     private func failure(forNomogram nomogram: Nomogram) -> Double {
+
+        let c = nomogram.constant
+        let p = nomogram.pointscoefficient
         let score = nomogram.score
-        return score / 80
+        let e = Double.e
+        
+        let failurePct = pow(e, c + p*score) / (1 + pow(e, c + p*score))
+        
+        //find significant figures
+        
+        return failurePct
     }
     
 }
+
 
