@@ -23,11 +23,7 @@ class NomogramPresenter {
     //MARK: - State
     
     let nomogramIndex: Int
-    var score: Double {
-        didSet {
-            view?.score = score
-        }
-    }
+    var score: Double
     var failurePct: Double {
         didSet {
             view?.failurePct = failurePct
@@ -76,6 +72,7 @@ class NomogramPresenter {
         nomogramManager.resetNomogram(atIndex: nomogramIndex)
         
         score = nomogramManager.nomograms[nomogramIndex].score
+        print("score \(score)")
         failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
         view?.set(elements: elements(forNomogram: nomogramManager.nomograms[nomogramIndex]))
     }

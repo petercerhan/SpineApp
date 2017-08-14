@@ -17,11 +17,6 @@ class NomogramViewController: UIViewController {
     //MARK: - State
     
     fileprivate var nomogramElements = [NomogramViewControllerElement]()
-    var score: Double = 0 {
-        didSet {
-            scoreLabel.text = "\(score)"
-        }
-    }
     var failurePct: Double = 0.0 {
         didSet {
             failurePctLabel.text = failurePct.displayAsPercent(decimals: 2)
@@ -64,6 +59,7 @@ class NomogramViewController: UIViewController {
         tableView.register(UINib(nibName:"NomogramTableViewCell", bundle: nil), forCellReuseIdentifier: "NomogramTableViewCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         
         presenter.loadData()
     }
@@ -118,7 +114,6 @@ extension NomogramViewController: UITableViewDataSource {
         //configure cell
         cell.titleLabel.text = element.name
         cell.infoButton.isHidden = (element.description == nil)
-        cell.scoreLabel.text = element.present ? "\(element.points)" : "0"
         cell.checkLabel.text = element.present ? "✓" : ""
         cell.detailsCallback = { [unowned self] in
             self.showDetailsForPredictor(index: indexPath.item)

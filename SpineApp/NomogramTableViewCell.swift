@@ -12,7 +12,6 @@ class NomogramTableViewCell: UITableViewCell {
 
     @IBOutlet var infoButton: UIButton!
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var checkLabel: UILabel!
     
     var detailsCallback: (() -> ())?

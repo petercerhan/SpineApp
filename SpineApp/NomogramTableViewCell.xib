@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtW-hL-Ka4">
@@ -34,17 +34,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d36-7a-G6C">
-                        <rect key="frame" x="250" y="11" width="35" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="35" id="QGT-Pg-7Uu"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnv-zA-v76">
-                        <rect key="frame" x="297" y="11" width="20" height="21"/>
+                        <rect key="frame" x="285" y="11" width="20" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="Bj4-PQ-yM0"/>
                         </constraints>
@@ -55,24 +46,20 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="pnv-zA-v76" secondAttribute="bottom" constant="12" id="2bJ-h2-B6I"/>
-                    <constraint firstItem="d36-7a-G6C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="3Ii-hp-jjC"/>
                     <constraint firstItem="AtW-hL-Ka4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="Ai8-9o-N70"/>
                     <constraint firstItem="pnv-zA-v76" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="GDm-pR-uZA"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ghj-to-ozp" secondAttribute="bottom" constant="4" id="Ghf-Ia-VjY"/>
-                    <constraint firstItem="pnv-zA-v76" firstAttribute="leading" secondItem="d36-7a-G6C" secondAttribute="trailing" constant="12" id="MDJ-0X-Yub"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="d36-7a-G6C" secondAttribute="bottom" constant="4" id="O7m-oh-buI"/>
                     <constraint firstItem="AtW-hL-Ka4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ou2-8o-Nph"/>
-                    <constraint firstItem="d36-7a-G6C" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ghj-to-ozp" secondAttribute="trailing" constant="12" id="WYe-Rk-Au2"/>
-                    <constraint firstAttribute="trailing" secondItem="pnv-zA-v76" secondAttribute="trailing" constant="3" id="b0y-Og-5tU"/>
+                    <constraint firstAttribute="trailing" secondItem="pnv-zA-v76" secondAttribute="trailing" constant="15" id="b0y-Og-5tU"/>
                     <constraint firstItem="ghj-to-ozp" firstAttribute="leading" secondItem="AtW-hL-Ka4" secondAttribute="trailing" constant="8" id="gOS-2V-TES"/>
                     <constraint firstItem="ghj-to-ozp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="raA-kZ-Leh"/>
                     <constraint firstAttribute="bottomMargin" secondItem="AtW-hL-Ka4" secondAttribute="bottom" constant="3" id="xsf-kX-WCF"/>
+                    <constraint firstItem="pnv-zA-v76" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ghj-to-ozp" secondAttribute="trailing" constant="12" id="zaB-sQ-Ycr"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkLabel" destination="pnv-zA-v76" id="WGz-cW-dhZ"/>
                 <outlet property="infoButton" destination="AtW-hL-Ka4" id="9lc-pt-vph"/>
-                <outlet property="scoreLabel" destination="d36-7a-G6C" id="AuF-Ir-7Pt"/>
                 <outlet property="titleLabel" destination="ghj-to-ozp" id="bdc-3n-eqX"/>
             </connections>
         </tableViewCell>
