@@ -20,6 +20,18 @@ extension Double {
         return "\(rounded)%"
     }
     
+    func significantFigures(_ digits: Int) -> Double {
+        
+        let formatter = NumberFormatter()
+        formatter.usesSignificantDigits = true
+        formatter.minimumSignificantDigits = digits
+        formatter.maximumSignificantDigits = digits
+        
+        let result = Double(formatter.string(from: NSNumber(floatLiteral: self))!)!
+        
+        return result
+    }
+    
 }
 
 extension Double {

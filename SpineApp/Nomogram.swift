@@ -26,9 +26,7 @@ struct Nomogram {
         let e = Double.e
         
         let result = pow(e, c + p*score) / (1 + pow(e, c + p*score))
-        
-        //find significant figures
 
-        return result
+        return result.significantFigures(2)
     }
 }

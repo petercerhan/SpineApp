@@ -18,7 +18,6 @@ class NomogramManager {
     
     var nomograms: [Nomogram]
     var nomogramEvaulated: [Bool]
-    var nomogramFailurePct: [Double]
     
     //MARK: - Initialization
     
@@ -36,7 +35,6 @@ class NomogramManager {
         self.nomograms = nomograms
         
         nomogramEvaulated = Array(repeating: false, count: nomograms.count)
-        nomogramFailurePct = Array(repeating: 0.0, count: nomograms.count)
     }
     
     //MARK: - Interface
@@ -74,7 +72,6 @@ class NomogramManager {
         }
         
         nomogramEvaulated = Array(repeating: false, count: nomograms.count)
-        nomogramFailurePct = Array(repeating: 0.0, count: nomograms.count)
         self.nomograms = nomograms
     }
 }
