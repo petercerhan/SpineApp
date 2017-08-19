@@ -35,15 +35,16 @@ class PatientOverviewPresenter {
     }
     
     func loadData() {
-        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms))
+        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms), evaluated: nomogramManager.nomogramEvaluated)
     }
     
     func resetAll() {
         nomogramManager.resetAll()
-        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms))
+        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms), evaluated: nomogramManager.nomogramEvaluated)
     }
     
     func nomogramSelected(atIndex index: Int) {
+        nomogramManager.setNomogramEvaluated(atIndex: index)
         delegate?.nomogramSelected(self, atIndex: index)
     }
     
@@ -54,7 +55,7 @@ class PatientOverviewPresenter {
         
         for (index, nomogram) in nomograms.enumerated() {
             let description = nomogram.description
-            let evaluated = nomogramManager.nomogramEvaulated[index]
+            let evaluated = nomogramManager.nomogramEvaluated[index]
             let failurePct = nomogram.failurePct
             let element = PatientOverviewElement(outcome: nomogram.outcome, description: description, evaluated: evaluated, failurePct: failurePct)
             patientOverviewElements.append(element)

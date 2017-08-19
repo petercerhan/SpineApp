@@ -90,12 +90,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWb-Xn-00o">
-                    <rect key="frame" x="289.5" y="74.5" width="47.5" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probability" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvU-tV-m4f">
                     <rect key="frame" x="34" y="571" width="81.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -105,25 +99,24 @@
             </subviews>
             <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="kT5-GM-3FF" firstAttribute="top" secondItem="yWb-Xn-00o" secondAttribute="bottom" constant="8" id="0yT-HO-JgU"/>
                 <constraint firstAttribute="trailing" secondItem="FGI-z7-a7m" secondAttribute="trailing" id="18P-bk-ArN"/>
                 <constraint firstItem="Gd9-pg-AKw" firstAttribute="centerY" secondItem="yo7-4O-8Kk" secondAttribute="centerY" id="3g3-ji-ade"/>
                 <constraint firstItem="U0S-9k-ara" firstAttribute="top" secondItem="kT5-GM-3FF" secondAttribute="bottom" id="6Pd-26-5Y9"/>
                 <constraint firstItem="FGI-z7-a7m" firstAttribute="centerY" secondItem="Gd9-pg-AKw" secondAttribute="centerY" id="7V5-b3-d0p"/>
                 <constraint firstItem="Efb-a9-CJq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8GO-yK-qHR"/>
-                <constraint firstAttribute="trailing" secondItem="yWb-Xn-00o" secondAttribute="trailing" constant="38" id="9E4-5S-WrB"/>
                 <constraint firstItem="FGI-z7-a7m" firstAttribute="top" secondItem="0jc-nl-Sex" secondAttribute="bottom" constant="-2" id="AUU-Rs-zub"/>
                 <constraint firstItem="vdH-GN-FtR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="D6E-Lm-Ea2"/>
                 <constraint firstItem="U0S-9k-ara" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JSs-gR-ZMs"/>
                 <constraint firstAttribute="bottom" secondItem="yo7-4O-8Kk" secondAttribute="bottom" constant="10" id="Lnd-De-rgg"/>
+                <constraint firstItem="kT5-GM-3FF" firstAttribute="top" secondItem="Ur4-C3-9Gd" secondAttribute="bottom" constant="8" id="OaG-Wg-ISr"/>
                 <constraint firstItem="FGI-z7-a7m" firstAttribute="top" secondItem="5pU-Eq-bV4" secondAttribute="bottom" constant="20" id="PnH-MP-bPf"/>
                 <constraint firstItem="5pU-Eq-bV4" firstAttribute="top" secondItem="Efb-a9-CJq" secondAttribute="bottom" constant="20" id="PsP-gZ-3DB"/>
+                <constraint firstAttribute="trailing" secondItem="5pU-Eq-bV4" secondAttribute="trailing" constant="38" id="QSq-bJ-0zx"/>
                 <constraint firstItem="Ur4-C3-9Gd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="R2v-qz-PUb"/>
                 <constraint firstItem="yo7-4O-8Kk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.4" id="SE2-Di-oMR"/>
                 <constraint firstItem="EvU-tV-m4f" firstAttribute="leading" secondItem="Ur4-C3-9Gd" secondAttribute="leading" id="UUx-l0-6fb"/>
                 <constraint firstAttribute="bottom" secondItem="FGI-z7-a7m" secondAttribute="bottom" id="UW4-Ud-ggj"/>
                 <constraint firstItem="FGI-z7-a7m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Z4h-6v-cMT"/>
-                <constraint firstItem="5pU-Eq-bV4" firstAttribute="trailing" secondItem="yWb-Xn-00o" secondAttribute="trailing" id="abZ-aE-OVd"/>
                 <constraint firstItem="vdH-GN-FtR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="asc-vu-7eN"/>
                 <constraint firstItem="vdH-GN-FtR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ehO-Dj-CVx"/>
                 <constraint firstAttribute="trailing" secondItem="kT5-GM-3FF" secondAttribute="trailing" id="fok-Dq-OU1"/>
@@ -137,7 +130,6 @@
                 <constraint firstItem="kT5-GM-3FF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tf0-dB-Z8S"/>
                 <constraint firstItem="EvU-tV-m4f" firstAttribute="centerY" secondItem="5pU-Eq-bV4" secondAttribute="centerY" id="uEg-YA-Lrb"/>
                 <constraint firstAttribute="trailing" secondItem="vdH-GN-FtR" secondAttribute="trailing" constant="15" id="v0D-kY-tRq"/>
-                <constraint firstItem="yWb-Xn-00o" firstAttribute="centerY" secondItem="Ur4-C3-9Gd" secondAttribute="centerY" id="xMX-9x-Ypi"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>

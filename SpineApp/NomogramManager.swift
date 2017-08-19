@@ -17,7 +17,7 @@ class NomogramManager {
     //MARK: - State
     
     var nomograms: [Nomogram]
-    var nomogramEvaulated: [Bool]
+    var nomogramEvaluated: [Bool]
     
     //MARK: - Initialization
     
@@ -34,12 +34,15 @@ class NomogramManager {
         
         self.nomograms = nomograms
         
-        nomogramEvaulated = Array(repeating: false, count: nomograms.count)
+        nomogramEvaluated = Array(repeating: false, count: nomograms.count)
     }
     
     //MARK: - Interface
 
     func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
+        
+        print("\(nomogramEvaluated)")
+        
         var predictor = nomograms[nomogramIndex].predictors[predictorIndex]
         predictor.present = !(predictor.present)
         nomograms[nomogramIndex].predictors[predictorIndex] = predictor
@@ -48,6 +51,10 @@ class NomogramManager {
         nomograms[nomogramIndex].score = newScore.rounded(decimals: 10)
         
         return predictor
+    }
+    
+    func setNomogramEvaluated(atIndex index: Int) {
+        nomogramEvaluated[index] = true
     }
     
     func resetNomogram(atIndex index: Int) {
@@ -71,7 +78,7 @@ class NomogramManager {
             nomograms = [nomogram1, nomogram2, nomogram3]
         }
         
-        nomogramEvaulated = Array(repeating: false, count: nomograms.count)
+        nomogramEvaluated = Array(repeating: false, count: nomograms.count)
         self.nomograms = nomograms
     }
 }

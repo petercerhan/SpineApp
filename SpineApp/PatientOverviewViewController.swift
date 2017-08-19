@@ -17,6 +17,7 @@ class PatientOverviewViewController: UIViewController {
     //MARK: - State
     
     fileprivate var patientOverviewElements = [PatientOverviewElement]()
+    fileprivate var outcomeEvaluated = [Bool]()
     
     //MARK: - XIB Components
     
@@ -59,17 +60,19 @@ class PatientOverviewViewController: UIViewController {
     
     //MARK: - Interface for presenter
     
-    func set(elements: [PatientOverviewElement]) {
+    func set(elements: [PatientOverviewElement], evaluated: [Bool]) {
         patientOverviewElements = elements
+        outcomeEvaluated = evaluated
         tableView.reloadData()
     }
     
-    func set(element: PatientOverviewElement, atIndex index: Int) -> Bool {
+    func set(element: PatientOverviewElement, evaluated: Bool, atIndex index: Int) -> Bool {
         guard index < patientOverviewElements.count else {
             return false
         }
         
         patientOverviewElements[index] = element
+        outcomeEvaluated[index] = evaluated
         
         tableView.reloadData()
         
@@ -116,7 +119,15 @@ extension PatientOverviewViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PatientOverviewCell") as! PatientOverviewTableViewCell
         
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
-        cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(decimals: 2)
+        
+        if outcomeEvaluated[indexPath.item] {
+            cell.percentageLabel.textAlignment = .right
+            cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(decimals: 2)
+        } else {
+//            cell.percentageLabel.textAlignment = .center
+            cell.percentageLabel.text = "  -"
+        }
+        
         cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
         cell.detailsCallback = { [unowned self] in
             self.showDetailsForOutcome(index: indexPath.item)
