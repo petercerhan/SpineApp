@@ -48,7 +48,6 @@ class NomogramManager {
         
         let newScore = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
         nomograms[nomogramIndex].score = newScore.rounded(decimals: 10)
-        nomogramFailurePct[nomogramIndex] = failure(forNomogram: nomograms[nomogramIndex]).rounded(decimals: 10)
         
         return predictor
     }
@@ -64,8 +63,6 @@ class NomogramManager {
         default:
             break
         }
-        
-        nomogramFailurePct[index] = failure(forNomogram: nomograms[index]).rounded(decimals: 10)
     }
     
     func resetAll() {
@@ -80,23 +77,6 @@ class NomogramManager {
         nomogramFailurePct = Array(repeating: 0.0, count: nomograms.count)
         self.nomograms = nomograms
     }
-    
-    //MARK: - Domain Logic
-    
-    private func failure(forNomogram nomogram: Nomogram) -> Double {
-
-        let c = nomogram.constant
-        let p = nomogram.pointscoefficient
-        let score = nomogram.score
-        let e = Double.e
-        
-        let failurePct = pow(e, c + p*score) / (1 + pow(e, c + p*score))
-        
-        //find significant figures
-        
-        return failurePct
-    }
-    
 }
 
 

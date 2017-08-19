@@ -42,7 +42,7 @@ class NomogramPresenter {
         self.nomogramManager = nomogramManager
         self.nomogramIndex = nomogramIndex
         score = nomogramManager.nomograms[nomogramIndex].score
-        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
+        failurePct = nomogramManager.nomograms[nomogramIndex].failurePct
     }
     
     //MARK: - Interface for View
@@ -53,7 +53,7 @@ class NomogramPresenter {
     
     func loadData() {
         score = nomogramManager.nomograms[nomogramIndex].score
-        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
+        failurePct = nomogramManager.nomograms[nomogramIndex].failurePct
         outcome = nomogramManager.nomograms[nomogramIndex].outcome
         view?.set(elements: elements(forNomogram: nomogramManager.nomograms[nomogramIndex]))
     }
@@ -64,16 +64,15 @@ class NomogramPresenter {
         let element = nomogramVCElement(forPredictor: predictor)
         
         score = nomogramManager.nomograms[nomogramIndex].score
-        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
-        view?.set(element: element, atIndex:index)
+        failurePct = nomogramManager.nomograms[nomogramIndex].failurePct
+        view?.set(element: element, atIndex: index)
     }
     
     func resetNomogram() {
         nomogramManager.resetNomogram(atIndex: nomogramIndex)
         
         score = nomogramManager.nomograms[nomogramIndex].score
-        print("score \(score)")
-        failurePct = nomogramManager.nomogramFailurePct[nomogramIndex]
+        failurePct = nomogramManager.nomograms[nomogramIndex].failurePct
         view?.set(elements: elements(forNomogram: nomogramManager.nomograms[nomogramIndex]))
     }
     

@@ -55,7 +55,7 @@ class PatientOverviewPresenter {
         for (index, nomogram) in nomograms.enumerated() {
             let description = nomogram.description
             let evaluated = nomogramManager.nomogramEvaulated[index]
-            let failurePct = nomogramManager.nomogramFailurePct[index]
+            let failurePct = nomogram.failurePct
             let element = PatientOverviewElement(outcome: nomogram.outcome, description: description, evaluated: evaluated, failurePct: failurePct)
             patientOverviewElements.append(element)
         }
