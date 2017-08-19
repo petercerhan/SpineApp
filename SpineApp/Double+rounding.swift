@@ -20,6 +20,10 @@ extension Double {
         return "\(rounded)%"
     }
     
+    func displayAsPercent(significantFigures: Int) -> String {
+            return "\((self * 100).significantFigures(significantFigures))%"
+    }
+    
     func significantFigures(_ digits: Int) -> Double {
         
         let formatter = NumberFormatter()
@@ -37,5 +41,3 @@ extension Double {
 extension Double {
     static let e = Double(2.718_281_828)
 }
-
-

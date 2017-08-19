@@ -121,11 +121,9 @@ extension PatientOverviewViewController: UITableViewDataSource {
         cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
         
         if outcomeEvaluated[indexPath.item] {
-            cell.percentageLabel.textAlignment = .right
-            cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(decimals: 2)
+            cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(significantFigures: 2)
         } else {
-//            cell.percentageLabel.textAlignment = .center
-            cell.percentageLabel.text = "  -"
+            cell.percentageLabel.text = "-"
         }
         
         cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)

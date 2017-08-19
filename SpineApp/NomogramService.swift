@@ -29,7 +29,7 @@ class NomogramService {
 extension NomogramService {
     
     static let sea_nonOpFailure = Nomogram(outcome: "Failure",
-                                           description: "90-day mortality for patients managed with antibiotics.",
+                                           description: nil,
                                            constant: -3.2668096,
                                            pointscoefficient:  0.21213817,
                                               predictors: [Predictor(name: "Motor deficit at presentation", description: NomogramService.description1_1, points: 10, present: false),
@@ -42,7 +42,7 @@ extension NomogramService {
                                               score: 0)
     
     static let sea_paralysis = Nomogram(outcome: "Pre-treatment motor deficit",
-                                        description: "Risk of pre-treatment motor deficit",
+                                        description: nil,
                                         constant: -2.002155,
                                         pointscoefficient: 0.1679213,
                                         predictors: [Predictor(name: "Sensory changes", description: NomogramService.description2_1, points: 10, present: false),
@@ -55,7 +55,7 @@ extension NomogramService {
                                         score: 0)
     
     static let sea_90dayMortality = Nomogram(outcome: "90-day mortality",
-                                             description: "Risk of 90 day mortality",
+                                             description: nil,
                                              constant: -3.6202408,
                                              pointscoefficient: 0.13411772,
                                         predictors: [Predictor(name: "Age >65", description: NomogramService.description3_1, points: 10, present: false),

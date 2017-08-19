@@ -19,7 +19,7 @@ class NomogramViewController: UIViewController {
     fileprivate var nomogramElements = [NomogramViewControllerElement]()
     var failurePct: Double = 0.0 {
         didSet {
-            failurePctLabel.text = failurePct.displayAsPercent(decimals: 2)
+            failurePctLabel.text = failurePct.displayAsPercent(significantFigures: 2)
         }
     }
     var outcome = "" {
