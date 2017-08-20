@@ -1,5 +1,5 @@
 //
-//  NomogramManager.swift
+//  OutcomesStateController.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/11/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NomogramManager {
+class OutcomesStateController {
 
     //MARK: - Dependencies
     

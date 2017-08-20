@@ -25,7 +25,6 @@ class NomogramService {
     
 }
 
-//Nomograms. Could substitute some other method of retrieval or assembly
 extension NomogramService {
     
     static let sea_nonOpFailure = Nomogram(outcome: "Failure",

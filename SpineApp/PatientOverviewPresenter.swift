@@ -19,13 +19,13 @@ class PatientOverviewPresenter {
     
     weak var delegate: PatientOverviewPresenterDelegate?
     weak var view: PatientOverviewViewController?
-    let nomogramManager: NomogramManager
+    let outcomesStateController: OutcomesStateController
     
     //MARK: - Initialization
     
-    init(delegate: PatientOverviewPresenterDelegate, nomogramManager: NomogramManager) {
+    init(delegate: PatientOverviewPresenterDelegate, outcomesStateController: OutcomesStateController) {
         self.delegate = delegate
-        self.nomogramManager = nomogramManager
+        self.outcomesStateController = outcomesStateController
     }
     
     //MARK: - Interface for view
@@ -35,16 +35,16 @@ class PatientOverviewPresenter {
     }
     
     func loadData() {
-        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms), evaluated: nomogramManager.nomogramEvaluated)
+        view?.set(elements: elements(fromNomograms:  outcomesStateController.nomograms), evaluated: outcomesStateController.nomogramEvaluated)
     }
     
     func resetAll() {
-        nomogramManager.resetAll()
-        view?.set(elements: elements(fromNomograms:  nomogramManager.nomograms), evaluated: nomogramManager.nomogramEvaluated)
+        outcomesStateController.resetAll()
+        view?.set(elements: elements(fromNomograms:  outcomesStateController.nomograms), evaluated: outcomesStateController.nomogramEvaluated)
     }
     
     func nomogramSelected(atIndex index: Int) {
-        nomogramManager.setNomogramEvaluated(atIndex: index)
+        outcomesStateController.setNomogramEvaluated(atIndex: index)
         delegate?.nomogramSelected(self, atIndex: index)
     }
     
@@ -55,7 +55,7 @@ class PatientOverviewPresenter {
         
         for (index, nomogram) in nomograms.enumerated() {
             let description = nomogram.description
-            let evaluated = nomogramManager.nomogramEvaluated[index]
+            let evaluated = outcomesStateController.nomogramEvaluated[index]
             let failurePct = nomogram.failurePct
             let element = PatientOverviewElement(outcome: nomogram.outcome, description: description, evaluated: evaluated, failurePct: failurePct)
             patientOverviewElements.append(element)

@@ -16,17 +16,17 @@ class OutcomesCoordinator: NSObject {
     
     weak var delegate: OutcomesCoordinatorDelegate?
     let navigationController: UINavigationController
-    let nomogramManager: NomogramManager
+    let outcomesStateController: OutcomesStateController
     
-    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController, nomogramManager: NomogramManager) {
+    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController, outcomesStateController: OutcomesStateController) {
         self.delegate = delegate
         self.navigationController = navigationController
-        self.nomogramManager = nomogramManager
+        self.outcomesStateController = outcomesStateController
     }
     
     func start() {
         //create first view controller other assembly
-        let presenter = PatientOverviewPresenter(delegate: self, nomogramManager: nomogramManager)
+        let presenter = PatientOverviewPresenter(delegate: self, outcomesStateController: outcomesStateController)
         let vc = PatientOverviewViewController(nibName: "PatientOverviewViewController", presenter: presenter)
         navigationController.setViewControllers([vc], animated: false)
     }
@@ -39,7 +39,7 @@ extension OutcomesCoordinator: PatientOverviewPresenterDelegate {
     }
     
     func nomogramSelected(_ patientOverviewPresenter: PatientOverviewPresenter, atIndex index: Int) {
-        let presenter = NomogramPresenter(delegate: self, nomogramManager: nomogramManager, nomogramIndex: index)
+        let presenter = NomogramPresenter(delegate: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
         let vc = NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
         navigationController.pushViewController(vc, animated: true)
     }

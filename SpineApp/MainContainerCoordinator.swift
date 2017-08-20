@@ -34,11 +34,11 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
         if userProfileManager.disclaimerAgreed() {
             //TODO: repeated code
             let nomogramService = NomogramService()
-            let nomogramManager = NomogramManager(nomogramService: nomogramService)
+            let outcomesStateController = OutcomesStateController(nomogramService: nomogramService)
             
             let navigationController = UINavigationController()
             navigationController.navigationBar.isTranslucent = false
-            let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, nomogramManager: nomogramManager)
+            let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
             coordinator.start()
             childCoordinators.append(coordinator)
             
@@ -56,11 +56,11 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
         let nomogramService = NomogramService()
-        let nomogramManager = NomogramManager(nomogramService: nomogramService)
+        let outcomesStateController = OutcomesStateController(nomogramService: nomogramService)
         
         let navigationController = UINavigationController()
         navigationController.navigationBar.isTranslucent = false
-        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, nomogramManager: nomogramManager)
+        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
         coordinator.start()
         childCoordinators.append(coordinator)
         
