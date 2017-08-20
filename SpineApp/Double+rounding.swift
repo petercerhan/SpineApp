@@ -21,7 +21,18 @@ extension Double {
     }
     
     func displayAsPercent(significantFigures: Int) -> String {
-            return "\((self * 100).significantFigures(significantFigures))%"
+        
+        let withSigFigs = (self * 100).significantFigures(significantFigures)
+        
+        let places = Int(trunc(log2(withSigFigs)/log2(10)) + 1)
+        
+        if places >= significantFigures {
+            return "\(Int(withSigFigs))%"
+        } else {
+            return "\(withSigFigs)%"
+        }
+        
+//        return "\((self * 100).significantFigures(significantFigures))%"
     }
     
     func significantFigures(_ digits: Int) -> Double {
