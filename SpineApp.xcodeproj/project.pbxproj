@@ -28,7 +28,7 @@
 		E4B823921F2D1BC200AF36CB /* UserProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */; };
 		E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539341F15A6A000D1A565 /* Predictor.swift */; };
 		E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539381F15A73C00D1A565 /* Nomogram.swift */; };
-		E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramService.swift */; };
+		E4E5393B1F15A88E00D1A565 /* NomogramProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */; };
 		E4E5393D1F15AE6A00D1A565 /* OutcomesStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393C1F15AE6A00D1A565 /* OutcomesStateController.swift */; };
 		E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */; };
 		E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5394C1F18404700D1A565 /* OpenSceneViewController.swift */; };
@@ -91,7 +91,7 @@
 		E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileManager.swift; sourceTree = "<group>"; };
 		E4E539341F15A6A000D1A565 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		E4E539381F15A73C00D1A565 /* Nomogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nomogram.swift; sourceTree = "<group>"; };
-		E4E5393A1F15A88E00D1A565 /* NomogramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramService.swift; sourceTree = "<group>"; };
+		E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramProvider.swift; sourceTree = "<group>"; };
 		E4E5393C1F15AE6A00D1A565 /* OutcomesStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutcomesStateController.swift; sourceTree = "<group>"; };
 		E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerCoordinator.swift; sourceTree = "<group>"; };
 		E4E5394C1F18404700D1A565 /* OpenSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSceneViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 			children = (
 				E4E539341F15A6A000D1A565 /* Predictor.swift */,
 				E4E539381F15A73C00D1A565 /* Nomogram.swift */,
-				E4E5393A1F15A88E00D1A565 /* NomogramService.swift */,
+				E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */,
 				E4E5393C1F15AE6A00D1A565 /* OutcomesStateController.swift */,
 				E4B8238F1F2D12F000AF36CB /* UserProfile.swift */,
 				E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */,
@@ -437,7 +437,7 @@
 				E4E539681F1C392600D1A565 /* PatientOverviewTableViewCell.swift in Sources */,
 				E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */,
 				E4B823901F2D12F000AF36CB /* UserProfile.swift in Sources */,
-				E4E5393B1F15A88E00D1A565 /* NomogramService.swift in Sources */,
+				E4E5393B1F15A88E00D1A565 /* NomogramProvider.swift in Sources */,
 				E4B8238C1F29731E00AF36CB /* Double+rounding.swift in Sources */,
 				E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */,
 			);

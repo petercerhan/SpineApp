@@ -12,7 +12,7 @@ class OutcomesStateController {
 
     //MARK: - Dependencies
     
-    let nomogramService: NomogramService
+    let nomogramProvider: NomogramProvider
     
     //MARK: - State
     
@@ -21,13 +21,13 @@ class OutcomesStateController {
     
     //MARK: - Initialization
     
-    init(nomogramService: NomogramService) {
-        self.nomogramService = nomogramService
+    init(nomogramProvider: NomogramProvider) {
+        self.nomogramProvider = nomogramProvider
         
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+        if let nomogram1 = nomogramProvider.nomogram(code: .sea_nonOpFailure),
+            let nomogram2 = nomogramProvider.nomogram(code: .sea_paralysis),
+            let nomogram3 = nomogramProvider.nomogram(code: .sea_90dayMortality) {
             
             nomograms = [nomogram1, nomogram2, nomogram3]
         }
@@ -40,8 +40,6 @@ class OutcomesStateController {
     //MARK: - Interface
 
     func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
-        
-        print("\(nomogramEvaluated)")
         
         var predictor = nomograms[nomogramIndex].predictors[predictorIndex]
         predictor.present = !(predictor.present)
@@ -60,11 +58,11 @@ class OutcomesStateController {
     func resetNomogram(atIndex index: Int) {
         switch index {
         case 0:
-            nomograms[index] = nomogramService.nomogram(code: .sea_nonOpFailure)!
+            nomograms[index] = nomogramProvider.nomogram(code: .sea_nonOpFailure)!
         case 1:
-            nomograms[index] = nomogramService.nomogram(code: .sea_paralysis)!
+            nomograms[index] = nomogramProvider.nomogram(code: .sea_paralysis)!
         case 2:
-            nomograms[index] = nomogramService.nomogram(code: .sea_90dayMortality)!
+            nomograms[index] = nomogramProvider.nomogram(code: .sea_90dayMortality)!
         default:
             break
         }
@@ -72,9 +70,9 @@ class OutcomesStateController {
     
     func resetAll() {
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+        if let nomogram1 = nomogramProvider.nomogram(code: .sea_nonOpFailure),
+            let nomogram2 = nomogramProvider.nomogram(code: .sea_paralysis),
+            let nomogram3 = nomogramProvider.nomogram(code: .sea_90dayMortality) {
             nomograms = [nomogram1, nomogram2, nomogram3]
         }
         
