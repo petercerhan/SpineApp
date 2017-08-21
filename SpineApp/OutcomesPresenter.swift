@@ -1,5 +1,5 @@
 //
-//  PatientOverviewPresenter.swift
+//  OutcomesPresenter.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/13/17.
@@ -8,29 +8,29 @@
 
 import Foundation
 
-protocol PatientOverviewPresenterDelegate: NSObjectProtocol {
-    func sceneComplete(_ patientOverviewPresenter: PatientOverviewPresenter)
-    func nomogramSelected(_ patientOverviewPresenter: PatientOverviewPresenter, atIndex index: Int)
+protocol OutcomesPresenterDelegate: NSObjectProtocol {
+    func sceneComplete(_ outcomesPresenter: OutcomesPresenter)
+    func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int)
 }
 
-class PatientOverviewPresenter {
+class OutcomesPresenter {
     
     //MARK: - Dependencies
     
-    weak var delegate: PatientOverviewPresenterDelegate?
-    weak var view: PatientOverviewViewController?
+    weak var delegate: OutcomesPresenterDelegate?
+    weak var view: OutcomesViewController?
     let outcomesStateController: OutcomesStateController
     
     //MARK: - Initialization
     
-    init(delegate: PatientOverviewPresenterDelegate, outcomesStateController: OutcomesStateController) {
+    init(delegate: OutcomesPresenterDelegate, outcomesStateController: OutcomesStateController) {
         self.delegate = delegate
         self.outcomesStateController = outcomesStateController
     }
     
     //MARK: - Interface for view
     
-    func attach(view: PatientOverviewViewController) {
+    func attach(view: OutcomesViewController) {
         self.view = view
     }
     
@@ -50,18 +50,20 @@ class PatientOverviewPresenter {
     
     //MARK: - Application logic
     
-    private func elements(fromNomograms nomograms: [Nomogram]) -> [PatientOverviewElement] {
-        var patientOverviewElements = [PatientOverviewElement]()
+    typealias OutcomesElement = OutcomesViewController.OutcomesElement
+    
+    private func elements(fromNomograms nomograms: [Nomogram]) -> [OutcomesElement] {
+        var outcomesElements = [OutcomesElement]()
         
         for (index, nomogram) in nomograms.enumerated() {
             let description = nomogram.description
             let evaluated = outcomesStateController.nomogramEvaluated[index]
             let failurePct = nomogram.failurePct
-            let element = PatientOverviewElement(outcome: nomogram.outcome, description: description, evaluated: evaluated, failurePct: failurePct)
-            patientOverviewElements.append(element)
+            let element = OutcomesElement(outcome: nomogram.outcome, description: description, evaluated: evaluated, failurePct: failurePct)
+            outcomesElements.append(element)
         }
         
-        return patientOverviewElements
+        return outcomesElements
     }
     
 }

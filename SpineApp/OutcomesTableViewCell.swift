@@ -1,5 +1,5 @@
 //
-//  PatientOverviewTableViewCell.swift
+//  OutcomesTableViewCell.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/16/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PatientOverviewTableViewCell: UITableViewCell {
+class OutcomesTableViewCell: UITableViewCell {
 
     @IBOutlet var detailsButton: UIButton!
     @IBOutlet var titleLabel: UILabel!

@@ -1,5 +1,5 @@
 //
-//  PatientOverviewViewController.swift
+//  OutcomesViewController.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/13/17.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class PatientOverviewViewController: UIViewController {
+class OutcomesViewController: UIViewController {
 
     //MARK: - Dependencies
     
-    let presenter: PatientOverviewPresenter
+    let presenter: OutcomesPresenter
     
     //MARK: - State
     
-    fileprivate var patientOverviewElements = [PatientOverviewElement]()
+    fileprivate var outcomesElements = [OutcomesElement]()
     fileprivate var outcomeEvaluated = [Bool]()
     
     //MARK: - XIB Components
@@ -25,7 +25,7 @@ class PatientOverviewViewController: UIViewController {
     
     //MARK: - Initialization
     
-    init(nibName: String, presenter: PatientOverviewPresenter) {
+    init(nibName: String, presenter: OutcomesPresenter) {
         self.presenter = presenter
         
         super.init(nibName: nibName, bundle: nil)
@@ -34,7 +34,7 @@ class PatientOverviewViewController: UIViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) should not be used with PatientOverviewViewController. Use init(nibName:presenter:) instead")
+        fatalError("init(coder:) should not be used with OutcomesViewController. Use init(nibName:presenter:) instead")
     }
     
     //MARK: - Life Cycle
@@ -44,7 +44,7 @@ class PatientOverviewViewController: UIViewController {
         
         title = "Appcess"
         
-        tableView.register(UINib(nibName:"PatientOverviewTableViewCell", bundle: nil), forCellReuseIdentifier: "PatientOverviewCell")
+        tableView.register(UINib(nibName:"OutcomesTableViewCell", bundle: nil), forCellReuseIdentifier: "OutcomesCell")
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -60,18 +60,18 @@ class PatientOverviewViewController: UIViewController {
     
     //MARK: - Interface for presenter
     
-    func set(elements: [PatientOverviewElement], evaluated: [Bool]) {
-        patientOverviewElements = elements
+    func set(elements: [OutcomesElement], evaluated: [Bool]) {
+        outcomesElements = elements
         outcomeEvaluated = evaluated
         tableView.reloadData()
     }
     
-    func set(element: PatientOverviewElement, evaluated: Bool, atIndex index: Int) -> Bool {
-        guard index < patientOverviewElements.count else {
+    func set(element: OutcomesElement, evaluated: Bool, atIndex index: Int) -> Bool {
+        guard index < outcomesElements.count else {
             return false
         }
         
-        patientOverviewElements[index] = element
+        outcomesElements[index] = element
         outcomeEvaluated[index] = evaluated
         
         tableView.reloadData()
@@ -85,7 +85,7 @@ class PatientOverviewViewController: UIViewController {
         }
     }
     
-    //MARK: - User Actions
+    //MARK: - User Input
     
     @IBAction func resetAll() {
         confirmationAlert(title: nil, message: "Reset all?", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm") {
@@ -98,8 +98,8 @@ class PatientOverviewViewController: UIViewController {
     //MARK: - View Logic
     
     func showDetailsForOutcome(index: Int) {
-        let data = DetailsViewControllerData(title: patientOverviewElements[index].outcome,
-                                             description: patientOverviewElements[index].description ?? "",
+        let data = DetailsViewControllerData(title: outcomesElements[index].outcome,
+                                             description: outcomesElements[index].description ?? "",
                                              dismissTitle: "Done")
         
         let vc = DetailsViewController(nibName: "DetailsViewController", delegate: self, data: data)
@@ -109,24 +109,24 @@ class PatientOverviewViewController: UIViewController {
 
 //MARK: - UITableViewDataSource
 
-extension PatientOverviewViewController: UITableViewDataSource {
+extension OutcomesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patientOverviewElements.count
+        return outcomesElements.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PatientOverviewCell") as! PatientOverviewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OutcomesCell") as! OutcomesTableViewCell
         
-        cell.titleLabel.text = patientOverviewElements[indexPath.item].outcome
+        cell.titleLabel.text = outcomesElements[indexPath.item].outcome
         
         if outcomeEvaluated[indexPath.item] {
-            cell.percentageLabel.text = patientOverviewElements[indexPath.item].failurePct.displayAsPercent(significantFigures: 2)
+            cell.percentageLabel.text = outcomesElements[indexPath.item].failurePct.displayAsPercent(significantFigures: 2)
         } else {
             cell.percentageLabel.text = "-"
         }
         
-        cell.detailsButton.isHidden = (patientOverviewElements[indexPath.item].description == nil)
+        cell.detailsButton.isHidden = (outcomesElements[indexPath.item].description == nil)
         cell.detailsCallback = { [unowned self] in
             self.showDetailsForOutcome(index: indexPath.item)
         }
@@ -138,7 +138,7 @@ extension PatientOverviewViewController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 
-extension PatientOverviewViewController: UITableViewDelegate {
+extension OutcomesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.nomogramSelected(atIndex: indexPath.item)
@@ -148,10 +148,28 @@ extension PatientOverviewViewController: UITableViewDelegate {
 
 //MARK: - DetailsViewControllerDelegate
 
-extension PatientOverviewViewController: DetailsViewControllerDelegate {
+extension OutcomesViewController: DetailsViewControllerDelegate {
     func dismiss(_ detailsViewController: DetailsViewController) {
         dismiss(animated: true, completion: nil)
     }
 }
+
+//MARK: - Data Structure
+
+extension OutcomesViewController {
+
+    struct OutcomesElement {
+        var outcome: String
+        var description: String?
+        var evaluated: Bool
+        var failurePct: Double
+    }
+
+}
+
+
+
+
+
 
 

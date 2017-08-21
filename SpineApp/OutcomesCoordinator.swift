@@ -26,19 +26,19 @@ class OutcomesCoordinator: NSObject {
     
     func start() {
         //create first view controller other assembly
-        let presenter = PatientOverviewPresenter(delegate: self, outcomesStateController: outcomesStateController)
-        let vc = PatientOverviewViewController(nibName: "PatientOverviewViewController", presenter: presenter)
+        let presenter = OutcomesPresenter(delegate: self, outcomesStateController: outcomesStateController)
+        let vc = OutcomesViewController(nibName: "OutcomesViewController", presenter: presenter)
         navigationController.setViewControllers([vc], animated: false)
     }
     
 }
 
-extension OutcomesCoordinator: PatientOverviewPresenterDelegate {
-    func sceneComplete(_ patientOverviewPresenter: PatientOverviewPresenter) {
+extension OutcomesCoordinator: OutcomesPresenterDelegate {
+    func sceneComplete(_ outcomesPresenter: OutcomesPresenter) {
         delegate?.outcomesComplete(self)
     }
     
-    func nomogramSelected(_ patientOverviewPresenter: PatientOverviewPresenter, atIndex index: Int) {
+    func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
         let presenter = NomogramPresenter(delegate: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
         let vc = NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
         navigationController.pushViewController(vc, animated: true)
