@@ -12,7 +12,7 @@ protocol OutcomesCoordinatorDelegate: NSObjectProtocol {
     func outcomesComplete(_ outcomesCoordinator: OutcomesCoordinator)
 }
 
-class OutcomesCoordinator: NSObject {
+class OutcomesCoordinator {
     
     weak var delegate: OutcomesCoordinatorDelegate?
     let navigationController: UINavigationController

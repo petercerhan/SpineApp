@@ -18,7 +18,6 @@ struct OutcomesElement {
 protocol OutcomesViewProtocol: class {
     func set(elements: [OutcomesElement], evaluated: [Bool])
     func set(element: OutcomesElement, evaluated: Bool, atIndex index: Int) -> Bool
-    func set(outcomes: [String])
 }
 
 class OutcomesViewController: UIViewController, OutcomesViewProtocol {
@@ -90,12 +89,6 @@ class OutcomesViewController: UIViewController, OutcomesViewProtocol {
         tableView.reloadData()
         
         return true
-    }
-    
-    func set(outcomes: [String]) {
-        guard outcomes.count > 0 else {
-            return
-        }
     }
     
     //MARK: - User Input

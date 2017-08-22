@@ -8,7 +8,17 @@
 
 import Foundation
 
-class OutcomesStateController {
+protocol OutcomesStateControllerProtocol {
+    var nomograms: [Nomogram] { get }
+    var nomogramEvaluated: [Bool] { get }
+    
+    func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor
+    func setNomogramEvaluated(atIndex index: Int)
+    func resetNomogram(atIndex index: Int)
+    func resetAll()
+}
+
+class OutcomesStateController: OutcomesStateControllerProtocol {
 
     //MARK: - Dependencies
     

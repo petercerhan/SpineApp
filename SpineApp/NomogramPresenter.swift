@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol NomogramPresenterDelegate: NSObjectProtocol {
+protocol NomogramPresenterDelegate: class {
     func sceneComplete(_ presenter: NomogramPresenter)
 }
 

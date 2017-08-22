@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol OutcomesPresenterDelegate: NSObjectProtocol {
+protocol OutcomesPresenterDelegate: class {
     func sceneComplete(_ outcomesPresenter: OutcomesPresenter)
     func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int)
 }
@@ -26,11 +26,11 @@ class OutcomesPresenter: OutcomesPresenterProtocol {
     
     weak var delegate: OutcomesPresenterDelegate?
     weak var view: OutcomesViewProtocol?
-    let outcomesStateController: OutcomesStateController
+    let outcomesStateController: OutcomesStateControllerProtocol
     
     //MARK: - Initialization
     
-    init(delegate: OutcomesPresenterDelegate, outcomesStateController: OutcomesStateController) {
+    init(delegate: OutcomesPresenterDelegate, outcomesStateController: OutcomesStateControllerProtocol) {
         self.delegate = delegate
         self.outcomesStateController = outcomesStateController
     }

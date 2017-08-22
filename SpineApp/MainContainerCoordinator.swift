@@ -13,7 +13,7 @@ class MainContainerCoordinator: NSObject {
     //MARK: - State
     
     let mainContainerViewController: MainContainerViewController
-    var childCoordinators = [NSObject]()
+    var childCoordinators = [Any]()
     
     init(containerViewController: MainContainerViewController) {
         mainContainerViewController = containerViewController

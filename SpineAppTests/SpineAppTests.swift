@@ -11,26 +11,142 @@ import XCTest
 
 class SpineAppTests: XCTestCase {
     
+    class MockOutcomesView: OutcomesViewProtocol {
+        
+        var elements = [OutcomesElement]()
+        var evaluated = [Bool]()
+        
+        func set(elements: [OutcomesElement], evaluated: [Bool]) {
+            self.elements = elements
+        }
+
+        var elementSet: OutcomesElement?
+        var evaluatedSet: Bool?
+        var indexSet: Int?
+        
+        func set(element: OutcomesElement, evaluated: Bool, atIndex index: Int) -> Bool {
+            elementSet = element
+            evaluatedSet = evaluated
+            indexSet = index
+            
+            return true
+        }
+        
+    }
+
+    class MockOutcomesStateController: OutcomesStateControllerProtocol {
+        var nomograms: [Nomogram]
+        var nomogramEvaluated: [Bool]
+        
+        var resetIndex: Int?
+        
+        var resetAllCalled = false
+        
+        init() {
+            let nomogramProvider = NomogramProvider()
+            
+            var nomograms = [Nomogram]()
+            if let nomogram1 = nomogramProvider.nomogram(code: .sea_nonOpFailure),
+                let nomogram2 = nomogramProvider.nomogram(code: .sea_paralysis),
+                let nomogram3 = nomogramProvider.nomogram(code: .sea_90dayMortality) {
+                
+                nomograms = [nomogram1, nomogram2, nomogram3]
+            }
+            
+            self.nomograms = nomograms
+            nomogramEvaluated = Array(repeating: false, count: nomograms.count)
+        }
+        
+        //Will need update for testing NomogramPresenter
+        func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
+            return Predictor(name: "This", description: "That", points: 0, present: true)
+        }
+        
+        func setNomogramEvaluated(atIndex index: Int) {
+            nomogramEvaluated[index] = true
+        }
+        
+        func resetNomogram(atIndex index: Int) {
+            resetIndex = index
+        }
+        
+        func resetAll() {
+            resetAllCalled = true
+        }
+        
+    }
+    
+    class MockOutcomesCoordinator: OutcomesPresenterDelegate {
+        
+        var sceneCompleteCalled = false
+        var nomogramSelectedIndex: Int?
+        
+        func sceneComplete(_ outcomesPresenter: OutcomesPresenter) {
+            sceneCompleteCalled = true
+        }
+        
+        func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
+            nomogramSelectedIndex = index
+        }
+        
+    }
+    
+    
+    
+    var presenterUnderTest: OutcomesPresenter!
+    var mockView: MockOutcomesView!
+    var mockCoordinator: MockOutcomesCoordinator!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        mockView = MockOutcomesView()
+        mockCoordinator = MockOutcomesCoordinator()
+        
+        presenterUnderTest = OutcomesPresenter(delegate: mockCoordinator, outcomesStateController: MockOutcomesStateController())
+        presenterUnderTest.attach(view: mockView)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        presenterUnderTest = nil
+        
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_ViewAttached() {
+        XCTAssertNotNil(presenterUnderTest.view, "View not attached")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
+    
+    
+    
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
