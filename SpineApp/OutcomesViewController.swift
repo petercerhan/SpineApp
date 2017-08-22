@@ -8,11 +8,24 @@
 
 import UIKit
 
-class OutcomesViewController: UIViewController {
+struct OutcomesElement {
+    var outcome: String
+    var description: String?
+    var evaluated: Bool
+    var failurePct: Double
+}
+
+protocol OutcomesViewProtocol: class {
+    func set(elements: [OutcomesElement], evaluated: [Bool])
+    func set(element: OutcomesElement, evaluated: Bool, atIndex index: Int) -> Bool
+    func set(outcomes: [String])
+}
+
+class OutcomesViewController: UIViewController, OutcomesViewProtocol {
 
     //MARK: - Dependencies
     
-    let presenter: OutcomesPresenter
+    let presenter: OutcomesPresenterProtocol
     
     //MARK: - State
     
@@ -25,7 +38,7 @@ class OutcomesViewController: UIViewController {
     
     //MARK: - Initialization
     
-    init(nibName: String, presenter: OutcomesPresenter) {
+    init(nibName: String, presenter: OutcomesPresenterProtocol) {
         self.presenter = presenter
         
         super.init(nibName: nibName, bundle: nil)
@@ -153,20 +166,6 @@ extension OutcomesViewController: DetailsViewControllerDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
-
-//MARK: - Data Structure
-
-extension OutcomesViewController {
-
-    struct OutcomesElement {
-        var outcome: String
-        var description: String?
-        var evaluated: Bool
-        var failurePct: Double
-    }
-
-}
-
 
 
 

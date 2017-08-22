@@ -13,12 +13,19 @@ protocol OutcomesPresenterDelegate: NSObjectProtocol {
     func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int)
 }
 
-class OutcomesPresenter {
+protocol OutcomesPresenterProtocol: class {
+    func attach(view: OutcomesViewProtocol)
+    func loadData()
+    func resetAll()
+    func nomogramSelected(atIndex index: Int)
+}
+
+class OutcomesPresenter: OutcomesPresenterProtocol {
     
     //MARK: - Dependencies
     
     weak var delegate: OutcomesPresenterDelegate?
-    weak var view: OutcomesViewController?
+    weak var view: OutcomesViewProtocol?
     let outcomesStateController: OutcomesStateController
     
     //MARK: - Initialization
@@ -28,9 +35,9 @@ class OutcomesPresenter {
         self.outcomesStateController = outcomesStateController
     }
     
-    //MARK: - Interface for view
+    //MARK: - Interface for view (OutcomesPresenterProtocol)
     
-    func attach(view: OutcomesViewController) {
+    func attach(view: OutcomesViewProtocol) {
         self.view = view
     }
     
@@ -49,8 +56,6 @@ class OutcomesPresenter {
     }
     
     //MARK: - Application logic
-    
-    typealias OutcomesElement = OutcomesViewController.OutcomesElement
     
     private func elements(fromNomograms nomograms: [Nomogram]) -> [OutcomesElement] {
         var outcomesElements = [OutcomesElement]()
