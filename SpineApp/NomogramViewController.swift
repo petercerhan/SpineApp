@@ -8,15 +8,31 @@
 
 import UIKit
 
-class NomogramViewController: UIViewController {
+struct NomogramElement {
+    let name: String
+    let description: String?
+    var points: Double
+    var present: Bool
+}
+
+protocol NomogramViewProtocol: class {
+    var failurePct: Double { get set }
+    var outcome: String { get set }
+    
+    func set(elements: [NomogramElement])
+    func set(element: NomogramElement, atIndex index: Int)
+}
+
+class NomogramViewController: UIViewController, NomogramViewProtocol {
 
     //MARK: - Dependencies
     
-    fileprivate var presenter: NomogramPresenter
+    fileprivate var presenter: NomogramPresenterProtocol
     
     //MARK: - State
+    fileprivate var nomogramElements = [NomogramElement]()
     
-    fileprivate var nomogramElements = [NomogramViewControllerElement]()
+    //exposed state
     var failurePct: Double = 0.0 {
         didSet {
             failurePctLabel.text = failurePct.displayAsPercent(significantFigures: 2)
@@ -37,7 +53,7 @@ class NomogramViewController: UIViewController {
 
     //MARK: - Initialization
     
-    init(nibName: String, presenter: NomogramPresenter) {
+    init(nibName: String, presenter: NomogramPresenterProtocol) {
         self.presenter = presenter
         
         super.init(nibName: nibName, bundle: nil)
@@ -64,7 +80,7 @@ class NomogramViewController: UIViewController {
         presenter.loadData()
     }
     
-    //MARK: - User Actions
+    //MARK: - User Input
     
     @IBAction func done() {
         presenter.sceneComplete()
@@ -73,8 +89,6 @@ class NomogramViewController: UIViewController {
     @IBAction func reset() {
         presenter.resetNomogram()
     }
-    
-    //MARK: - View Actions
     
     func showDetailsForPredictor(index: Int) {
         let data = DetailsViewControllerData(title: nomogramElements[index].name,
@@ -87,12 +101,12 @@ class NomogramViewController: UIViewController {
     
     //MARK: - Presenter interface
     
-    func set(elements: [NomogramViewControllerElement]) {
+    func set(elements: [NomogramElement]) {
         nomogramElements = elements
         tableView.reloadData()
     }
     
-    func set(element: NomogramViewControllerElement, atIndex index: Int) {
+    func set(element: NomogramElement, atIndex index: Int) {
         nomogramElements[index] = element
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
         tableView.selectRow(at: IndexPath(row: index, section: 0), animated: false, scrollPosition: .none)

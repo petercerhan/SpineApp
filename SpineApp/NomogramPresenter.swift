@@ -12,12 +12,20 @@ protocol NomogramPresenterDelegate: class {
     func sceneComplete(_ presenter: NomogramPresenter)
 }
 
-class NomogramPresenter {
+protocol NomogramPresenterProtocol: class {
+    func attach(view: NomogramViewProtocol)
+    func loadData()
+    func updatePresent(atIndex index: Int)
+    func resetNomogram()
+    func sceneComplete()
+}
+
+class NomogramPresenter: NomogramPresenterProtocol {
     
     //MARK: - Dependencies
     
     weak var delegate: NomogramPresenterDelegate?
-    weak var view: NomogramViewController?
+    weak var view: NomogramViewProtocol?
     let outcomesStateController: OutcomesStateController
     
     //MARK: - State
@@ -47,7 +55,7 @@ class NomogramPresenter {
     
     //MARK: - Interface for View
     
-    func attach(view: NomogramViewController) {
+    func attach(view: NomogramViewProtocol) {
         self.view = view
     }
     
@@ -82,8 +90,8 @@ class NomogramPresenter {
     
     //MARK: - Application Logic
     
-    private func elements(forNomogram nomogram: Nomogram) -> [NomogramViewControllerElement] {
-        var nomogramVCElements = [NomogramViewControllerElement]()
+    private func elements(forNomogram nomogram: Nomogram) -> [NomogramElement] {
+        var nomogramVCElements = [NomogramElement]()
         
         for predictor in outcomesStateController.nomograms[nomogramIndex].predictors {
             let element = nomogramVCElement(forPredictor: predictor)
@@ -93,8 +101,8 @@ class NomogramPresenter {
         return nomogramVCElements
     }
     
-    private func nomogramVCElement(forPredictor predictor: Predictor) -> NomogramViewControllerElement {
-        let element = NomogramViewControllerElement(name: predictor.name, description: predictor.description, points: predictor.points, present: predictor.present)
+    private func nomogramVCElement(forPredictor predictor: Predictor) -> NomogramElement {
+        let element = NomogramElement(name: predictor.name, description: predictor.description, points: predictor.points, present: predictor.present)
         return element
     }
 }

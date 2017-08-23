@@ -21,7 +21,6 @@
 		E4B823821F26C97800AF36CB /* NomogramPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823811F26C97800AF36CB /* NomogramPresenter.swift */; };
 		E4B823871F26D3DB00AF36CB /* NomogramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */; };
 		E4B823881F26D3DB00AF36CB /* NomogramTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */; };
-		E4B8238A1F26D80900AF36CB /* NomogramViewControllerElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */; };
 		E4B8238C1F29731E00AF36CB /* Double+rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238B1F29731E00AF36CB /* Double+rounding.swift */; };
 		E4B8238E1F2C37F300AF36CB /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238D1F2C37F300AF36CB /* UIViewController+alert.swift */; };
 		E4B823901F2D12F000AF36CB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238F1F2D12F000AF36CB /* UserProfile.swift */; };
@@ -83,7 +82,6 @@
 		E4B823811F26C97800AF36CB /* NomogramPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramPresenter.swift; sourceTree = "<group>"; };
 		E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramTableViewCell.swift; sourceTree = "<group>"; };
 		E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NomogramTableViewCell.xib; sourceTree = "<group>"; };
-		E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramViewControllerElement.swift; sourceTree = "<group>"; };
 		E4B8238B1F29731E00AF36CB /* Double+rounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+rounding.swift"; sourceTree = "<group>"; };
 		E4B8238D1F2C37F300AF36CB /* UIViewController+alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		E4B8238F1F2D12F000AF36CB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = SOURCE_ROOT; };
@@ -218,7 +216,6 @@
 			children = (
 				E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */,
 				E4B8237D1F26C8C400AF36CB /* NomogramViewController.xib */,
-				E4B823891F26D80900AF36CB /* NomogramViewControllerElement.swift */,
 				E4B823811F26C97800AF36CB /* NomogramPresenter.swift */,
 				E4B823851F26D3DB00AF36CB /* NomogramTableViewCell.swift */,
 				E4B823861F26D3DB00AF36CB /* NomogramTableViewCell.xib */,
@@ -413,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E539591F184E8C00D1A565 /* DisclaimerPresenter.swift in Sources */,
-				E4B8238A1F26D80900AF36CB /* NomogramViewControllerElement.swift in Sources */,
 				E4B823921F2D1BC200AF36CB /* UserProfileStateController.swift in Sources */,
 				E4E539631F185EB200D1A565 /* OutcomesPresenter.swift in Sources */,
 				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,

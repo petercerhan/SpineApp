@@ -31,12 +31,13 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
         let userProfileStateController = UserProfileStateController(userDefaults: UserDefaults.standard)
         if userProfileStateController.disclaimerAgreed() {
-            //TODO: repeated code
+            //TODO: repeated code (use assembler class?)
             let nomogramProvider = NomogramProvider()
             let outcomesStateController = OutcomesStateController(nomogramProvider: nomogramProvider)
             
             let navigationController = UINavigationController()
             navigationController.navigationBar.isTranslucent = false
+            
             let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
             coordinator.start()
             childCoordinators.append(coordinator)
@@ -60,6 +61,7 @@ extension MainContainerCoordinator: DisclaimerPresenterDelegate {
         
         let navigationController = UINavigationController()
         navigationController.navigationBar.isTranslucent = false
+        
         let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
         coordinator.start()
         childCoordinators.append(coordinator)
