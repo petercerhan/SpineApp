@@ -25,7 +25,7 @@
 		E4B8238C1F29731E00AF36CB /* Double+rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238B1F29731E00AF36CB /* Double+rounding.swift */; };
 		E4B8238E1F2C37F300AF36CB /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238D1F2C37F300AF36CB /* UIViewController+alert.swift */; };
 		E4B823901F2D12F000AF36CB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8238F1F2D12F000AF36CB /* UserProfile.swift */; };
-		E4B823921F2D1BC200AF36CB /* UserProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */; };
+		E4B823921F2D1BC200AF36CB /* UserProfileStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823911F2D1BC200AF36CB /* UserProfileStateController.swift */; };
 		E4E539351F15A6A000D1A565 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539341F15A6A000D1A565 /* Predictor.swift */; };
 		E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E539381F15A73C00D1A565 /* Nomogram.swift */; };
 		E4E5393B1F15A88E00D1A565 /* NomogramProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */; };
@@ -87,7 +87,7 @@
 		E4B8238B1F29731E00AF36CB /* Double+rounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+rounding.swift"; sourceTree = "<group>"; };
 		E4B8238D1F2C37F300AF36CB /* UIViewController+alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		E4B8238F1F2D12F000AF36CB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = SOURCE_ROOT; };
-		E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileManager.swift; sourceTree = "<group>"; };
+		E4B823911F2D1BC200AF36CB /* UserProfileStateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileStateController.swift; sourceTree = "<group>"; };
 		E4E539341F15A6A000D1A565 /* Predictor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		E4E539381F15A73C00D1A565 /* Nomogram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nomogram.swift; sourceTree = "<group>"; };
 		E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramProvider.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				E4E5393A1F15A88E00D1A565 /* NomogramProvider.swift */,
 				E4E5393C1F15AE6A00D1A565 /* OutcomesStateController.swift */,
 				E4B8238F1F2D12F000AF36CB /* UserProfile.swift */,
-				E4B823911F2D1BC200AF36CB /* UserProfileManager.swift */,
+				E4B823911F2D1BC200AF36CB /* UserProfileStateController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -414,7 +414,7 @@
 			files = (
 				E4E539591F184E8C00D1A565 /* DisclaimerPresenter.swift in Sources */,
 				E4B8238A1F26D80900AF36CB /* NomogramViewControllerElement.swift in Sources */,
-				E4B823921F2D1BC200AF36CB /* UserProfileManager.swift in Sources */,
+				E4B823921F2D1BC200AF36CB /* UserProfileStateController.swift in Sources */,
 				E4E539631F185EB200D1A565 /* OutcomesPresenter.swift in Sources */,
 				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,
 				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,

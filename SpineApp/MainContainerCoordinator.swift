@@ -29,8 +29,8 @@ class MainContainerCoordinator {
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
 
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
-        let userProfileManager = UserProfileManager(userDefaults: UserDefaults.standard)
-        if userProfileManager.disclaimerAgreed() {
+        let userProfileStateController = UserProfileStateController(userDefaults: UserDefaults.standard)
+        if userProfileStateController.disclaimerAgreed() {
             //TODO: repeated code
             let nomogramProvider = NomogramProvider()
             let outcomesStateController = OutcomesStateController(nomogramProvider: nomogramProvider)
@@ -44,7 +44,7 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
             mainContainerViewController.show(viewController: navigationController, animation: .fadeIn)
             
         } else {
-            let presenter = DisclaimerPresenter(delegate: self, userProfileManager: userProfileManager)
+            let presenter = DisclaimerPresenter(delegate: self, userProfileStateController: userProfileStateController)
             let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
             
             mainContainerViewController.show(viewController: vc, animation: .fadeIn)

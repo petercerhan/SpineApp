@@ -1,5 +1,5 @@
 //
-//  UserProfileManager.swift
+//  UserProfileStateController.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/29/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserProfileManager {
+class UserProfileStateController {
     
     //MARK: - Dependencies
     

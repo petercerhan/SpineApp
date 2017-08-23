@@ -18,13 +18,13 @@ class DisclaimerPresenter {
     
     weak var delegate: DisclaimerPresenterDelegate?
     weak var view: DisclaimerViewController?
-    let userProfileManager: UserProfileManager
+    let userProfileStateController: UserProfileStateController
 
     //MARK: - Initialization
     
-    init(delegate: DisclaimerPresenterDelegate, userProfileManager: UserProfileManager) {
+    init(delegate: DisclaimerPresenterDelegate, userProfileStateController: UserProfileStateController) {
         self.delegate = delegate
-        self.userProfileManager = userProfileManager
+        self.userProfileStateController = userProfileStateController
     }
     
     //MARK: - Interface for view
@@ -34,7 +34,7 @@ class DisclaimerPresenter {
     }
     
     func userAgreed() {
-        userProfileManager.setDisclaimerAgreed(true)
+        userProfileStateController.setDisclaimerAgreed(true)
         delegate?.sceneComplete(self)
     }
     
