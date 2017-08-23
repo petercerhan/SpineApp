@@ -26,10 +26,9 @@ class UserProfileManager {
         if let data = userDefaults.object(forKey: "userProfile") as? Data,
             let userProfileCoded = NSKeyedUnarchiver.unarchiveObject(with: data) as? UserProfile.Coding,
             let userProfile = userProfileCoded.userProfile {
-            
-            self.userProfile = userProfile
+                self.userProfile = userProfile
         } else {
-            userProfile = UserProfile(disclaimerAgreed: false)
+                userProfile = UserProfile(disclaimerAgreed: false)
         }
     }
     

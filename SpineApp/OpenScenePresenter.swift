@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol OpenScenePresenterDelegate: NSObjectProtocol {
+protocol OpenScenePresenterDelegate: class {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter)
 }
 

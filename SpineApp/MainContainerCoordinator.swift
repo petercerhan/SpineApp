@@ -8,9 +8,7 @@
 
 import UIKit
 
-class MainContainerCoordinator: NSObject {
-    
-    //MARK: - State
+class MainContainerCoordinator {
     
     let mainContainerViewController: MainContainerViewController
     var childCoordinators = [Any]()
@@ -29,6 +27,7 @@ class MainContainerCoordinator: NSObject {
 }
 
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
+
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
         let userProfileManager = UserProfileManager(userDefaults: UserDefaults.standard)
         if userProfileManager.disclaimerAgreed() {
@@ -51,6 +50,7 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
             mainContainerViewController.show(viewController: vc, animation: .fadeIn)
         }
     }
+    
 }
 
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {

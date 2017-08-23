@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DisclaimerPresenterDelegate: NSObjectProtocol {
+protocol DisclaimerPresenterDelegate: class {
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter)
 }
 

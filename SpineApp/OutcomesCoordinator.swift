@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OutcomesCoordinatorDelegate: NSObjectProtocol {
+protocol OutcomesCoordinatorDelegate: class {
     func outcomesComplete(_ outcomesCoordinator: OutcomesCoordinator)
 }
 
