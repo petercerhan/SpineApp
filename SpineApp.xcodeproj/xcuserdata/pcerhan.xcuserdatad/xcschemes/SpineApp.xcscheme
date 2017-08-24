@@ -48,6 +48,16 @@
                ReferencedContainer = "container:SpineApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E4A22C4C1F4DB351006F7917"
+               BuildableName = "SpineAppNomogramPresenterTests.xctest"
+               BlueprintName = "SpineAppNomogramPresenterTests"
+               ReferencedContainer = "container:SpineApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

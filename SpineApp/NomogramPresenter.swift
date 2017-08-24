@@ -26,7 +26,7 @@ class NomogramPresenter: NomogramPresenterProtocol {
     
     weak var delegate: NomogramPresenterDelegate?
     weak var view: NomogramViewProtocol?
-    let outcomesStateController: OutcomesStateController
+    let outcomesStateController: OutcomesStateControllerProtocol
     
     //MARK: - State
     
@@ -45,7 +45,7 @@ class NomogramPresenter: NomogramPresenterProtocol {
     
     //MARK: - Initialization
     
-    init(delegate: NomogramPresenterDelegate, outcomesStateController: OutcomesStateController, nomogramIndex: Int) {
+    init(delegate: NomogramPresenterDelegate, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) {
         self.delegate = delegate
         self.outcomesStateController = outcomesStateController
         self.nomogramIndex = nomogramIndex
@@ -60,7 +60,6 @@ class NomogramPresenter: NomogramPresenterProtocol {
     }
     
     func loadData() {
-        score = outcomesStateController.nomograms[nomogramIndex].score
         failurePct = outcomesStateController.nomograms[nomogramIndex].failurePct
         outcome = outcomesStateController.nomograms[nomogramIndex].outcome
         view?.set(elements: elements(forNomogram: outcomesStateController.nomograms[nomogramIndex]))

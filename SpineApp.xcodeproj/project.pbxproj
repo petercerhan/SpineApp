@@ -14,6 +14,7 @@
 		E41300231ED91A9B00476ED2 /* SpineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41300221ED91A9B00476ED2 /* SpineAppTests.swift */; };
 		E413002E1ED91A9B00476ED2 /* SpineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */; };
 		E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */; };
+		E4A22C5A1F4E41A3006F7917 /* NomogramPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */; };
 		E4B8237A1F1EFAAC00AF36CB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */; };
 		E4B8237B1F1EFAAC00AF36CB /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */; };
 		E4B8237E1F26C8C400AF36CB /* NomogramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */; };
@@ -75,6 +76,7 @@
 		E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineAppUITests.swift; sourceTree = "<group>"; };
 		E413002F1ED91A9B00476ED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainContainerViewController.swift; path = ../MainContainerViewController.swift; sourceTree = "<group>"; };
+		E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramPresenterTests.swift; sourceTree = "<group>"; };
 		E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		E4B8237C1F26C8C400AF36CB /* NomogramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		E41300211ED91A9B00476ED2 /* SpineAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */,
 				E41300221ED91A9B00476ED2 /* SpineAppTests.swift */,
 				E41300241ED91A9B00476ED2 /* Info.plist */,
 			);
@@ -439,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A22C5A1F4E41A3006F7917 /* NomogramPresenterTests.swift in Sources */,
 				E41300231ED91A9B00476ED2 /* SpineAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
