@@ -9,103 +9,7 @@
 import XCTest
 @testable import SpineApp
 
-class MockOutcomesStateController: OutcomesStateControllerProtocol {
-    var nomograms: [Nomogram]
-    var nomogramEvaluated: [Bool]
-    
-    var resetIndex: Int?
-    
-    var resetAllCalled = false
-    
-    init() {
-        let nomogramProvider = NomogramProvider()
-        
-        var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramProvider.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramProvider.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramProvider.nomogram(code: .sea_90dayMortality) {
-            
-            nomograms = [nomogram1, nomogram2, nomogram3]
-        }
-        
-        self.nomograms = nomograms
-        nomogramEvaluated = Array(repeating: false, count: nomograms.count)
-    }
-    
-    var updatePredictorIndex = -1
-    var updatePredictorNomogramIndex = -1
-    
-    //Will need update for testing NomogramPresenter
-    func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
-        updatePredictorIndex = predictorIndex
-        updatePredictorNomogramIndex = nomogramIndex
-        
-        return nomograms[nomogramIndex].predictors[predictorIndex]
-    }
-    
-    func setNomogramEvaluated(atIndex index: Int) {
-        nomogramEvaluated[index] = true
-    }
-    
-    func resetNomogram(atIndex index: Int) {
-        resetIndex = index
-    }
-    
-    func resetAll() {
-        resetAllCalled = true
-    }
-    
-}
-
-class MockOutcomesCoordinator: OutcomesPresenterDelegate, NomogramPresenterDelegate {
-    
-    var sceneCompleteCalled = false
-    var nomogramSelectedIndex: Int?
-    var nomogramSceneComplete = false
-    
-    func sceneComplete(_ outcomesPresenter: OutcomesPresenter) {
-        sceneCompleteCalled = true
-    }
-    
-    func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
-        nomogramSelectedIndex = index
-    }
-    
-    func sceneComplete(_ presenter: NomogramPresenter) {
-        nomogramSceneComplete = true
-    }
-    
-}
-
-
 class SpineAppTests: XCTestCase {
-    
-    class MockOutcomesView: OutcomesViewProtocol {
-        
-        var elements = [OutcomesElement]()
-        var evaluated = [Bool]()
-        
-        func set(elements: [OutcomesElement], evaluated: [Bool]) {
-            self.elements = elements
-            self.evaluated = evaluated
-        }
-
-        var elementSet: OutcomesElement?
-        var evaluatedSet: Bool?
-        var indexSet: Int?
-        
-        func set(element: OutcomesElement, evaluated: Bool, atIndex index: Int) -> Bool {
-            elementSet = element
-            evaluatedSet = evaluated
-            indexSet = index
-            
-            return true
-        }
-        
-    }
-    
-
-    
     
     var presenterUnderTest: OutcomesPresenter!
     var mockView: MockOutcomesView!
@@ -168,23 +72,6 @@ class SpineAppTests: XCTestCase {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
