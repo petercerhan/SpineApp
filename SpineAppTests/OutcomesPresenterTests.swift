@@ -1,15 +1,15 @@
 //
-//  SpineAppTests.swift
-//  SpineAppTests
+//  OutcomesPresenterTests.swift
+//  SpineApp
 //
-//  Created by Peter Cerhan on 5/26/17.
+//  Created by Peter Cerhan on 8/31/17.
 //  Copyright © 2017 Peter Cerhan. All rights reserved.
 //
 
 import XCTest
 @testable import SpineApp
 
-class SpineAppTests: XCTestCase {
+class OutcomesPresenterTests: XCTestCase {
     
     var presenterUnderTest: OutcomesPresenter!
     var mockView: MockOutcomesView!
@@ -48,7 +48,7 @@ class SpineAppTests: XCTestCase {
         
         XCTAssertEqual(mockView.elements.count, 3, "Mock view data did not load")
     }
-
+    
     func test_ResetAll() {
         XCTAssertEqual(mockStateController.resetAllCalled, false, "Mock state controller not reset all not properly initialized")
         XCTAssertEqual(mockView.elements.count, 0, "Mock View Data not properly initialized")
@@ -60,7 +60,7 @@ class SpineAppTests: XCTestCase {
         XCTAssertEqual(mockView.elements.count, 3, "Mock view elements not updated")
         XCTAssertEqual(mockView.evaluated.count, 3, "Mock view evaluated not updated")
     }
-
+    
     func test_NomogramSelected() {
         XCTAssertEqual(mockStateController.nomogramEvaluated[1], false, "Mock state controller not properly initialized")
         XCTAssertNil(mockCoordinator.nomogramSelectedIndex, "Mock coordinator not properly initialized")
@@ -72,12 +72,3 @@ class SpineAppTests: XCTestCase {
     }
     
 }
-
-
-
-
-
-
-
-
-
