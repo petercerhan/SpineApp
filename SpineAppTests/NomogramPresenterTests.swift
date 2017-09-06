@@ -12,24 +12,24 @@ import XCTest
 class NomogramPresenterTests: XCTestCase {
     
     var sut: NomogramPresenter!
-    var mockStateController: MockOutcomesStateController!
+    var mockOutcomesStateController: MockOutcomesStateController!
     var mockNomogramView: MockNomogramView!
     var mockCoordinator: MockOutcomesCoordinator!
     
     override func setUp() {
         super.setUp()
     
-        mockStateController = MockOutcomesStateController()
+        mockOutcomesStateController = MockOutcomesStateController()
         mockNomogramView = MockNomogramView()
         mockCoordinator = MockOutcomesCoordinator()
         
-        sut = NomogramPresenter(delegate: mockCoordinator, outcomesStateController: mockStateController, nomogramIndex: 1)
+        sut = NomogramPresenter(delegate: mockCoordinator, outcomesStateController: mockOutcomesStateController, nomogramIndex: 1)
         sut.attach(view: mockNomogramView)
     }
     
     override func tearDown() {
         sut = nil
-        mockStateController = nil
+        mockOutcomesStateController = nil
         mockNomogramView = nil
         mockCoordinator = nil
         
@@ -54,8 +54,8 @@ class NomogramPresenterTests: XCTestCase {
         
         sut.updatePresent(atIndex: 1)
         
-        XCTAssertEqual(mockStateController.updatePredictorIndex, 1, "Did not call proper predictor update")
-        XCTAssertEqual(mockStateController.updatePredictorNomogramIndex, 1, "Did not call proper predictor update")
+        XCTAssertEqual(mockOutcomesStateController.updatePredictorIndex, 1, "Did not call proper predictor update")
+        XCTAssertEqual(mockOutcomesStateController.updatePredictorNomogramIndex, 1, "Did not call proper predictor update")
         let testElementName: String? = "Urinary incontinence/retention"
         XCTAssertEqual(mockNomogramView.element?.name, testElementName, "Did not set element properly")
         XCTAssertEqual(mockNomogramView.index, 1, "Did not set element properly")
@@ -68,7 +68,7 @@ class NomogramPresenterTests: XCTestCase {
     func test_ResetNomogram() {
         sut.resetNomogram()
         
-        XCTAssertNotNil(mockStateController.resetIndex, "Reset not properly called on state controller")
+        XCTAssertNotNil(mockOutcomesStateController.resetIndex, "Reset not properly called on state controller")
         
         XCTAssertEqual(mockNomogramView.failurePct, 0.12, "Failed to update failure percent")
         XCTAssertEqual(mockNomogramView.elements.count, 7, "Table View elements not properly added to view")

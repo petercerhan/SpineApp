@@ -44,6 +44,8 @@ class OutcomesPresenter: OutcomesPresenterProtocol {
     func loadData() {
         view?.set(elements: elements(fromNomograms:  outcomesStateController.nomograms), evaluated: outcomesStateController.nomogramEvaluated)
     }
+
+    
     
     func resetAll() {
         outcomesStateController.resetAll()

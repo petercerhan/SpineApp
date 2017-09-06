@@ -11,10 +11,14 @@ import Foundation
 
 class MockOutcomesView: OutcomesViewProtocol {
     
-    var elements = [OutcomesElement]()
-    var evaluated = [Bool]()
+    var setElementsCallCount = 0
+    
+    var elements: [OutcomesElement]?
+    var evaluated: [Bool]?
     
     func set(elements: [OutcomesElement], evaluated: [Bool]) {
+        setElementsCallCount += 1
+        
         self.elements = elements
         self.evaluated = evaluated
     }

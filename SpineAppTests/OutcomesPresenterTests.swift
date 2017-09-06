@@ -36,34 +36,28 @@ class OutcomesPresenterTests: XCTestCase {
         super.tearDown()
     }
     
-    
-    func test_ViewAttached() {
+    func testAttachView_WithInitialState_ShouldAttachView() {
         XCTAssertNotNil(sut.view, "View not attached")
     }
     
-    func test_DataLoaded() {
-        XCTAssertEqual(mockView.elements.count, 0, "Mock View Data not properly initialized")
-        
+    func testLoadData_WithInitialState_ShouldLoadInitialDataToView() {
+
         sut.loadData()
-        
-        XCTAssertEqual(mockView.elements.count, 3, "Mock view data did not load")
+
+        XCTAssertEqual(mockView.setElementsCallCount, 1, "Mock view set(elements.. ) not called exactly once")
+        XCTAssertEqual(mockView.elements?.count, 3, "Mock view data did not load")
     }
     
-    func test_ResetAll() {
-        XCTAssertEqual(mockStateController.resetAllCalled, false, "Mock state controller not reset all not properly initialized")
-        XCTAssertEqual(mockView.elements.count, 0, "Mock View Data not properly initialized")
-        XCTAssertEqual(mockView.evaluated.count, 0, "Mock view data not properly initialized")
-        
+    func testResetAll_WithInitialState_ShouldResetData() {
+
         sut.resetAll()
         
-        XCTAssertEqual(mockStateController.resetAllCalled, true, "Reset all not called on state controller")
-        XCTAssertEqual(mockView.elements.count, 3, "Mock view elements not updated")
-        XCTAssertEqual(mockView.evaluated.count, 3, "Mock view evaluated not updated")
+        XCTAssertEqual(mockStateController.resetAllCallCount, 1, "Reset all not called on state controller")
+        XCTAssertEqual(mockView.elements?.count, 3, "Mock view elements not updated")
+        XCTAssertEqual(mockView.evaluated?.count, 3, "Mock view evaluated not updated")
     }
     
     func test_NomogramSelected() {
-        XCTAssertEqual(mockStateController.nomogramEvaluated[1], false, "Mock state controller not properly initialized")
-        XCTAssertNil(mockCoordinator.nomogramSelectedIndex, "Mock coordinator not properly initialized")
         
         sut.nomogramSelected(atIndex: 1)
         
@@ -72,3 +66,5 @@ class OutcomesPresenterTests: XCTestCase {
     }
     
 }
+
+

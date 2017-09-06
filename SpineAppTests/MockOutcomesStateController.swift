@@ -15,8 +15,6 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
     
     var resetIndex: Int?
     
-    var resetAllCalled = false
-    
     init() {
         let nomogramProvider = NomogramProvider()
         
@@ -51,8 +49,14 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
         resetIndex = index
     }
     
+    
+    var resetAllCallCount = 0
+    
     func resetAll() {
-        resetAllCalled = true
+        resetAllCallCount += 1
     }
     
 }
+
+
+
