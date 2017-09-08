@@ -10,6 +10,8 @@ import UIKit
 
 class MainContainerCoordinator {
     
+    //Child objects
+    
     let mainContainerViewController: MainContainerViewController
     var childCoordinators = [Any]()
     

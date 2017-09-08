@@ -12,6 +12,7 @@ import XCTest
 class OutcomesPresenterTests: XCTestCase {
     
     var sut: OutcomesPresenter!
+    
     var mockView: MockOutcomesView!
     var mockCoordinator: MockOutcomesCoordinator!
     var mockStateController: MockOutcomesStateController!
@@ -36,33 +37,39 @@ class OutcomesPresenterTests: XCTestCase {
         super.tearDown()
     }
     
+    //This is a required set-up step, so is performed in the test fixture
     func testAttachView_WithInitialState_ShouldAttachView() {
         XCTAssertNotNil(sut.view, "View not attached")
     }
     
-    func testLoadData_WithInitialState_ShouldLoadInitialDataToView() {
+    func testLoadDataToView_WithInitialState_ShouldLoadInitialDataToView() {
 
-        sut.loadData()
+        sut.loadDataToView()
 
         XCTAssertEqual(mockView.setElementsCallCount, 1, "Mock view set(elements.. ) not called exactly once")
         XCTAssertEqual(mockView.elements?.count, 3, "Mock view data did not load")
     }
     
-    func testResetAll_WithInitialState_ShouldResetData() {
+    func testResetAllData_WithInitialState_ShouldResetData() {
 
-        sut.resetAll()
+        sut.resetAllData()
         
         XCTAssertEqual(mockStateController.resetAllCallCount, 1, "Reset all not called on state controller")
+        XCTAssertEqual(mockView.setElementsCallCount, 1, "Mock view set(elements.. ) not called exactly once")
         XCTAssertEqual(mockView.elements?.count, 3, "Mock view elements not updated")
         XCTAssertEqual(mockView.evaluated?.count, 3, "Mock view evaluated not updated")
     }
     
-    func test_NomogramSelected() {
+    func testNomogramSelectedAtIndex1_WithInitialState_ShouldNotifyDelegateNomogram1Selected() {
         
         sut.nomogramSelected(atIndex: 1)
+
+        //separate test?
+        XCTAssertEqual(mockStateController.setNomogramEvaluatedCallCount, 1, "setNomogramEvaluated not called exactly 1 time")
+        XCTAssertEqual(mockStateController.setNomogramEvaluated_atIndex, 1, "Did not set nomogram evaluated at index 1")
         
-        XCTAssertEqual(mockStateController.nomogramEvaluated[1], true, "Nomogram evaulated not set in state controller")
-        XCTAssertEqual(mockCoordinator.nomogramSelectedIndex, 1, "Nomogramevaluated not called at proper index")
+        XCTAssertEqual(mockCoordinator.nomogramSelectedCallCount, 1, "Did not call nomogram selected exactly 1 time")
+        XCTAssertEqual(mockCoordinator.nomogramSelected_atIndex, 1, "Did not call nomogram selected at index 1")
     }
     
 }

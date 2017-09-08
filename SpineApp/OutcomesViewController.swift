@@ -62,12 +62,12 @@ class OutcomesViewController: UIViewController, OutcomesViewProtocol {
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
-        presenter.loadData()
+        presenter.loadDataToView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.loadData()
+        presenter.loadDataToView()
     }
     
     //MARK: - Interface for presenter
@@ -96,7 +96,7 @@ class OutcomesViewController: UIViewController, OutcomesViewProtocol {
     @IBAction func resetAll() {
         confirmationAlert(title: nil, message: "Reset all?", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm") {
             [weak self] in
-            self?.presenter.resetAll()
+            self?.presenter.resetAllData()
         }
         
     }

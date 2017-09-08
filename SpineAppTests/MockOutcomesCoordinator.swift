@@ -12,16 +12,21 @@ import Foundation
 class MockOutcomesCoordinator: OutcomesPresenterDelegate, NomogramPresenterDelegate {
     
     var sceneCompleteCalled = false
-    var nomogramSelectedIndex: Int?
     var nomogramSceneComplete = false
     
     func sceneComplete(_ outcomesPresenter: OutcomesPresenter) {
         sceneCompleteCalled = true
     }
     
+    
+    var nomogramSelectedCallCount = 0
+    var nomogramSelected_atIndex: Int?
+    
     func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
-        nomogramSelectedIndex = index
+        nomogramSelectedCallCount += 1
+        nomogramSelected_atIndex = index
     }
+    
     
     func sceneComplete(_ presenter: NomogramPresenter) {
         nomogramSceneComplete = true

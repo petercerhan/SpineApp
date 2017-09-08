@@ -15,8 +15,8 @@ protocol OutcomesPresenterDelegate: class {
 
 protocol OutcomesPresenterProtocol: class {
     func attach(view: OutcomesViewProtocol)
-    func loadData()
-    func resetAll()
+    func loadDataToView()
+    func resetAllData()
     func nomogramSelected(atIndex index: Int)
 }
 
@@ -41,13 +41,11 @@ class OutcomesPresenter: OutcomesPresenterProtocol {
         self.view = view
     }
     
-    func loadData() {
+    func loadDataToView() {
         view?.set(elements: elements(fromNomograms:  outcomesStateController.nomograms), evaluated: outcomesStateController.nomogramEvaluated)
     }
-
     
-    
-    func resetAll() {
+    func resetAllData() {
         outcomesStateController.resetAll()
         view?.set(elements: elements(fromNomograms:  outcomesStateController.nomograms), evaluated: outcomesStateController.nomogramEvaluated)
     }

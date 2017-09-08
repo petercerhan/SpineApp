@@ -41,8 +41,12 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
         return nomograms[nomogramIndex].predictors[predictorIndex]
     }
     
+    var setNomogramEvaluatedCallCount = 0
+    var setNomogramEvaluated_atIndex: Int?
+    
     func setNomogramEvaluated(atIndex index: Int) {
-        nomogramEvaluated[index] = true
+        setNomogramEvaluatedCallCount += 1
+        setNomogramEvaluated_atIndex = index
     }
     
     func resetNomogram(atIndex index: Int) {
