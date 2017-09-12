@@ -22,9 +22,9 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
         let nomogramService = NomogramService()
         
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+        if let nomogram1 = nomogramService.nomogram(forCode: .sea_nonOpFailure),
+            let nomogram2 = nomogramService.nomogram(forCode: .sea_paralysis),
+            let nomogram3 = nomogramService.nomogram(forCode: .sea_90dayMortality) {
             
             nomograms = [nomogram1, nomogram2, nomogram3]
         }

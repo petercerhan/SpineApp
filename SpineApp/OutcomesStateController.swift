@@ -22,7 +22,7 @@ class OutcomesStateController: OutcomesStateControllerProtocol {
 
     //MARK: - Dependencies
     
-    let nomogramService: NomogramService
+    let nomogramService: NomogramGateway
     
     //MARK: - State
     
@@ -31,13 +31,13 @@ class OutcomesStateController: OutcomesStateControllerProtocol {
     
     //MARK: - Initialization
     
-    init(nomogramService: NomogramService) {
+    init(nomogramService: NomogramGateway) {
         self.nomogramService = nomogramService
         
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+        if let nomogram1 = nomogramService.nomogram(forCode: .sea_nonOpFailure),
+            let nomogram2 = nomogramService.nomogram(forCode: .sea_paralysis),
+            let nomogram3 = nomogramService.nomogram(forCode: .sea_90dayMortality) {
             
             nomograms = [nomogram1, nomogram2, nomogram3]
         }
@@ -68,11 +68,11 @@ class OutcomesStateController: OutcomesStateControllerProtocol {
     func resetNomogram(atIndex index: Int) {
         switch index {
         case 0:
-            nomograms[index] = nomogramService.nomogram(code: .sea_nonOpFailure)!
+            nomograms[index] = nomogramService.nomogram(forCode: .sea_nonOpFailure)!
         case 1:
-            nomograms[index] = nomogramService.nomogram(code: .sea_paralysis)!
+            nomograms[index] = nomogramService.nomogram(forCode: .sea_paralysis)!
         case 2:
-            nomograms[index] = nomogramService.nomogram(code: .sea_90dayMortality)!
+            nomograms[index] = nomogramService.nomogram(forCode: .sea_90dayMortality)!
         default:
             break
         }
@@ -80,9 +80,9 @@ class OutcomesStateController: OutcomesStateControllerProtocol {
     
     func resetAll() {
         var nomograms = [Nomogram]()
-        if let nomogram1 = nomogramService.nomogram(code: .sea_nonOpFailure),
-            let nomogram2 = nomogramService.nomogram(code: .sea_paralysis),
-            let nomogram3 = nomogramService.nomogram(code: .sea_90dayMortality) {
+        if let nomogram1 = nomogramService.nomogram(forCode: .sea_nonOpFailure),
+            let nomogram2 = nomogramService.nomogram(forCode: .sea_paralysis),
+            let nomogram3 = nomogramService.nomogram(forCode: .sea_90dayMortality) {
             nomograms = [nomogram1, nomogram2, nomogram3]
         }
         

@@ -8,15 +8,19 @@
 
 import Foundation
 
-class NomogramService {
+protocol NomogramGateway {
+    func nomogram(forCode code: NomogramCode) -> Nomogram?
+}
+
+enum NomogramCode {
+    case sea_nonOpFailure
+    case sea_paralysis
+    case sea_90dayMortality
+}
+
+class NomogramService: NomogramGateway {
     
-    enum NomogramCode {
-        case sea_nonOpFailure
-        case sea_paralysis
-        case sea_90dayMortality
-    }
-    
-    func nomogram(code: NomogramCode) -> Nomogram? {
+    func nomogram(forCode code: NomogramCode) -> Nomogram? {
         switch code {
         case .sea_nonOpFailure:
             return sea_nonOpFailure()
