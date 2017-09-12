@@ -27,9 +27,10 @@ class MockOutcomesCoordinator: OutcomesPresenterDelegate, NomogramPresenterDeleg
         nomogramSelected_atIndex = index
     }
     
+    var sceneCompleteCallCount = 0
     
     func sceneComplete(_ presenter: NomogramPresenter) {
-        nomogramSceneComplete = true
+        sceneCompleteCallCount += 1
     }
     
 }

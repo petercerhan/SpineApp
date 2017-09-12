@@ -10,10 +10,13 @@ import Foundation
 @testable import SpineApp
 
 class MockOutcomesStateController: OutcomesStateControllerProtocol {
+    
+    //MARK: - Stubbed data
+    
     var nomograms: [Nomogram]
     var nomogramEvaluated: [Bool]
     
-    var resetIndex: Int?
+    //MARK: - Initialization
     
     init() {
         let nomogramProvider = NomogramProvider()
@@ -29,17 +32,24 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
         self.nomograms = nomograms
         nomogramEvaluated = Array(repeating: false, count: nomograms.count)
     }
+
+    //MARK: - updatePredictor atIndex
     
-    var updatePredictorIndex = -1
-    var updatePredictorNomogramIndex = -1
+    var updatePredictorCallCount = 0
     
-    //Will need update for testing NomogramPresenter
+    var updatePredictorIndex: Int?
+    var updatePredictorNomogramIndex: Int?
+    
     func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
+        updatePredictorCallCount += 1
+        
         updatePredictorIndex = predictorIndex
         updatePredictorNomogramIndex = nomogramIndex
         
         return nomograms[nomogramIndex].predictors[predictorIndex]
     }
+ 
+    //MARK: - setNomogramEvaluated atIndex
     
     var setNomogramEvaluatedCallCount = 0
     var setNomogramEvaluated_atIndex: Int?
@@ -48,11 +58,19 @@ class MockOutcomesStateController: OutcomesStateControllerProtocol {
         setNomogramEvaluatedCallCount += 1
         setNomogramEvaluated_atIndex = index
     }
+
+    //MARK: - Reset Nomogram atIndex
+    
+    var resetNomogramCallCount = 0
+    
+    var resetIndex: Int?
     
     func resetNomogram(atIndex index: Int) {
+        resetNomogramCallCount += 1
         resetIndex = index
     }
-    
+
+    //MARK: - ResetAll
     
     var resetAllCallCount = 0
     

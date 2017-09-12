@@ -31,6 +31,8 @@ class NomogramPresenter: NomogramPresenterProtocol {
     //MARK: - State
     
     let nomogramIndex: Int
+ 
+    //score no longer represented on screen
     var score: Double
     var failurePct: Double {
         didSet {
