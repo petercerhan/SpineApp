@@ -1,5 +1,5 @@
 //
-//  NomogramProvider.swift
+//  NomogramService.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 7/11/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NomogramProvider {
+class NomogramService {
     
     func nomogram(code: NomogramCode) -> Nomogram? {
         switch code {
@@ -18,27 +18,21 @@ class NomogramProvider {
             return sea_paralysis()
         case .sea_90dayMortality:
             return sea_90dayMortality()
-        default:
-            return nil
         }
     }
-    
-}
-
-extension NomogramProvider {
-    
+ 
     func sea_nonOpFailure() -> Nomogram {
         return Nomogram(outcome: "Failure",
                    description: nil,
                    constant: -3.2668096,
                    pointscoefficient:  0.21213817,
-                   predictors: [Predictor(name: "Motor deficit at presentation", description: NomogramProvider.description1_1, points: 10, present: false),
-                                Predictor(name: "Urinary incontinence/retention", description: NomogramProvider.description1_2, points: 6.81, present: false),
-                                Predictor(name: "Pathologic/compression fracture", description: NomogramProvider.description1_3, points: 6.79, present: false),
-                                Predictor(name: "Ventral abscess component", description: NomogramProvider.description1_4, points: 5.53, present: false),
-                                Predictor(name: "Diabetes mellitus", description: NomogramProvider.description1_5, points: 5.18, present: false),
-                                Predictor(name: "Sensory changes", description: NomogramProvider.description1_6, points: 4.75, present: false),
-                                Predictor(name: "Coagulase-negative staphylocci", description: NomogramProvider.description1_7, points: 4.54, present: false)],
+                   predictors: [Predictor(name: "Motor deficit at presentation", description: NomogramService.description1_1, points: 10, present: false),
+                                Predictor(name: "Urinary incontinence/retention", description: NomogramService.description1_2, points: 6.81, present: false),
+                                Predictor(name: "Pathologic/compression fracture", description: NomogramService.description1_3, points: 6.79, present: false),
+                                Predictor(name: "Ventral abscess component", description: NomogramService.description1_4, points: 5.53, present: false),
+                                Predictor(name: "Diabetes mellitus", description: NomogramService.description1_5, points: 5.18, present: false),
+                                Predictor(name: "Sensory changes", description: NomogramService.description1_6, points: 4.75, present: false),
+                                Predictor(name: "Coagulase-negative staphylocci", description: NomogramService.description1_7, points: 4.54, present: false)],
                    score: 0)
     }
     
@@ -47,13 +41,13 @@ extension NomogramProvider {
                     description: nil,
                     constant: -2.002155,
                     pointscoefficient: 0.1679213,
-                    predictors: [Predictor(name: "Sensory changes", description: NomogramProvider.description2_1, points: 10, present: false),
-                                 Predictor(name: "Urinary incontinence/retention", description: NomogramProvider.description2_2, points: 7.33, present: false),
-                                 Predictor(name: "Fecal incontinence/retention", description: NomogramProvider.description2_3, points: 6.55, present: false),
-                                 Predictor(name: "Multiple locations relative to the thecal sac", description: NomogramProvider.description2_4, points: 5.41, present: false),
-                                 Predictor(name: "Abscess above the conus medullaris", description: NomogramProvider.description2_5, points: 3.77, present: false),
-                                 Predictor(name: "WBC >12", description: NomogramProvider.description2_6, points: 2.17, present: false),
-                                 Predictor(name: "Ventral or circumferential abscess relative to thecal sac", description: NomogramProvider.description2_7, points: 1.75, present: false)],
+                    predictors: [Predictor(name: "Sensory changes", description: NomogramService.description2_1, points: 10, present: false),
+                                 Predictor(name: "Urinary incontinence/retention", description: NomogramService.description2_2, points: 7.33, present: false),
+                                 Predictor(name: "Fecal incontinence/retention", description: NomogramService.description2_3, points: 6.55, present: false),
+                                 Predictor(name: "Multiple locations relative to the thecal sac", description: NomogramService.description2_4, points: 5.41, present: false),
+                                 Predictor(name: "Abscess above the conus medullaris", description: NomogramService.description2_5, points: 3.77, present: false),
+                                 Predictor(name: "WBC >12", description: NomogramService.description2_6, points: 2.17, present: false),
+                                 Predictor(name: "Ventral or circumferential abscess relative to thecal sac", description: NomogramService.description2_7, points: 1.75, present: false)],
                     score: 0)
     }
     
@@ -62,22 +56,19 @@ extension NomogramProvider {
                      description: nil,
                      constant: -3.6202408,
                      pointscoefficient: 0.13411772,
-                     predictors: [Predictor(name: "Age >65", description: NomogramProvider.description3_1, points: 10, present: false),
-                                  Predictor(name: "Active malignancy", description: NomogramProvider.description3_2, points: 9.61, present: false),
-                                  Predictor(name: "Hemodialysis", description: NomogramProvider.description3_3, points: 9.28, present: false),
-                                  Predictor(name: "Endocarditis", description: NomogramProvider.description3_4, points: 6.42, present: false),
-                                  Predictor(name: "Methicillin-resistant S. aureus", description: NomogramProvider.description3_5, points: 5.66, present: false),
-                                  Predictor(name: "Diabetes mellitus", description: NomogramProvider.description3_6, points: 5.54, present: false),
-                                  Predictor(name: "Motor deficit at presentation", description: NomogramProvider.description3_7, points: 5.16, present: false),
-                                  Predictor(name: "Immunocompromised status", description: NomogramProvider.description3_8, points: 4.17, present: false)],
+                     predictors: [Predictor(name: "Age >65", description: NomogramService.description3_1, points: 10, present: false),
+                                  Predictor(name: "Active malignancy", description: NomogramService.description3_2, points: 9.61, present: false),
+                                  Predictor(name: "Hemodialysis", description: NomogramService.description3_3, points: 9.28, present: false),
+                                  Predictor(name: "Endocarditis", description: NomogramService.description3_4, points: 6.42, present: false),
+                                  Predictor(name: "Methicillin-resistant S. aureus", description: NomogramService.description3_5, points: 5.66, present: false),
+                                  Predictor(name: "Diabetes mellitus", description: NomogramService.description3_6, points: 5.54, present: false),
+                                  Predictor(name: "Motor deficit at presentation", description: NomogramService.description3_7, points: 5.16, present: false),
+                                  Predictor(name: "Immunocompromised status", description: NomogramService.description3_8, points: 4.17, present: false)],
                      score: 0)
     }
+ 
     
-}
-
-//MARK: - descriptions
-
-extension NomogramProvider {
+    //MARK: - descriptions
     
     //1 - Failure
     
