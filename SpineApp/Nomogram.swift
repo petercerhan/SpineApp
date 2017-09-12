@@ -17,10 +17,9 @@ struct Nomogram {
     let pointscoefficient: Double
     
     var predictors: [Predictor]
-    var score: Double
+    private(set) var score: Double
     
     var failurePct: Double {
-        
         let c = constant
         let p = pointscoefficient
         let e = Double.e
@@ -29,4 +28,12 @@ struct Nomogram {
 
         return result.significantFigures(2)
     }
+    
+    mutating func togglePredictor(atIndex index: Int) {
+        predictors[index].present = !(predictors[index].present)
+        score = predictors[index].present ? score + predictors[index].points : score - predictors[index].points
+    }
 }
+
+
+

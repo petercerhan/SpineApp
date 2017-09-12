@@ -50,15 +50,9 @@ class OutcomesStateController: OutcomesStateControllerProtocol {
     //MARK: - Interface
 
     func updatePredictor(atIndex predictorIndex: Int, inNomogramAtIndex nomogramIndex: Int) -> Predictor {
+        nomograms[nomogramIndex].togglePredictor(atIndex: predictorIndex)
         
-        var predictor = nomograms[nomogramIndex].predictors[predictorIndex]
-        predictor.present = !(predictor.present)
-        nomograms[nomogramIndex].predictors[predictorIndex] = predictor
-        
-        let newScore = predictor.present ? nomograms[nomogramIndex].score + predictor.points : nomograms[nomogramIndex].score - predictor.points
-        nomograms[nomogramIndex].score = newScore.rounded(decimals: 10)
-        
-        return predictor
+        return nomograms[nomogramIndex].predictors[predictorIndex]
     }
     
     func setNomogramEvaluated(atIndex index: Int) {
