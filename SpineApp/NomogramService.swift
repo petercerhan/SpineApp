@@ -10,6 +10,12 @@ import Foundation
 
 class NomogramService {
     
+    enum NomogramCode {
+        case sea_nonOpFailure
+        case sea_paralysis
+        case sea_90dayMortality
+    }
+    
     func nomogram(code: NomogramCode) -> Nomogram? {
         switch code {
         case .sea_nonOpFailure:
@@ -122,13 +128,6 @@ class NomogramService {
     
     static let description3_8 = "Does the patient have an immunosuppressive condition or taking immunosuppressive medications?"
     
-    
-}
-
-enum NomogramCode {
-    case sea_nonOpFailure
-    case sea_paralysis
-    case sea_90dayMortality
 }
 
 
