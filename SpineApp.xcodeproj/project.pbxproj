@@ -22,6 +22,7 @@
 		E44B02661F6817F400B1A0D3 /* NomogramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02651F6817F400B1A0D3 /* NomogramTests.swift */; };
 		E44B02681F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */; };
 		E44B026A1F68B93200B1A0D3 /* NomogramServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02691F68B93200B1A0D3 /* NomogramServiceTests.swift */; };
+		E44B026C1F68C21A00B1A0D3 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B026B1F68C21A00B1A0D3 /* CompositionRoot.swift */; };
 		E4A22C5A1F4E41A3006F7917 /* NomogramPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */; };
 		E4B8237A1F1EFAAC00AF36CB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */; };
 		E4B8237B1F1EFAAC00AF36CB /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */; };
@@ -92,6 +93,7 @@
 		E44B02651F6817F400B1A0D3 /* NomogramTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramTests.swift; sourceTree = "<group>"; };
 		E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutcomesStateControllerTests.swift; sourceTree = "<group>"; };
 		E44B02691F68B93200B1A0D3 /* NomogramServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramServiceTests.swift; sourceTree = "<group>"; };
+		E44B026B1F68C21A00B1A0D3 /* CompositionRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramPresenterTests.swift; sourceTree = "<group>"; };
 		E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				E413000D1ED91A9B00476ED2 /* AppDelegate.swift */,
+				E44B026B1F68C21A00B1A0D3 /* CompositionRoot.swift */,
 				E41300411EDCC62000476ED2 /* MainContainer */,
 				E4E5395A1F1858E300D1A565 /* Coordinators */,
 				E4E539521F184D9700D1A565 /* OpenScene */,
@@ -460,6 +463,7 @@
 				E4E539391F15A73C00D1A565 /* Nomogram.swift in Sources */,
 				E4B823871F26D3DB00AF36CB /* NomogramTableViewCell.swift in Sources */,
 				E4E5395C1F185B7C00D1A565 /* OutcomesCoordinator.swift in Sources */,
+				E44B026C1F68C21A00B1A0D3 /* CompositionRoot.swift in Sources */,
 				E4E539511F1841F200D1A565 /* OpenScenePresenter.swift in Sources */,
 				E4E539681F1C392600D1A565 /* OutcomesTableViewCell.swift in Sources */,
 				E4E5394B1F183F7900D1A565 /* MainContainerCoordinator.swift in Sources */,
