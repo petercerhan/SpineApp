@@ -21,6 +21,7 @@
 		E44B02641F68164E00B1A0D3 /* PredictorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02631F68164E00B1A0D3 /* PredictorTests.swift */; };
 		E44B02661F6817F400B1A0D3 /* NomogramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02651F6817F400B1A0D3 /* NomogramTests.swift */; };
 		E44B02681F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */; };
+		E44B026A1F68B93200B1A0D3 /* NomogramServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02691F68B93200B1A0D3 /* NomogramServiceTests.swift */; };
 		E4A22C5A1F4E41A3006F7917 /* NomogramPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */; };
 		E4B8237A1F1EFAAC00AF36CB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */; };
 		E4B8237B1F1EFAAC00AF36CB /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */; };
@@ -90,6 +91,7 @@
 		E44B02631F68164E00B1A0D3 /* PredictorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorTests.swift; sourceTree = "<group>"; };
 		E44B02651F6817F400B1A0D3 /* NomogramTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramTests.swift; sourceTree = "<group>"; };
 		E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutcomesStateControllerTests.swift; sourceTree = "<group>"; };
+		E44B02691F68B93200B1A0D3 /* NomogramServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramServiceTests.swift; sourceTree = "<group>"; };
 		E4A22C591F4E41A3006F7917 /* NomogramPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramPresenterTests.swift; sourceTree = "<group>"; };
 		E4B823781F1EFAAC00AF36CB /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E4B823791F1EFAAC00AF36CB /* DetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		E41300211ED91A9B00476ED2 /* SpineAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				E44B02691F68B93200B1A0D3 /* NomogramServiceTests.swift */,
 				E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */,
 				E44B02651F6817F400B1A0D3 /* NomogramTests.swift */,
 				E44B02631F68164E00B1A0D3 /* PredictorTests.swift */,
@@ -478,6 +481,7 @@
 				E40BA4A71F58D84600D3183D /* MockOutcomesStateController.swift in Sources */,
 				E40BA4AF1F58E19400D3183D /* OutcomesPresenterTests.swift in Sources */,
 				E40BA4AB1F58DA1B00D3183D /* MockNomogramView.swift in Sources */,
+				E44B026A1F68B93200B1A0D3 /* NomogramServiceTests.swift in Sources */,
 				E40BA4A91F58D97E00D3183D /* MockOutcomesView.swift in Sources */,
 				E44B02641F68164E00B1A0D3 /* PredictorTests.swift in Sources */,
 			);
