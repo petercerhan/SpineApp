@@ -10,19 +10,22 @@ import UIKit
 
 class MainContainerCoordinator {
     
-    //Child objects
+    //MARK: - Dependencies
     
     let mainContainerViewController: MainContainerViewController
+    let userProfileStateController: UserProfileStateController
+    let compositionRoot: CompositionRootProtocol
+    
     var childCoordinators = [Any]()
     
-    init(containerViewController: MainContainerViewController) {
+    init(containerViewController: MainContainerViewController, userProfileStateController: UserProfileStateController, compositionRoot: CompositionRootProtocol) {
         mainContainerViewController = containerViewController
+        self.userProfileStateController = userProfileStateController
+        self.compositionRoot = compositionRoot
     }
     
     func start() {
-        let presenter = OpenScenePresenter(delegate: self)
-        let vc = OpenSceneViewController(nibName: "OpenSceneViewController", presenter: presenter)
-        
+        let vc = compositionRoot.assembleOpenScene(mainContainerCoordinator: self)
         mainContainerViewController.show(viewController: vc, animation: .none)
     }
     
@@ -31,25 +34,16 @@ class MainContainerCoordinator {
 extension MainContainerCoordinator: OpenScenePresenterDelegate {
 
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
-        let userProfileStateController = UserProfileStateController(userDefaults: UserDefaults.standard)
+        
         if userProfileStateController.disclaimerAgreed() {
-            //TODO: repeated code (use assembler class?)
-            let nomogramService = NomogramService()
-            let outcomesStateController = OutcomesStateController(nomogramService: nomogramService)
-            
-            let navigationController = UINavigationController()
-            navigationController.navigationBar.isTranslucent = false
-            
-            let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
+            let coordinator = compositionRoot.assembleOutcomesModule(mainContainerCoordinator: self)
             coordinator.start()
             childCoordinators.append(coordinator)
             
-            mainContainerViewController.show(viewController: navigationController, animation: .fadeIn)
+            mainContainerViewController.show(viewController: coordinator.navigationController, animation: .fadeIn)
             
         } else {
-            let presenter = DisclaimerPresenter(delegate: self, userProfileStateController: userProfileStateController)
-            let vc = DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
-            
+            let vc = compositionRoot.assembleDisclaimerScene(mainContainerCoordinator: self, userProfileStateController: userProfileStateController)
             mainContainerViewController.show(viewController: vc, animation: .fadeIn)
         }
     }
@@ -57,18 +51,13 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
 }
 
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {
+    
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
-        let nomogramService = NomogramService()
-        let outcomesStateController = OutcomesStateController(nomogramService: nomogramService)
-        
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.isTranslucent = false
-        
-        let coordinator = OutcomesCoordinator(delegate: self, navigationController: navigationController, outcomesStateController: outcomesStateController)
+        let coordinator = compositionRoot.assembleOutcomesModule(mainContainerCoordinator: self)
         coordinator.start()
         childCoordinators.append(coordinator)
         
-        mainContainerViewController.show(viewController: navigationController, animation: .slideFromRight)
+        mainContainerViewController.show(viewController: coordinator.navigationController, animation: .slideFromRight)
     }
 }
 
