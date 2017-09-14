@@ -14,20 +14,22 @@ protocol OutcomesCoordinatorDelegate: class {
 
 class OutcomesCoordinator {
     
+    //MARK: - Dependencies
+    
     weak var delegate: OutcomesCoordinatorDelegate?
     let navigationController: UINavigationController
     let outcomesStateController: OutcomesStateController
+    let compositionRoot: CompositionRootProtocol
     
-    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController, outcomesStateController: OutcomesStateController) {
+    init(delegate: OutcomesCoordinatorDelegate, navigationController: UINavigationController, outcomesStateController: OutcomesStateController, compositionRoot: CompositionRootProtocol) {
         self.delegate = delegate
         self.navigationController = navigationController
         self.outcomesStateController = outcomesStateController
+        self.compositionRoot = compositionRoot
     }
     
     func start() {
-        //create first view controller other assembly
-        let presenter = OutcomesPresenter(delegate: self, outcomesStateController: outcomesStateController)
-        let vc = OutcomesViewController(nibName: "OutcomesViewController", presenter: presenter)
+        let vc = compositionRoot.assembleOutcomesScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController)
         navigationController.setViewControllers([vc], animated: false)
     }
     
@@ -39,12 +41,10 @@ extension OutcomesCoordinator: OutcomesPresenterDelegate {
     }
     
     func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
-        let presenter = NomogramPresenter(delegate: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
-        let vc = NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
+        let vc = compositionRoot.assembleNomogramScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
         navigationController.pushViewController(vc, animated: true)
     }
 }
-
 
 extension OutcomesCoordinator: NomogramPresenterDelegate {
     

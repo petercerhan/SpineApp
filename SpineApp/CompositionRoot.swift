@@ -15,6 +15,8 @@ protocol CompositionRootProtocol {
     func assembleOpenScene(mainContainerCoordinator: MainContainerCoordinator) -> OpenSceneViewController
     func assembleOutcomesModule(mainContainerCoordinator: MainContainerCoordinator) -> OutcomesCoordinator
     func assembleDisclaimerScene(mainContainerCoordinator: MainContainerCoordinator, userProfileStateController: UserProfileStateController) -> DisclaimerViewController
+    func assembleOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController
+    func assembleNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController 
 }
 
 class CompositionRoot: CompositionRootProtocol {
@@ -49,8 +51,20 @@ class CompositionRoot: CompositionRootProtocol {
         
         return OutcomesCoordinator(delegate: mainContainerCoordinator,
                                    navigationController: navigationController,
-                                   outcomesStateController: outcomesStateController)
+                                   outcomesStateController: outcomesStateController,
+                                   compositionRoot: self)
     }
+    
+    func assembleOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController {
+        let presenter = OutcomesPresenter(delegate: outcomesCoordinator, outcomesStateController: outcomesStateController)
+        return OutcomesViewController(nibName: "OutcomesViewController", presenter: presenter)
+    }
+    
+    func assembleNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController {
+        let presenter = NomogramPresenter(delegate: outcomesCoordinator, outcomesStateController: outcomesStateController, nomogramIndex: nomogramIndex)
+        return NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
+    }
+    
 }
 
 
