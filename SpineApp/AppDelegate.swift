@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         compositionRoot = CompositionRoot()
 
-        mainContainerCoordinator = compositionRoot.assembleMainCoordinator()
+        mainContainerCoordinator = compositionRoot.composeMainCoordinator()
         mainContainerCoordinator.start()
         
-        window = compositionRoot.assembleWindow()
+        window = compositionRoot.composeWindow()
         window?.rootViewController = mainContainerCoordinator.mainContainerViewController
         window?.makeKeyAndVisible()
         

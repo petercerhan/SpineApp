@@ -10,39 +10,39 @@ import Foundation
 import UIKit
 
 protocol CompositionRootProtocol {
-    func assembleWindow() -> UIWindow
-    func assembleMainCoordinator() -> MainContainerCoordinator
-    func assembleOpenScene(mainContainerCoordinator: MainContainerCoordinator) -> OpenSceneViewController
-    func assembleOutcomesModule(mainContainerCoordinator: MainContainerCoordinator) -> OutcomesCoordinator
-    func assembleDisclaimerScene(mainContainerCoordinator: MainContainerCoordinator, userProfileStateController: UserProfileStateController) -> DisclaimerViewController
-    func assembleOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController
-    func assembleNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController 
+    func composeWindow() -> UIWindow
+    func composeMainCoordinator() -> MainContainerCoordinator
+    func composeOpenScene(mainContainerCoordinator: MainContainerCoordinator) -> OpenSceneViewController
+    func composeOutcomesModule(mainContainerCoordinator: MainContainerCoordinator) -> OutcomesCoordinator
+    func composeDisclaimerScene(mainContainerCoordinator: MainContainerCoordinator, userProfileStateController: UserProfileStateController) -> DisclaimerViewController
+    func composeOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController
+    func composeNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController
 }
 
 class CompositionRoot: CompositionRootProtocol {
     
-    func assembleWindow() -> UIWindow {
+    func composeWindow() -> UIWindow {
         return UIWindow(frame: UIScreen.main.bounds)
     }
     
-    func assembleMainCoordinator() -> MainContainerCoordinator {
+    func composeMainCoordinator() -> MainContainerCoordinator {
         return MainContainerCoordinator(containerViewController: ContainerViewController(),
                                         userProfileStateController: UserProfileStateController(userDefaults: UserDefaults.standard),
                                         compositionRoot: self)
     }
     
-    func assembleOpenScene(mainContainerCoordinator: MainContainerCoordinator) -> OpenSceneViewController {
+    func composeOpenScene(mainContainerCoordinator: MainContainerCoordinator) -> OpenSceneViewController {
         let presenter = OpenScenePresenter(delegate: mainContainerCoordinator)
         return OpenSceneViewController(nibName: "OpenSceneViewController",
                                        presenter: presenter)
     }
     
-    func assembleDisclaimerScene(mainContainerCoordinator: MainContainerCoordinator, userProfileStateController: UserProfileStateController) -> DisclaimerViewController {
+    func composeDisclaimerScene(mainContainerCoordinator: MainContainerCoordinator, userProfileStateController: UserProfileStateController) -> DisclaimerViewController {
         let presenter = DisclaimerPresenter(delegate: mainContainerCoordinator, userProfileStateController: userProfileStateController)
         return DisclaimerViewController(nibName: "DisclaimerViewController", presenter: presenter)
     }
     
-    func assembleOutcomesModule(mainContainerCoordinator: MainContainerCoordinator) -> OutcomesCoordinator {
+    func composeOutcomesModule(mainContainerCoordinator: MainContainerCoordinator) -> OutcomesCoordinator {
         let nomogramService = NomogramService()
         let outcomesStateController = OutcomesStateController(nomogramService: nomogramService)
         
@@ -55,12 +55,12 @@ class CompositionRoot: CompositionRootProtocol {
                                    compositionRoot: self)
     }
     
-    func assembleOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController {
+    func composeOutcomesScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol) -> OutcomesViewController {
         let presenter = OutcomesPresenter(delegate: outcomesCoordinator, outcomesStateController: outcomesStateController)
         return OutcomesViewController(nibName: "OutcomesViewController", presenter: presenter)
     }
     
-    func assembleNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController {
+    func composeNomogramScene(outcomesCoordinator: OutcomesCoordinator, outcomesStateController: OutcomesStateControllerProtocol, nomogramIndex: Int) -> NomogramViewController {
         let presenter = NomogramPresenter(delegate: outcomesCoordinator, outcomesStateController: outcomesStateController, nomogramIndex: nomogramIndex)
         return NomogramViewController(nibName: "NomogramViewController", presenter: presenter)
     }

@@ -25,7 +25,7 @@ class MainContainerCoordinator {
     }
     
     func start() {
-        let vc = compositionRoot.assembleOpenScene(mainContainerCoordinator: self)
+        let vc = compositionRoot.composeOpenScene(mainContainerCoordinator: self)
         mainContainerViewController.show(viewController: vc, animation: .none)
     }
     
@@ -36,14 +36,14 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
     func sceneComplete(_ openScenePresenter: OpenScenePresenter) {
         
         if userProfileStateController.disclaimerAgreed() {
-            let coordinator = compositionRoot.assembleOutcomesModule(mainContainerCoordinator: self)
+            let coordinator = compositionRoot.composeOutcomesModule(mainContainerCoordinator: self)
             coordinator.start()
             childCoordinators.append(coordinator)
             
             mainContainerViewController.show(viewController: coordinator.navigationController, animation: .fadeIn)
             
         } else {
-            let vc = compositionRoot.assembleDisclaimerScene(mainContainerCoordinator: self, userProfileStateController: userProfileStateController)
+            let vc = compositionRoot.composeDisclaimerScene(mainContainerCoordinator: self, userProfileStateController: userProfileStateController)
             mainContainerViewController.show(viewController: vc, animation: .fadeIn)
         }
     }
@@ -53,7 +53,7 @@ extension MainContainerCoordinator: OpenScenePresenterDelegate {
 extension MainContainerCoordinator: DisclaimerPresenterDelegate {
     
     func sceneComplete(_ disclaimerPresenter: DisclaimerPresenter) {
-        let coordinator = compositionRoot.assembleOutcomesModule(mainContainerCoordinator: self)
+        let coordinator = compositionRoot.composeOutcomesModule(mainContainerCoordinator: self)
         coordinator.start()
         childCoordinators.append(coordinator)
         

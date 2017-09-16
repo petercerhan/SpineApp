@@ -29,7 +29,7 @@ class OutcomesCoordinator {
     }
     
     func start() {
-        let vc = compositionRoot.assembleOutcomesScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController)
+        let vc = compositionRoot.composeOutcomesScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController)
         navigationController.setViewControllers([vc], animated: false)
     }
     
@@ -41,7 +41,7 @@ extension OutcomesCoordinator: OutcomesPresenterDelegate {
     }
     
     func nomogramSelected(_ outcomesPresenter: OutcomesPresenter, atIndex index: Int) {
-        let vc = compositionRoot.assembleNomogramScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
+        let vc = compositionRoot.composeNomogramScene(outcomesCoordinator: self, outcomesStateController: outcomesStateController, nomogramIndex: index)
         navigationController.pushViewController(vc, animated: true)
     }
 }
