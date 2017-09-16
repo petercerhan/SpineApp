@@ -26,7 +26,7 @@ class CompositionRoot: CompositionRootProtocol {
     }
     
     func assembleMainCoordinator() -> MainContainerCoordinator {
-        return MainContainerCoordinator(containerViewController: MainContainerViewController(),
+        return MainContainerCoordinator(containerViewController: ContainerViewController(),
                                         userProfileStateController: UserProfileStateController(userDefaults: UserDefaults.standard),
                                         compositionRoot: self)
     }

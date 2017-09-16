@@ -1,5 +1,5 @@
 //
-//  MainContainerViewController.swift
+//  ContainerViewController.swift
 //  SpineApp
 //
 //  Created by Peter Cerhan on 5/29/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainContainerViewController: UIViewController {
+class ContainerViewController: UIViewController {
     
     private var contentViewController = UIViewController()
     
@@ -64,7 +64,7 @@ class MainContainerViewController: UIViewController {
 
 //MARK: - Animations
 
-extension MainContainerViewController {
+extension ContainerViewController {
     
     fileprivate func noAnimation(newViewController: UIViewController, priorViewController: UIViewController, completion: ( () -> Void )? ) {
         newViewController.view.alpha = 1

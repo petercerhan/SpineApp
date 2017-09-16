@@ -230,7 +230,6 @@
 		E41300411EDCC62000476ED2 /* MainContainer */ = {
 			isa = PBXGroup;
 			children = (
-				E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */,
 				E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */,
 			);
 			name = MainContainer;
@@ -284,6 +283,7 @@
 		E4E5395A1F1858E300D1A565 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				E4E5394A1F183F7900D1A565 /* MainContainerCoordinator.swift */,
 				E4E5395B1F185B7C00D1A565 /* OutcomesCoordinator.swift */,
 			);
 			name = Coordinators;

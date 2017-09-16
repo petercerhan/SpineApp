@@ -12,13 +12,13 @@ class MainContainerCoordinator {
     
     //MARK: - Dependencies
     
-    let mainContainerViewController: MainContainerViewController
+    let mainContainerViewController: ContainerViewController
     let userProfileStateController: UserProfileStateController
     let compositionRoot: CompositionRootProtocol
     
     var childCoordinators = [Any]()
     
-    init(containerViewController: MainContainerViewController, userProfileStateController: UserProfileStateController, compositionRoot: CompositionRootProtocol) {
+    init(containerViewController: ContainerViewController, userProfileStateController: UserProfileStateController, compositionRoot: CompositionRootProtocol) {
         mainContainerViewController = containerViewController
         self.userProfileStateController = userProfileStateController
         self.compositionRoot = compositionRoot
