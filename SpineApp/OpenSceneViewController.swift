@@ -27,7 +27,7 @@ class OpenSceneViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLayoutSubviews()
+        super.viewDidLoad()
         entrySequence()
     }
     

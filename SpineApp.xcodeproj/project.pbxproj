@@ -17,7 +17,7 @@
 		E41300151ED91A9B00476ED2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41300141ED91A9B00476ED2 /* Assets.xcassets */; };
 		E41300181ED91A9B00476ED2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E41300161ED91A9B00476ED2 /* LaunchScreen.storyboard */; };
 		E413002E1ED91A9B00476ED2 /* SpineAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */; };
-		E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */; };
+		E41300401EDCC61500476ED2 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E413003F1EDCC61500476ED2 /* ContainerViewController.swift */; };
 		E44B02641F68164E00B1A0D3 /* PredictorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02631F68164E00B1A0D3 /* PredictorTests.swift */; };
 		E44B02661F6817F400B1A0D3 /* NomogramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02651F6817F400B1A0D3 /* NomogramTests.swift */; };
 		E44B02681F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */; };
@@ -88,7 +88,7 @@
 		E41300291ED91A9B00476ED2 /* SpineAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpineAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E413002D1ED91A9B00476ED2 /* SpineAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpineAppUITests.swift; sourceTree = "<group>"; };
 		E413002F1ED91A9B00476ED2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainContainerViewController.swift; path = ../MainContainerViewController.swift; sourceTree = "<group>"; };
+		E413003F1EDCC61500476ED2 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = ../ContainerViewController.swift; sourceTree = "<group>"; };
 		E44B02631F68164E00B1A0D3 /* PredictorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictorTests.swift; sourceTree = "<group>"; };
 		E44B02651F6817F400B1A0D3 /* NomogramTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NomogramTests.swift; sourceTree = "<group>"; };
 		E44B02671F68A6CB00B1A0D3 /* OutcomesStateControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutcomesStateControllerTests.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			children = (
 				E413000D1ED91A9B00476ED2 /* AppDelegate.swift */,
 				E44B026B1F68C21A00B1A0D3 /* CompositionRoot.swift */,
-				E41300411EDCC62000476ED2 /* MainContainer */,
+				E41300411EDCC62000476ED2 /* ContainerViewControllers */,
 				E4E5395A1F1858E300D1A565 /* Coordinators */,
 				E4E539521F184D9700D1A565 /* OpenScene */,
 				E4E539571F184DE800D1A565 /* DisclaimerScene */,
@@ -227,12 +227,12 @@
 			path = SpineAppUITests;
 			sourceTree = "<group>";
 		};
-		E41300411EDCC62000476ED2 /* MainContainer */ = {
+		E41300411EDCC62000476ED2 /* ContainerViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E413003F1EDCC61500476ED2 /* MainContainerViewController.swift */,
+				E413003F1EDCC61500476ED2 /* ContainerViewController.swift */,
 			);
-			name = MainContainer;
+			name = ContainerViewControllers;
 			sourceTree = "<group>";
 		};
 		E41300421EDCC62C00476ED2 /* Models */ = {
@@ -451,7 +451,7 @@
 				E4B823921F2D1BC200AF36CB /* UserProfileStateController.swift in Sources */,
 				E4E539631F185EB200D1A565 /* OutcomesPresenter.swift in Sources */,
 				E4E5394E1F18404700D1A565 /* OpenSceneViewController.swift in Sources */,
-				E41300401EDCC61500476ED2 /* MainContainerViewController.swift in Sources */,
+				E41300401EDCC61500476ED2 /* ContainerViewController.swift in Sources */,
 				E4B8238E1F2C37F300AF36CB /* UIViewController+alert.swift in Sources */,
 				E4E539601F185E6A00D1A565 /* OutcomesViewController.swift in Sources */,
 				E413000E1ED91A9B00476ED2 /* AppDelegate.swift in Sources */,
