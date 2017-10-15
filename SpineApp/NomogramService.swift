@@ -33,10 +33,10 @@ class NomogramService: NomogramGateway {
  
     func sea_nonOpFailure() -> Nomogram {
         return Nomogram(outcome: "Failure",
-                   description: nil,
+                   description: "Neurologic deterioration, worsened back/radicular pain, persistent symptoms, or progression on serial imaging despite initiation of systemic antibiotic therapy with or without CT-assisted percutaneous drainage.",
                    constant: -1.95,
                    pointscoefficient:  0.21,
-                   predictors: [Predictor(name: "Pre-treatment motor deficit", description: nil, points: 10, present: false),
+                   predictors: [Predictor(name: "Pre-treatment motor deficit", description: NomogramService.description1_1, points: 10, present: false),
                                 Predictor(name: "Pathologic/compression fracture", description: NomogramService.description1_2, points: 8.8, present: false),
                                 Predictor(name: "Sensory changes", description: NomogramService.description1_3, points: 6.1, present: false),
                                 Predictor(name: "Active malignancy", description: NomogramService.description1_4, points: 5.6, present: false),
@@ -47,7 +47,7 @@ class NomogramService: NomogramGateway {
     
     func sea_paralysis() -> Nomogram {
         return Nomogram(outcome: "Pre-treatment motor deficit",
-                    description: nil,
+                    description: "New motor deficit prior to initiation of therapy.",
                     constant: -3.04,
                     pointscoefficient: 0.16,
                     predictors: [Predictor(name: "Sensory changes", description: NomogramService.description2_1, points: 10, present: false),
@@ -63,7 +63,7 @@ class NomogramService: NomogramGateway {
     
     func sea_90dayMortality() -> Nomogram {
         return Nomogram(outcome: "90-day mortality",
-                     description: nil,
+                     description: "Death within 90 days of discharge or within the hospitalization",
                      constant: -1.66,
                      pointscoefficient: 0.17,
                      predictors: [Predictor(name: "Active malignancy", description: NomogramService.description3_1, points: 10, present: false),
@@ -71,9 +71,9 @@ class NomogramService: NomogramGateway {
                                   Predictor(name: "Hemodialysis", description: NomogramService.description3_3, points: 8.0, present: false),
                                   Predictor(name: "Endocarditis", description: NomogramService.description3_4, points: 5.6, present: false),
                                   Predictor(name: "Diabetes mellitus", description: NomogramService.description3_5, points: 5.0, present: false),
-                                  Predictor(name: "Pre-treatment motor deficit", description: nil, points: 4.3, present: false),
+                                  Predictor(name: "Pre-treatment motor deficit", description: NomogramService.description3_6, points: 4.3, present: false),
                                   Predictor(name: "WBC >15", description: NomogramService.description3_7, points: 3.9, present: false),
-                                  Predictor(name: "Symptom duration >2 weeks", description: nil, points: -7.2, present: false)],
+                                  Predictor(name: "Symptom duration >2 weeks", description: NomogramService.description3_8, points: -7.2, present: false)],
                      score: 0)
     }
  
@@ -82,7 +82,7 @@ class NomogramService: NomogramGateway {
     
     //1 - Failure
     
-    static let description1_1 = ""
+    static let description1_1 = "Does the patient have a new motor deficit prior to initiation of therapy?\n\nAn existing motor deficit (e.g. from prior stroke) should not be counted as positive."
     
     static let description1_2 = "Does the patient have a pathologic or compression fracture in the involved vertebral levels?"
     
@@ -92,7 +92,7 @@ class NomogramService: NomogramGateway {
     
     static let description1_5 = "Does the patient have comorbid diabetes mellitus at the time of SEA diagnosis?"
     
-    static let description1_6 = "The abscess is located purely dorsal to the thecal sac, with no ventral component."
+    static let description1_6 = "The abscess is located purely dorsal to the thecal sac, with no ventral component whatsoever."
     
     //2 - Pre-treatment motor deficit
     
@@ -108,7 +108,7 @@ class NomogramService: NomogramGateway {
     
     static let description2_6 = "Is the white blood cell count greater than 12 x 10^3 cells/mm^3 (use superscripts if you can)"
     
-    static let description2_7 = "The abscess is located purely dorsal to the thecal sac, with no ventral component."
+    static let description2_7 = "The abscess is located purely dorsal to the thecal sac, with no ventral component whatsoever."
     
     static let description2_8 = "Are components of the abscess located both ventral and dorsal to the thecal sac?"
     
@@ -124,11 +124,11 @@ class NomogramService: NomogramGateway {
     
     static let description3_5 = "Does the patient have comorbid diabetes mellitus at the time of SEA diagnosis?"
     
-    static let description3_6 = ""
+    static let description3_6 = "Does the patient have a new motor deficit prior to initiation of therapy?\n\nAn existing motor deficit (e.g. from prior stroke) should not be counted as positive."
     
     static let description3_7 = "Is the white blood cell count greater than 15 x 10^3 cells/mm^3 (use superscripts if you can)"
     
-    static let description3_8 = ""
+    static let description3_8 = "Has the patient been experiencing symptoms for greater than 2 weeks?"
     
 }
 
